@@ -1,0 +1,19 @@
+body {
+    background-color: #446CB3;
+    padding-top: 70px;
+}
+
+.navbar-button {
+    background-color: #446CB3;
+    border: 1px solid #ddd;
+}
+    .navbar-button:hover {
+        background-color: #ddd;
+        border: 1px solid #446CB3;
+    }
+    .navbar-button span {
+        background-color: #ddd !important;
+    }
+        .navbar-button:hover span {
+            background-color: #446CB3 !important;
+        }
