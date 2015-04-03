@@ -54,7 +54,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-            'host'      => '127.0.0.1',
+            'host'      => 'droplet.miquelarranz.com',
             'database'  => 'tfg',
             'username'  => 'root',
             'password'  => 'root',
