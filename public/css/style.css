@@ -1,7 +1,12 @@
 body {
     background-color: #446CB3;
-    padding-top: 70px;
 }
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+/* Navbar styles */
 
 .navbar-button {
     background-color: #446CB3;
@@ -17,3 +22,31 @@ body {
         .navbar-button:hover span {
             background-color: #446CB3 !important;
         }
+
+/* Home styles */
+
+.home-skyline {
+    border: 3px solid white;
+    margin-bottom: 40px;
+}
+
+.home-title-search {
+    font-weight: 300;
+    margin: 20px 0px;
+    color: white;
+}
+
+.home-users-guide-text {
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+    .home-users-guide-text:hover > a {
+        background-color: #ddd;
+        color: #446CB3;
+    }
+    .home-users-guide-text > a {
+        color: white;
+        text-decoration: none;
+        padding: 7px;
+        border-radius: 5px;
+    }
