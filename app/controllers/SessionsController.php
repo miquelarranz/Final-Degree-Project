@@ -7,14 +7,14 @@ class SessionsController extends \BaseController {
     /**
      * @var SigninForm
      */
-    private $signInForm;
+    /*private $signInForm;
 
     public function __construct(SigninForm $signInForm)
     {
         $this->signInForm = $signInForm;
 
         $this->beforeFilter('guest', ['except' => 'destroy']);
-    }
+    }*/
 
 
     /**
@@ -24,6 +24,7 @@ class SessionsController extends \BaseController {
 	 */
 	public function create()
 	{
+        return User::all();
 		return View::make('sessions.create');
 	}
 
