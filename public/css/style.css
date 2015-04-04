@@ -23,6 +23,14 @@ body {
             background-color: #446CB3 !important;
         }
 
+.nav-language-container {
+    max-height: 50px;
+}
+
+.nav-language-select {
+    height: auto;
+}
+
 /* Home styles */
 
 .home-skyline {
@@ -37,7 +45,7 @@ body {
 }
 
 .home-users-guide-text {
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 70px;
 }
     .home-users-guide-text:hover > a {
@@ -50,3 +58,16 @@ body {
         padding: 7px;
         border-radius: 5px;
     }
+
+.home-button {
+    background-color: #eee;
+    color: #446CB3;
+}
+    .home-button:hover {
+        background-color: #446CB3;
+        color: white;
+    }
+
+.home-search {
+    color: #446CB3;
+}

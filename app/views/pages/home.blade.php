@@ -23,9 +23,12 @@
                     <div class = "col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
                         <h4 class="home-title-search text-center">Start looking for events right now!</h4>
                         <div class="input-group">
-                            {{ Form::text('keyword', null, ['class' => 'form-control', 'required' => 'required']) }}
                             <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                <span class="home-search glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            {{ Form::text('keyword', null, ['class' => 'form-control', 'required' => 'required']) }}
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default home-button" type="button">Search!</button>
                             </span>
                         </div>
                     </div>
