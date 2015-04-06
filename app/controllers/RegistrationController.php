@@ -50,13 +50,13 @@ class RegistrationController extends \BaseController {
      */
     public function store()
     {
-        extract(Input::only('name', 'email', 'password', 'familyName', 'birthDate', 'nationality', 'gender'));
+        extract(Input::only('name', 'email', 'password', 'lastName', 'birthDate', 'nationality', 'gender'));
 
         $validator = Validator::make(
             [
                 'name' => $name,
                 'password' => $password,
-                'familyName' => $familyName,
+                'lastName' => $lastName,
                 'birthDate' => $birthDate,
                 'nationality' => $nationality,
                 'gender' => $gender,
@@ -64,7 +64,7 @@ class RegistrationController extends \BaseController {
             ],
             [
                 'name' => 'required',
-                'familyName' => 'required',
+                'lastName' => 'required',
                 'birthDate' => 'required|date',
                 'nationality' => 'required',
                 'gender' => 'required',
@@ -76,7 +76,7 @@ class RegistrationController extends \BaseController {
         if ($validator->fails())
         {
             $errors = $validator->messages();
-            Redirect::back()->with('errors');
+            return Redirect::back()->withInput()->with(array('errors' => $errors));
         }
 
         $user = User::registerAUser($email, $password);

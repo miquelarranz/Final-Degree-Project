@@ -16,16 +16,16 @@
                             {{ Form::text('name', null, ['class' => 'form-control'] ) }}
                         </div>
 
-                        <!-- FamilyName Form Input -->
+                        <!-- LastName Form Input -->
                         <div class = "form-group register-input">
-                            {{ Form::label('familyName', 'Last name:') }}
-                            {{ Form::text('familyName', null, ['class' => 'form-control'] ) }}
+                            {{ Form::label('lastName', 'Last Name:') }}
+                            {{ Form::text('lastName', null, ['class' => 'form-control'] ) }}
                         </div>
 
                         <!-- Gender Form Input -->
                         <div class = "form-group register-input">
                             {{ Form::label('gender', 'Gender:') }}
-                            {{ Form::select('gender', array('Male' => 'Male', 'Female' => 'Female'), null, ['class' => 'form-control'] ) }}
+                            {{ Form::select('gender', array(null => 'Select a gender', 'Male' => 'Male', 'Female' => 'Female'), null, ['class' => 'form-control'] ) }}
                         </div>
                     </div>
 
@@ -33,7 +33,7 @@
                         <!-- Nationality Form Input -->
                         <div class = "form-group register-input">
                             {{ Form::label('nationality', 'Nationality:') }}
-                            {{ Form::select('nationality', $countryNames, null, ['class' => 'form-control'] ) }}
+                            {{ Form::select('nationality', array(null => 'Select a country') + $countryNames, null, ['class' => 'form-control'] ) }}
                         </div>
 
                         <!-- BirthDate Form Input -->
