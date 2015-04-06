@@ -14,7 +14,7 @@ class CreatePersonsTable extends Migration {
 	{
 		Schema::create('persons', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->integer('id')->unsigned();;
             $table->foreign('id')->references('id')->on('things');
             $table->date('birthDate');
 			$table->string('email');
@@ -22,8 +22,6 @@ class CreatePersonsTable extends Migration {
 			$table->string('familyName');
             $table->integer('nationality')->unsigned();
             $table->foreign('nationality')->references('id')->on('countries');
-            $table->integer('homeLocation')->unsigned();
-            $table->foreign('homeLocation')->references('id')->on('places');
 			$table->timestamps();
 		});
 	}

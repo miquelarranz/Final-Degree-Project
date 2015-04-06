@@ -15,13 +15,13 @@ class CreateThingsTable extends Migration {
 		Schema::create('things', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('additionalType');
-			$table->string('alternateName');
-			$table->string('description');
-			$table->string('name');
-			$table->string('image');
-			$table->string('sameAs');
-			$table->string('url');
+			$table->string('additionalType')->nullable();
+			$table->string('alternateName')->nullable();
+			$table->string('description')->nullable();
+			$table->string('name')->nullable();
+			$table->string('image')->nullable();
+			$table->string('sameAs')->nullable();
+			$table->string('url')->nullable();
 			$table->timestamps();
 		});
 	}

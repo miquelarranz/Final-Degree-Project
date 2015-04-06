@@ -6,19 +6,41 @@ use Larabook\Core\CommandBus;
 
 class RegistrationController extends \BaseController {
 
-    function __construct()
+    protected $userRepository;
+
+    protected $personRepository;
+
+    protected $thingRepository;
+
+    /**
+     * @param UserRepository $userRepository
+     * @param PersonRepository $personRepository
+     * @param ThingRepository $thingRepository
+     */
+    function __construct(UserRepository $userRepository, PersonRepository $personRepository, ThingRepository $thingRepository)
     {
-        $this->beforeFilter('guest');
+        $this->userRepository = $userRepository;
+        $this->personRepository = $personRepository;
+        $this->thingRepository = $thingRepository;
     }
 
-	/**
+    /**
 	 * Show a form to register the user
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-		return View::make('registration.create');
+        $countryNames = array();
+
+        $countries = Country::all();
+
+        foreach ($countries as $country)
+        {
+            $countryNames[] = $country->administrativeArea->place->thing->name;
+        }
+
+		return View::make('registration.create')->with(array('countryNames' => $countryNames));
 	}
 
     /**
@@ -28,22 +50,43 @@ class RegistrationController extends \BaseController {
      */
     public function store()
     {
-        extract(Input::only('username', 'email', 'password'));
+        extract(Input::only('name', 'email', 'password', 'familyName', 'birthDate', 'nationality', 'gender'));
 
         $validator = Validator::make(
             [
-                'username' => $username,
+                'name' => $name,
                 'password' => $password,
+                'familyName' => $familyName,
+                'birthDate' => $birthDate,
+                'nationality' => $nationality,
+                'gender' => $gender,
                 'email' => $email
             ],
             [
                 'name' => 'required',
-                'password' => 'required|min:8',
+                'familyName' => 'required',
+                'birthDate' => 'required|date',
+                'nationality' => 'required',
+                'gender' => 'required',
+                'password' => 'required|min:5|confirmed',
                 'email' => 'required|email|unique:users'
             ]
         );
 
+        if ($validator->fails())
+        {
+            $errors = $validator->messages();
+            Redirect::back()->with('errors');
+        }
 
+        $user = User::registerAUser($email, $password);
+        $this->userRepository->save($user);
+
+        $thing = Thing::createAThing(null, null, null, $name);
+        $thing = $this->thingRepository->save($thing);
+
+        $person = Person::createAPerson($thing->id, $email, $familyName, $birthDate, $nationality, $gender);
+        $this->personRepository->save($person);
 
         Auth::login($user);
 

@@ -2,64 +2,120 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-6">
-            <h1>Register</h1>
+        <div class="col-md-12">
+            <h1 class="text-center white-color title-margin">Register</h1>
 
             @include('layouts.partials.errors')
 
-            {{ Form::open(['route' => 'register_path']) }}
-                <!-- Name Form Input -->
-                <div class = "form-group">
-                    {{ Form::label('name', 'Name:') }}
-                    {{ Form::text('name', null, ['class' => 'form-control'] ) }}
+            {{ Form::open(array('route' => 'register_path')) }}
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Name Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('name', 'Name:') }}
+                            {{ Form::text('name', null, ['class' => 'form-control'] ) }}
+                        </div>
+
+                        <!-- FamilyName Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('familyName', 'Last name:') }}
+                            {{ Form::text('familyName', null, ['class' => 'form-control'] ) }}
+                        </div>
+
+                        <!-- Gender Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('gender', 'Gender:') }}
+                            {{ Form::select('gender', array('Male' => 'Male', 'Female' => 'Female'), null, ['class' => 'form-control'] ) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- Nationality Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('nationality', 'Nationality:') }}
+                            {{ Form::select('nationality', $countryNames, null, ['class' => 'form-control'] ) }}
+                        </div>
+
+                        <!-- BirthDate Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('birthDate', 'Birth Date:') }}
+                            {{ Form::input('date', 'birthDate', null, ['class' => 'form-control'] ) }}
+                        </div>
+                    </div>
                 </div>
 
-                <!-- FamilyName Form Input -->
-                <div class = "form-group">
-                    {{ Form::label('familyName', 'Last name:') }}
-                    {{ Form::text('familyName', null, ['class' => 'form-control'] ) }}
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Password Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('password', 'Password:') }}
+                            {{ Form::password('password', ['class' => 'form-control'] ) }}
+                        </div>
+
+                        <!-- Password Confirmation Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('password_confirmation', 'Password Confirmation:') }}
+                            {{ Form::password('password_confirmation', ['class' => 'form-control'] ) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- Email Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('email', 'Email:') }}
+                            {{ Form::email('email', null, ['class' => 'form-control']) }}
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Username Form Input -->
-                <div class = "form-group">
-                    {{ Form::label('username', 'Username:') }}
-                    {{ Form::text('username', null, ['class' => 'form-control']) }}
+                <hr>
+
+                {{-- <div class="row">
+                    <div class="col-md-6">
+                        <!-- StreetAddress Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('streetAddress', 'Address:') }}
+                            {{ Form::text('streetAddress', null, ['class' => 'form-control'] ) }}
+                        </div>
+
+                        <!-- AddressLocality Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('addressLocality', 'Locality:') }}
+                            {{ Form::text('addressLocality', null, ['class' => 'form-control'] ) }}
+                        </div>
+
+                        <!-- AddressRegion Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('addressRegion', 'Region:') }}
+                            {{ Form::text('addressRegion', null, ['class' => 'form-control'] ) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- PostalCode Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('postalCode', 'Postal Code:') }}
+                            {{ Form::text('postalCode', null, ['class' => 'form-control'] ) }}
+                        </div>
+
+                        <!-- Country Form Input -->
+                        <div class = "form-group register-input">
+                            {{ Form::label('country', 'Country:') }}
+                            {{ Form::text('country', null, ['class' => 'form-control'] ) }}
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Email Form Input -->
-                <div class = "form-group">
-                    {{ Form::label('email', 'Email:') }}
-                    {{ Form::email('email', null, ['class' => 'form-control']) }}
-                </div>
+                <hr> --}}
 
-                <!-- Password Form Input -->
-                <div class = "form-group">
-                    {{ Form::label('password', 'Password:') }}
-                    {{ Form::password('password', ['class' => 'form-control'] ) }}
-                </div>
-
-                <!-- Password Confirmation Form Input -->
-                <div class = "form-group">
-                    {{ Form::label('password_confirmation', 'Password Confirmation:') }}
-                    {{ Form::password('password_confirmation', ['class' => 'form-control'] ) }}
-                </div>
-                
-                <!-- Gender Form Input -->
-                <div class = "form-group">
-                    {{ Form::label('gender', 'Gender:') }}
-                    {{ Form::select('gender', array('Male', 'Female'), null, ['class' => 'form-control'] ) }}
-                </div>
-                
-                <!-- BirthDate Form Input -->
-                <div class = "form-group">
-                    {{ Form::label('birthDate', 'Birth Date:') }}
-                    {{ Form::input('date', 'birthDate', null, ['class' => 'form-control'] ) }}
-                </div>
-
-
-
-                <div class = "form-group">
-                    {{ Form::submit('Sign Up', ['class' => 'btn btn-primary']) }}
+                <div class="row">
+                    <div class="col-xs-6 col-xs-offset-3">
+                        <div class = "text-center form-group">
+                            {{ Form::submit('Sign Up', ['class' => 'btn btn-default register-btn form-control']) }}
+                        </div>
+                    </div>
                 </div>
             {{ Form::close() }}
         </div>

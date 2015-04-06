@@ -16,10 +16,12 @@ class CreatePlacesTable extends Migration {
 		{
 			$table->increments('id');
             $table->foreign('id')->references('id')->on('things');
-            $table->integer('address')->unsigned();
+            $table->integer('address')->unsigned()->nullable();
             $table->foreign('address')->references('id')->on('postalAddresses');
-			$table->integer('geo')->unsigned();
+			$table->integer('geo')->unsigned()->nullable();
             $table->foreign('geo')->references('id')->on('geoCoordinates');
+            $table->integer('containedIn')->unsigned()->nullable();
+            $table->foreign('containedIn')->references('id')->on('places');
             $table->timestamps();
 		});
 	}
