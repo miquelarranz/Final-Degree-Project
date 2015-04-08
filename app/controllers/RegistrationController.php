@@ -50,12 +50,13 @@ class RegistrationController extends \BaseController {
      */
     public function store()
     {
-        extract(Input::only('name', 'email', 'password', 'lastName', 'birthDate', 'nationality', 'gender'));
+        extract(Input::only('name', 'email', 'password', 'password_confirmation', 'lastName', 'birthDate', 'nationality', 'gender'));
 
         $validator = Validator::make(
             [
                 'name' => $name,
                 'password' => $password,
+                'password_confirmation' => $password_confirmation,
                 'lastName' => $lastName,
                 'birthDate' => $birthDate,
                 'nationality' => $nationality,
