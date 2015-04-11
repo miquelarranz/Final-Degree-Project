@@ -13,8 +13,12 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>{{ link_to_route('home', 'Home') }}</li>
-                <li>{{ link_to_route('register_path', 'Register') }}</li>
-                <li>{{ link_to_route('login_path', 'Login') }}</li>
+                @if($currentUser)
+                    <li>{{ link_to_route('logout_path', 'Logout') }}</li>
+                @else
+                    <li>{{ link_to_route('register_path', 'Register') }}</li>
+                    <li>{{ link_to_route('login_path', 'Login') }}</li>
+                @endif
                 <li>
                     <a class="nav-language-container">
                         {{ Form::open() }}

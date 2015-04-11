@@ -1,20 +1,11 @@
 <?php
 
-use Larabook\Forms\SigninForm;
-
 class SessionsController extends \BaseController {
 
-    /**
-     * @var SigninForm
-     */
-    /*private $signInForm;
-
-    public function __construct(SigninForm $signInForm)
+    public function __construct()
     {
-        $this->signInForm = $signInForm;
-
         $this->beforeFilter('guest', ['except' => 'destroy']);
-    }*/
+    }
 
 
     /**
@@ -24,7 +15,6 @@ class SessionsController extends \BaseController {
 	 */
 	public function create()
 	{
-        return User::all();
 		return View::make('sessions.create');
 	}
 
@@ -36,13 +26,25 @@ class SessionsController extends \BaseController {
 	 */
 	public function store()
 	{
+        extract(Input::only('email', 'password'));
+
+        $validator = Validator::make(
+            [
+                'email' => $email,
+                'password' => $password
+            ],
+            [
+                'email' => 'required',
+                'password' => 'required'
+            ]
+        );
+
         $formData = Input::only('email', 'password');
-        $this->signInForm->validate($formData);
 
         if (Auth::attempt($formData))
         {
             Flash::message('Welcome back!');
-            return Redirect::intended('statuses');
+            return Redirect::intended('events');
         }
 
         Flash::error('Your credentials are not correct!');

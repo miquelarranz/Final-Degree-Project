@@ -1,8 +1,8 @@
 <?php
 
-use Larabook\Forms\RegistrationForm;
-use Larabook\Registration\RegisterCommand;
-use Larabook\Core\CommandBus;
+use repositories\PersonRepository;
+use repositories\ThingRepository;
+use repositories\UserRepository;
 
 class RegistrationController extends \BaseController {
 
@@ -22,6 +22,8 @@ class RegistrationController extends \BaseController {
         $this->userRepository = $userRepository;
         $this->personRepository = $personRepository;
         $this->thingRepository = $thingRepository;
+
+        $this->beforeFilter('guest');
     }
 
     /**
@@ -86,12 +88,12 @@ class RegistrationController extends \BaseController {
         $thing = Thing::createAThing(null, null, null, $name);
         $thing = $this->thingRepository->save($thing);
 
-        $person = Person::createAPerson($thing->id, $email, $familyName, $birthDate, $nationality, $gender);
+        $person = Person::createAPerson($thing->id, $email, $lastName, $birthDate, $nationality, $gender);
         $this->personRepository->save($person);
 
         Auth::login($user);
 
-        return Redirect::home();
+        return Redirect::route('events_path');
     }
 
 }

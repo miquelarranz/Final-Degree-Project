@@ -25,7 +25,7 @@ Route::get('logout', [
 ]);
 
 /**
- * Registration!
+ * Registration
  */
 
 Route::get('register', [
@@ -36,4 +36,13 @@ Route::get('register', [
 Route::post('register', [
     'as' => 'register_path',
     'uses' => 'RegistrationController@store'
+]);
+
+/**
+ * Events
+ */
+
+Route::get('events', [
+    'as' => 'events_path',
+    'uses' => 'EventsController@index'
 ]);

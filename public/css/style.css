@@ -98,3 +98,21 @@ body {
         background-color: rgba(31, 58, 147, 0.52);
         color: white;
     }
+
+/* Session styles */
+
+.login-btn {
+    background-color: #1F3A93;
+    color: white;
+    font-size: 18px;
+    margin: 20px 0px;
+    height: auto;
+}
+    .login-btn:hover {
+        background-color: rgba(31, 58, 147, 0.52);
+        color: white;
+    }
+
+.hr-login {
+    margin-top: 40px !important;
+}

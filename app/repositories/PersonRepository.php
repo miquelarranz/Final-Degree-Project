@@ -1,5 +1,6 @@
-<?php
+<?php namespace repositories;
 
+use Person;
 
 class PersonRepository {
 

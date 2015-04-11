@@ -1,7 +1,8 @@
-<?php
+<?php namespace repositories;
 
+use AdministrativeArea;
 
-class AdministrativeAreaRepository {
+class AdministrativeAreaRepository extends Repository {
 
     /**
      * Persist a country
