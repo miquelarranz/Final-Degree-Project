@@ -21,9 +21,9 @@ class Person extends Thing {
         return $this->belongsTo('Thing', 'id', 'id');
     }
 
-    public static function createAPerson($id, $email, $familyName, $birthDate, $nationality, $gender)
+    public static function createAPerson($id, $familyName, $birthDate, $nationality, $gender)
     {
-        $person = new static(compact('id', 'email', 'familyName', 'birthDate', 'nationality', 'gender'));
+        $person = new static(compact('id', 'familyName', 'birthDate', 'nationality', 'gender'));
 
         return $person;
     }

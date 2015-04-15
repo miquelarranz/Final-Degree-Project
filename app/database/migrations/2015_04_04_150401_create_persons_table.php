@@ -17,7 +17,6 @@ class CreatePersonsTable extends Migration {
 			$table->integer('id')->unsigned();;
             $table->foreign('id')->references('id')->on('things');
             $table->date('birthDate');
-			$table->string('email');
 			$table->string('gender');
 			$table->string('familyName');
             $table->integer('nationality')->unsigned();

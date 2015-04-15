@@ -1,27 +1,24 @@
 <?php
 
-use repositories\PersonRepository;
-use repositories\ThingRepository;
-use repositories\UserRepository;
+use services\PlacesService;
+use services\RegistrationService;
 
 class RegistrationController extends \BaseController {
 
-    protected $userRepository;
-
-    protected $personRepository;
-
-    protected $thingRepository;
+    protected $registrationService;
+    /**
+     * @var PlacesService
+     */
+    private $placesService;
 
     /**
-     * @param UserRepository $userRepository
-     * @param PersonRepository $personRepository
-     * @param ThingRepository $thingRepository
+     * @param RegistrationService $registrationService
+     * @param PlacesService $placesService
      */
-    function __construct(UserRepository $userRepository, PersonRepository $personRepository, ThingRepository $thingRepository)
+    function __construct(RegistrationService $registrationService, PlacesService $placesService)
     {
-        $this->userRepository = $userRepository;
-        $this->personRepository = $personRepository;
-        $this->thingRepository = $thingRepository;
+        $this->registrationService = $registrationService;
+        $this->placesService = $placesService;
 
         $this->beforeFilter('guest');
     }
@@ -35,11 +32,11 @@ class RegistrationController extends \BaseController {
 	{
         $countryNames = array();
 
-        $countries = Country::all();
+        $countries = $this->placesService->getAllTheCountries();
 
         foreach ($countries as $country)
         {
-            $countryNames[] = $country->administrativeArea->place->thing->name;
+            $countryNames[$country->id] = $country->administrativeArea->place->thing->name;
         }
 
 		return View::make('registration.create')->with(array('countryNames' => $countryNames));
@@ -82,14 +79,7 @@ class RegistrationController extends \BaseController {
             return Redirect::back()->withInput()->with(array('errors' => $errors));
         }
 
-        $user = User::registerAUser($email, $password);
-        $this->userRepository->save($user);
-
-        $thing = Thing::createAThing(null, null, null, $name);
-        $thing = $this->thingRepository->save($thing);
-
-        $person = Person::createAPerson($thing->id, $email, $lastName, $birthDate, $nationality, $gender);
-        $this->personRepository->save($person);
+        $user = $this->registrationService->registerAUser(Input::all());
 
         Auth::login($user);
 

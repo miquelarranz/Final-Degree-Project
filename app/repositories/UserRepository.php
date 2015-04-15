@@ -2,16 +2,34 @@
 
 use User;
 
-class UserRepository {
+class UserRepository implements RepositoryInterface {
 
-    /**
-     * Persist a user
-     *
-     * @param User $user
-     * @return mixed
-     */
-    public function save(User $user)
+    public function all(array $related = null)
     {
-        return $user->save();
+        // TODO: Implement all() method.
+    }
+
+    public function create(array $data)
+    {
+        $user = User::registerAUser($data['email'], $data['password']);
+
+        $user->save();
+
+        return $user;
+    }
+
+    public function read($id, array $related = null)
+    {
+        // TODO: Implement read() method.
+    }
+
+    public function update(array $data)
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function delete($id)
+    {
+        // TODO: Implement delete() method.
     }
 }

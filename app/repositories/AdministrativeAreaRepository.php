@@ -2,18 +2,30 @@
 
 use AdministrativeArea;
 
-class AdministrativeAreaRepository extends Repository {
+class AdministrativeAreaRepository implements RepositoryInterface {
 
-    /**
-     * Persist a country
-     *
-     * @param AdministrativeArea $administrativeArea
-     * @return mixed
-     */
-    public function save(AdministrativeArea $administrativeArea)
+    public function all(array $related = null)
     {
-        $administrativeArea->save();
+        // TODO: Implement all() method.
+    }
 
-        return $administrativeArea;
+    public function create(array $data)
+    {
+        // TODO: Implement create() method.
+    }
+
+    public function read($id, array $related = null)
+    {
+        // TODO: Implement read() method.
+    }
+
+    public function update(array $data)
+    {
+        // TODO: Implement update() method.
+    }
+
+    public function delete($id)
+    {
+        // TODO: Implement delete() method.
     }
 }
