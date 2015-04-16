@@ -6,6 +6,15 @@ Route::get('/', [
 ]);
 
 /**
+ * Language
+ */
+
+Route::post('language', [
+    'as' => 'language_path',
+    'uses' => 'LanguageController@language'
+]);
+
+/**
  * Sessions
  */
 

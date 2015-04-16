@@ -79,3 +79,8 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+/**
+ * Language of the application.
+ */
+App::setLocale(Session::get('language', 'es'));

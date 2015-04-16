@@ -12,17 +12,17 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>{{ link_to_route('home', 'Home') }}</li>
+                <li>{{ link_to_route('home', Lang::get('messages.home/home')) }}</li>
                 @if($currentUser)
-                    <li>{{ link_to_route('logout_path', 'Logout') }}</li>
+                    <li>{{ link_to_route('logout_path', Lang::get('messages.home/logout')) }}</li>
                 @else
-                    <li>{{ link_to_route('register_path', 'Register') }}</li>
-                    <li>{{ link_to_route('login_path', 'Login') }}</li>
+                    <li>{{ link_to_route('register_path',  Lang::get('messages.home/register')) }}</li>
+                    <li>{{ link_to_route('login_path',  Lang::get('messages.home/login')) }}</li>
                 @endif
                 <li>
                     <a class="nav-language-container">
-                        {{ Form::open() }}
-                            {{ Form::select('city', array('ES', 'CAT'), null, ['class' => 'form-control nav-language-select', 'required' => 'required']) }}
+                        {{ Form::open(array('route' => 'language_path', 'id' => 'language-form')) }}
+                            {{ Form::select('language', array('es' => 'ES', 'cat' => 'CAT', 'en' => 'EN'), Session::get('language'), ['class' => 'form-control nav-language-select', 'required' => 'required', 'onchange'=>'submit()']) }}
                         {{ Form::close() }}
                     </a>
                 </li>
