@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-center white-color title-margin">Register</h1>
+            <h1 class="text-center white-color title-margin">@lang('messages.register/register')</h1>
 
             @include('layouts.partials.errors')
 
@@ -12,33 +12,33 @@
                     <div class="col-md-6">
                         <!-- Name Form Input -->
                         <div class = "form-group register-input">
-                            {{ Form::label('name', 'Name:') }}
+                            {{ Form::label('name', Lang::get('messages.register/name')) }}
                             {{ Form::text('name', null, ['class' => 'form-control'] ) }}
                         </div>
 
                         <!-- LastName Form Input -->
                         <div class = "form-group register-input">
-                            {{ Form::label('lastName', 'Last Name:') }}
+                            {{ Form::label('lastName', Lang::get('messages.register/lastName')) }}
                             {{ Form::text('lastName', null, ['class' => 'form-control'] ) }}
                         </div>
 
                         <!-- Gender Form Input -->
                         <div class = "form-group register-input">
-                            {{ Form::label('gender', 'Gender:') }}
-                            {{ Form::select('gender', array(null => 'Select a gender', 'Male' => 'Male', 'Female' => 'Female'), null, ['class' => 'form-control'] ) }}
+                            {{ Form::label('gender', Lang::get('messages.register/gender')) }}
+                            {{ Form::select('gender', array(null => Lang::get('messages.register/genderempty'), 'Male' => Lang::get('messages.register/male'), 'Female' => Lang::get('messages.register/female')), null, ['class' => 'form-control'] ) }}
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <!-- Nationality Form Input -->
                         <div class = "form-group register-input">
-                            {{ Form::label('nationality', 'Nationality:') }}
-                            {{ Form::select('nationality', array(null => 'Select a country') + $countryNames, null, ['class' => 'form-control'] ) }}
+                            {{ Form::label('nationality', Lang::get('messages.register/nationality')) }}
+                            {{ Form::select('nationality', array(null => Lang::get('messages.register/nationalityempty')) + $countryNames, null, ['class' => 'form-control'] ) }}
                         </div>
 
                         <!-- BirthDate Form Input -->
                         <div class = "form-group register-input">
-                            {{ Form::label('birthDate', 'Birth Date:') }}
+                            {{ Form::label('birthDate', Lang::get('messages.register/birthDate')) }}
                             {{ Form::input('date', 'birthDate', null, ['class' => 'form-control'] ) }}
                         </div>
                     </div>
@@ -50,13 +50,13 @@
                     <div class="col-md-6">
                         <!-- Password Form Input -->
                         <div class = "form-group register-input">
-                            {{ Form::label('password', 'Password:') }}
+                            {{ Form::label('password', Lang::get('messages.register/password')) }}
                             {{ Form::password('password', ['class' => 'form-control'] ) }}
                         </div>
 
                         <!-- Password Confirmation Form Input -->
                         <div class = "form-group register-input">
-                            {{ Form::label('password_confirmation', 'Password Confirmation:') }}
+                            {{ Form::label('password_confirmation', Lang::get('messages.register/passwordConfirmation')) }}
                             {{ Form::password('password_confirmation', ['class' => 'form-control'] ) }}
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                     <div class="col-md-6">
                         <!-- Email Form Input -->
                         <div class = "form-group register-input">
-                            {{ Form::label('email', 'Email:') }}
+                            {{ Form::label('email', Lang::get('messages.register/email')) }}
                             {{ Form::email('email', null, ['class' => 'form-control']) }}
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                 <div class="row">
                     <div class="col-xs-6 col-xs-offset-3">
                         <div class = "text-center form-group">
-                            {{ Form::submit('Sign Up', ['class' => 'btn btn-default register-btn form-control']) }}
+                            {{ Form::submit(Lang::get('messages.register/submit'), ['class' => 'btn btn-default register-btn form-control']) }}
                         </div>
                     </div>
                 </div>

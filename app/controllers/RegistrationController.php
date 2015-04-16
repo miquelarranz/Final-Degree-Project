@@ -83,6 +83,8 @@ class RegistrationController extends \BaseController {
 
         Auth::login($user);
 
+        Flash::message(Lang::get('messages.events/welcome'));
+
         return Redirect::route('events_path');
     }
 
