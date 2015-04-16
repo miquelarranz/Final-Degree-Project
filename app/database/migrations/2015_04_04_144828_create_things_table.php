@@ -22,7 +22,7 @@ class CreateThingsTable extends Migration {
 			$table->string('image')->nullable();
 			$table->string('sameAs')->nullable();
 			$table->string('url')->nullable();
-			$table->timestamps();
+            $table->timestamps();
 		});
 	}
 

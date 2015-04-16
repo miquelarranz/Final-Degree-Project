@@ -11,7 +11,11 @@ class CountryRepository implements RepositoryInterface {
 
     public function create(array $data)
     {
-        // TODO: Implement create() method.
+        $country = Country::createACountry($data['id']);
+
+        $country->save();
+
+        return $country;
     }
 
     public function read($id, array $related = null)

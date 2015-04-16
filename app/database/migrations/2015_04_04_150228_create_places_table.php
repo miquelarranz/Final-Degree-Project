@@ -22,7 +22,6 @@ class CreatePlacesTable extends Migration {
             $table->foreign('geo')->references('id')->on('geoCoordinates');
             $table->integer('containedIn')->unsigned()->nullable();
             $table->foreign('containedIn')->references('id')->on('places');
-            $table->timestamps();
 		});
 	}
 

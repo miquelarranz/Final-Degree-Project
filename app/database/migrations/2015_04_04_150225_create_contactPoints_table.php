@@ -16,7 +16,6 @@ class CreateContactPointsTable extends Migration {
 		{
 			$table->increments('id');
             $table->foreign('id')->references('id')->on('structuredValues');
-            $table->timestamps();
 		});
 	}
 

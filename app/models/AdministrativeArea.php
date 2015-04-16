@@ -14,6 +14,8 @@ class AdministrativeArea extends Place {
      */
     protected $table = 'administrativeAreas';
 
+    public $timestamps = false;
+
     protected $fillable = array('id');
 
     public function place()

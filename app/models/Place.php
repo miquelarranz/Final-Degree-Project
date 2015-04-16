@@ -14,6 +14,8 @@ class Place extends Thing {
 	 */
 	protected $table = 'places';
 
+    public $timestamps = false;
+
     protected $fillable = array('id', 'address', 'geo', 'containedIn');
 
     public function thing()

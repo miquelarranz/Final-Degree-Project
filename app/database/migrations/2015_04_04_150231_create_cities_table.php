@@ -16,7 +16,6 @@ class CreateCitiesTable extends Migration {
 		{
 			$table->increments('id');
             $table->foreign('id')->references('id')->on('administrativeAreas');
-            $table->timestamps();
 		});
 	}
 

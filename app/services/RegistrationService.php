@@ -26,11 +26,11 @@ class RegistrationService {
 
     public function registerAUser($data)
     {
-        $user = $this->userRepository->create(array('email' => $data['email'], 'password' => $data['password']));
-
         $thing = $this->thingRepository->create(array('name' => $data['name']));
 
-        $this->personRepository->create(array('id' => $thing->id, 'lastName' => $data['lastName'], 'birthDate' => $data['birthDate'], 'nationality' => $data['nationality'], 'gender' => $data['gender']));
+        $person = $this->personRepository->create(array('id' => $thing->id, 'lastName' => $data['lastName'], 'birthDate' => $data['birthDate'], 'nationality' => $data['nationality'], 'gender' => $data['gender']));
+
+        $user = $this->userRepository->create(array('email' => $data['email'], 'password' => $data['password'], 'person' => $thing->id));
 
         return $user;
     }

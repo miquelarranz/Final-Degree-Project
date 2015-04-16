@@ -21,7 +21,6 @@ class CreatePersonsTable extends Migration {
 			$table->string('familyName');
             $table->integer('nationality')->unsigned();
             $table->foreign('nationality')->references('id')->on('countries');
-			$table->timestamps();
 		});
 	}
 

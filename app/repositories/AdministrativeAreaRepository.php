@@ -11,7 +11,11 @@ class AdministrativeAreaRepository implements RepositoryInterface {
 
     public function create(array $data)
     {
-        // TODO: Implement create() method.
+        $administrativeArea = AdministrativeArea::createAnAdministrativeArea($data['id']);
+
+        $administrativeArea->save();
+
+        return $administrativeArea;
     }
 
     public function read($id, array $related = null)

@@ -18,7 +18,6 @@ class CreateGeoCoordinatesTable extends Migration {
             $table->foreign('id')->references('id')->on('structuredValues');
             $table->double('latitude');
 			$table->double('longitude');
-			$table->timestamps();
 		});
 	}
 

@@ -14,6 +14,8 @@ class Country extends AdministrativeArea {
      */
     protected $table = 'countries';
 
+    public $timestamps = false;
+
     protected $fillable = array('id');
 
     public function administrativeArea()

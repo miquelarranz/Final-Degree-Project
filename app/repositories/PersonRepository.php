@@ -14,6 +14,8 @@ class PersonRepository implements RepositoryInterface {
         $person = Person::createAPerson($data['id'], $data['lastName'], $data['birthDate'], $data['nationality'], $data['gender']);
 
         $person->save();
+
+        return $person;
     }
 
     public function read($id, array $related = null)

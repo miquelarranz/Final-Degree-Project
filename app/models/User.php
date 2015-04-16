@@ -9,7 +9,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
-    protected $fillable = array('email', 'password', 'role');
+    protected $fillable = array('email', 'password', 'role', 'person');
 
 	/**
 	 * The database table used by the model.
@@ -25,6 +25,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+    public function person()
+    {
+        return $this->hasOne('Person', 'person');
+    }
+
     /**
      * Password must always be hashed.
      * @param $password
@@ -34,10 +39,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $this->attributes['password'] = Hash::make($password);
     }
 
-    public static function registerAUser($email, $password)
+    public static function registerAUser($email, $password, $person)
     {
         $role = 'registeredUser';
-        $user = new static(compact('email', 'password', 'role'));
+        $user = new static(compact('email', 'password', 'role', 'person'));
 
         return $user;
     }

@@ -16,7 +16,6 @@ class CreateIntangiblesTable extends Migration {
 		{
 			$table->increments('id');
             $table->foreign('id')->references('id')->on('things');
-            $table->timestamps();
 		});
 	}
 

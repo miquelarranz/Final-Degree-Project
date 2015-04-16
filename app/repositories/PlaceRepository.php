@@ -11,7 +11,11 @@ class PlaceRepository implements RepositoryInterface {
 
     public function create(array $data)
     {
-        // TODO: Implement create() method.
+        $place = Place::createAPlace($data['id']);
+
+        $place->save();
+
+        return $place;
     }
 
     public function read($id, array $related = null)

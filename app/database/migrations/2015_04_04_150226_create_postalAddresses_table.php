@@ -20,7 +20,6 @@ class CreatePostalAddressesTable extends Migration {
 			$table->string('addressRegion');
 			$table->string('postalCode');
 			$table->string('streetAddress');
-            $table->timestamps();
 		});
 	}
 
