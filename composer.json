@@ -24,7 +24,10 @@
 			"app/tests/TestCase.php",
             "app/repositories",
             "app/services"
-		]
+		],
+        "psr-4": {
+            "IntegrationSystem\\": "app/IntegrationSystem"
+        }
 	},
 	"scripts": {
 		"post-install-cmd": [

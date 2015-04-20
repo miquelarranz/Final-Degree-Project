@@ -55,3 +55,12 @@ Route::get('events', [
     'as' => 'events_path',
     'uses' => 'EventsController@index'
 ]);
+
+/**
+ * Integration System testing
+ */
+
+Route::get('reader', [
+    'as' => 'integration_path',
+    'uses' => 'IntegrationController@reader'
+]);
