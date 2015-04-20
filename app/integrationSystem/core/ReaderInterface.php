@@ -1,14 +1,10 @@
-<?php namespace repositories;
+<?php namespace IntegrationSystem\core;
 
-interface RepositoryInterface
+interface ReaderInterface
 {
-    public function all(array $related = null);
 
-    public function create(array $data);
+    public function readFromAnURL($url);
 
-    public function read($id, array $related = null);
+    public function toArray($data);
 
-    public function update(array $data);
-
-    public function delete($id);
 }

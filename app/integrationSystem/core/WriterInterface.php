@@ -1,6 +1,6 @@
 <?php namespace IntegrationSystem\core;
 
-interface ReaderInterface
+interface WriterInterface
 {
 
 }
