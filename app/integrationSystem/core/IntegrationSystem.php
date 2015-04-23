@@ -27,6 +27,7 @@ class IntegrationSystem
 
         $data = $reader->readFromAnURL($url);
 
+        //TODO: check the errors thrown
         if (empty($data)) throw new \Exception("The file is empty or wrong.");
 
         $dataArray = $reader->toArray($data);

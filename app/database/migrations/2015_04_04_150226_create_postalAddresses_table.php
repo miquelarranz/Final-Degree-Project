@@ -16,10 +16,10 @@ class CreatePostalAddressesTable extends Migration {
 		{
 			$table->increments('id');
             $table->foreign('id')->references('id')->on('contactPoints');
-            $table->string('addressLocality');
-			$table->string('addressRegion');
-			$table->string('postalCode');
-			$table->string('streetAddress');
+            $table->string('addressLocality')->nullable();
+			$table->string('addressRegion')->nullable();
+			$table->string('postalCode')->nullable();
+			$table->string('streetAddress')->nullable();
 		});
 	}
 
