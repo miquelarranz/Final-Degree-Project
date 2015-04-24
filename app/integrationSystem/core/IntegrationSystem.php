@@ -2,6 +2,7 @@
 
 use IntegrationSystem\readers\JSONReader;
 use IntegrationSystem\readers\XMLReader;
+use IntegrationSystem\writers\EventsWriter;
 use ReflectionClass;
 
 class IntegrationSystem
@@ -10,11 +11,13 @@ class IntegrationSystem
 
     private $XMLReader;
 
-    function __construct(JSONReader $JSONReader, XMLReader $XMLReader)
+    private $eventsWriter;
+
+    function __construct(JSONReader $JSONReader, XMLReader $XMLReader, EventsWriter $eventsWriter)
     {
         $this->JSONReader = $JSONReader;
-
         $this->XMLReader = $XMLReader;
+        $this->eventsWriter = $eventsWriter;
     }
 
 
@@ -31,6 +34,12 @@ class IntegrationSystem
         if (empty($data)) throw new \Exception("The file is empty or wrong.");
 
         $dataArray = $reader->toArray($data);
+
+        $city = 'Barcelona';
+        $configurationFilePath = '/files/Configuration.json';
+
+        $this->eventsWriter->storeTheData($dataArray, $configurationFilePath, $city);
+
 
         dd($dataArray);
 

@@ -3,4 +3,6 @@
 interface WriterInterface
 {
 
+    public function storeTheData($data, $configurationPathFile, $city);
+
 }

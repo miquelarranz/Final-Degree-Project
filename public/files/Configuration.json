@@ -1,0 +1,12 @@
+{
+    "events":
+        {
+            "title": "name",
+            "startDate": "announce_date",
+            "performers":
+                {
+                    "name": "name",
+                    "url": "url"
+                }
+        }
+}
