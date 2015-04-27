@@ -1,12 +1,14 @@
 {
-    "events":
+    "event":
         {
-            "title": "name",
-            "startDate": "announce_date",
+            "class_name": "events",
+            "title": "things:name",
+            "announce_date": "events:startDate",
             "performers":
                 {
-                    "name": "name",
-                    "url": "url"
+                    "class_name": "organizations",
+                    "name": "things:name",
+                    "url": "things:url"
                 }
         }
 }

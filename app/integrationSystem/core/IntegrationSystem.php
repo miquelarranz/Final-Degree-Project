@@ -39,11 +39,6 @@ class IntegrationSystem
         $configurationFilePath = '/files/Configuration.json';
 
         $this->eventsWriter->storeTheData($dataArray, $configurationFilePath, $city);
-
-
-        dd($dataArray);
-
-        return $dataArray;
     }
 
     private function findTheReader($extension)

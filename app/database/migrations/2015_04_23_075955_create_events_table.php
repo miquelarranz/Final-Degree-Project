@@ -24,7 +24,7 @@ class CreateEventsTable extends Migration {
 			$table->string('typicalAgeRange')->nullable();
             $table->integer('organizer')->unsigned()->nullable();
             $table->foreign('organizer')->references('id')->on('organizations');
-            $table->integer('eventStatus')->unsigned();
+            $table->integer('eventStatus')->unsigned()->default(197);
             $table->foreign('eventStatus')->references('id')->on('eventStatusTypes');
             $table->integer('location')->unsigned()->nullable();
             $table->foreign('location')->references('id')->on('places');
