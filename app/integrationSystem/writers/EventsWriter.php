@@ -12,6 +12,8 @@ class EventsWriter implements WriterInterface
         'password'  => ''
     ];
 
+    private $pendingToStore;
+
     public function storeTheData($data, $configurationFilePath, $city)
     {
         $database = $this->connectToTheDatabase();
@@ -48,6 +50,8 @@ class EventsWriter implements WriterInterface
                 }
             }
             $this->storeInTheDatabase($attributes, 'events', $database);
+
+            foreach ($this->pendingToStore as $pendingObject) $this->storeInTheDatabase($pendingObject, 'offers', $database);
         }
         mysqli_close($database);
         dd('done');
@@ -127,8 +131,11 @@ class EventsWriter implements WriterInterface
             //dd($this->attributeSearch($configurationKey, $data));
             //dd($data);
         }
+
         //TODO: si no hay class_name pum
-        $this->storeInTheDatabase($attributes, $className, $database);
+        //If the object is an offer we need to store it in the pending store array and store them after the event
+        if ($className == 'offers') $this->pendingToStore[] = $attributes;
+        else $this->storeInTheDatabase($attributes, $className, $database);
     }
 
     public function storeInTheDatabase($attributes, $name, $database)

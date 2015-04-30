@@ -11,7 +11,7 @@ class ThingRepository implements RepositoryInterface {
 
     public function create(array $data)
     {
-            $thing = Thing::createAThing(null, null, null, $data['name']);
+        $thing = Thing::createAThing(null, null, null, $data['name']);
 
         $thing->save();
 
