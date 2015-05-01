@@ -18,7 +18,7 @@ class CreateOffersTable extends Migration {
             $table->foreign('id')->references('id')->on('intangibles');
 			$table->double('price')->nullable();
 			$table->string('priceCurrency')->nullable();
-			$table->integer('availability')->unsigned()->default(197);
+			$table->integer('availability')->unsigned()->default(198);
             $table->foreign('availability')->references('id')->on('itemAvailabilities');
 			$table->integer('event')->unsigned();
             $table->foreign('event')->references('id')->on('events');

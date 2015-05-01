@@ -17,6 +17,8 @@ class CreateOrganizationsTable extends Migration {
             $table->integer('id')->unsigned();
             $table->foreign('id')->references('id')->on('things');
 			$table->string('email')->nullable();
+            $table->integer('event')->unsigned()->nullable();
+            $table->foreign('event')->references('id')->on('events');
 		});
 	}
 

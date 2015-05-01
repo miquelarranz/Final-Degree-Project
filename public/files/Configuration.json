@@ -1,14 +1,19 @@
 {
-    "event":
+    "events:title":
+    {
+        "class_name": "events",
+        "title": "things:name",
+        "announce_date": "events:startDate",
+        "event:average_price":
         {
-            "class_name": "events",
-            "title": "things:name",
-            "announce_date": "events:startDate",
-            "performers":
-                {
-                    "class_name": "organizations",
-                    "name": "things:name",
-                    "url": "things:url"
-                }
+            "class_name": "offers",
+            "average_price": "offers:price"
+        },
+        "performers:name":
+        {
+            "class_name": "organizations",
+            "name": "things:name",
+            "url": "things:url"
         }
+    }
 }
