@@ -12,11 +12,15 @@ class EventsWriter implements WriterInterface
         'password'  => ''
     ];
 
+    private $city;
+
     private $offersPendingToStore;
 
     private $organizationsPendingToStore;
 
     private $citiesPendingToStore;
+
+    private $attributeFound;
 
     private function initializeTheObjectArrays()
     {
@@ -32,25 +36,26 @@ class EventsWriter implements WriterInterface
 
         $configurationFile = $this->getTheConfigurationFileContents($configurationFilePath);
 
+        $this->city = $city;
         //First we need to look for the events inside the open data
         $events = $this->objectSearch(key($configurationFile), $data);
-        //dd($events);
+
         //dd($events);
         foreach ($events as $event)
         {
             $this->initializeTheObjectArrays();
-
             $attributes = array();
+            $className = "";
             foreach (current($configurationFile) as $configurationKey => $configurationValue)
             {
                 if (is_array($configurationValue))
                 {
-                    //var_dump($configurationValue);
                     $objectData = $this->objectSearch($configurationKey, $event);
                     //If it is null, the object attributes can be found in the event, they are not under an
                     //"array" structure.
                     if (is_null($objectData)) {
-                        $this->objectProcessing($event, $configurationValue);
+                        $tagData = $this->tagSearch($configurationKey, $event);
+                        $this->objectProcessing($tagData, $configurationValue);
                     }
                     else
                     {
@@ -62,6 +67,7 @@ class EventsWriter implements WriterInterface
                 }
                 else
                 {
+                    $this->attributeFound = false;
                     $attributes[$configurationValue] = $this->attributeSearch($configurationKey, $event);
                 }
             }
@@ -88,17 +94,22 @@ class EventsWriter implements WriterInterface
         //issue. The "checksum" value must exists in all the objects of the key
         $objectData = explode(":", $object);
         $return = null;
-        foreach ($array as $key => $value)
+
+        //We check that the key has 2 values, else it is a tag search
+        if (count($objectData) == 2)
         {
-            if ($key === $objectData[0])
+            foreach ($array as $key => $value)
             {
-                //We need to check if the $value is the object or if it is an array of objects
-                //dd($value);
-                if ($this->checkIfObject($objectData[1], current($value))) return $value;
-                else return current($value);
-            }
-            else {
-                if (is_array($value)) $return = $this->objectSearch($object, $value);
+                if ($key === $objectData[0])
+                {
+                    //We need to check if the $value is the object or if it is an array of objects
+                    //dd($value);
+                    if ($this->checkIfObject($objectData[1], current($value))) return $value;
+                    else return current($value);
+                } else
+                {
+                    if (is_array($value) and ! empty($value)) $return = $this->objectSearch($object, $value);
+                }
             }
         }
 
@@ -120,6 +131,22 @@ class EventsWriter implements WriterInterface
         return true;
     }
 
+    private function tagSearch($tag, $array)
+    {
+        $return = null;
+        foreach ($array as $key => $value)
+        {
+            if ($key === $tag)
+            {
+                return $value;
+            }
+            else {
+                if (is_array($value) and ! empty($value)) $return = $this->tagSearch($tag, $value);
+            }
+        }
+        return $return;
+    }
+
     private function attributeSearch($attribute, $array)
     {
         $return = null;
@@ -129,14 +156,14 @@ class EventsWriter implements WriterInterface
             {
                 if ($key === $attribute)
                 {
+                    $this->attributeFound = true;
                     return $value;
                 }
             }
             else {
-                $return = $this->attributeSearch($attribute, $value);
+                if ( ! $this->attributeFound) $return = $this->attributeSearch($attribute, $value);
             }
         }
-
         return $return;
     }
 
@@ -185,7 +212,7 @@ class EventsWriter implements WriterInterface
     {
         if ($name == 'organizations') $this->storeAnOrganization($attributes, $database, $identifier);
         else if ($name == 'offers') $this->storeAnOffer($attributes, $database, $identifier);
-        else if ($name == 'locations') $this->storeACity($attributes, $database);
+        else if ($name == 'locations') $identifier = $this->storeACity($attributes, $database);
         else if ($name == 'events') $identifier = $this->storeAnEvent($attributes, $database, $identifier);
 
         return $identifier;
@@ -205,13 +232,13 @@ class EventsWriter implements WriterInterface
             {
                 $thingQuery = $thingQuery . ', ' . $attributeInformation[1];
                 if (is_null($value)) $thingValues = $thingValues . ", NULL";
-                $thingValues = $thingValues . ", '" . $value . "'";
+                else $thingValues = $thingValues . ", '" . $value . "'";
             }
             else if ($attributeInformation[0] == "organizations")
             {
                 $organizationQuery = $organizationQuery . ", " . $attributeInformation[1];
                 if (is_null($value)) $organizationValues = $organizationValues . ", NULL";
-                $organizationValues = $organizationValues . ", '" . $value . "'";
+                else $organizationValues = $organizationValues . ", '" . $value . "'";
             }
 
         }
@@ -237,13 +264,13 @@ class EventsWriter implements WriterInterface
             {
                 $thingQuery = $thingQuery . ', ' . $attributeInformation[1];
                 if (is_null($value)) $thingValues = $thingValues . ", NULL";
-                $thingValues = $thingValues . ", '" . $value . "'";
+                else $thingValues = $thingValues . ", '" . $value . "'";
             }
             else if ($attributeInformation[0] == "intangibles")
             {
                 $intangibleQuery = $intangibleQuery . ", " . $attributeInformation[1];
                 if (is_null($value)) $intangibleValues = $intangibleValues . ", NULL";
-                $intangibleValues = $intangibleValues . ", '" . $value . "'";
+                else $intangibleValues = $intangibleValues . ", '" . $value . "'";
             }
             else if ($attributeInformation[0] == "offers")
             {
@@ -267,7 +294,113 @@ class EventsWriter implements WriterInterface
 
     public function storeACity($attributes, $database)
     {
+        $insertAPostalAddress = false;
+        $insertAGeoCoordinates = false;
 
+        $thingQuery = "INSERT INTO things (id";
+        $placeQuery = "INSERT INTO places (id, geo, address";
+        $postalAddressThingQuery = "INSERT INTO things (id";
+        $geoCoordinateThingQuery = "INSERT INTO things (id";
+        $geoCoordinateQuery = "INSERT INTO geoCoordinates (id";
+        $postalAddressQuery = "INSERT INTO postalAddresses (id";
+
+        $thingValues = "NULL";
+        $postalAddressThingValues = "NULL";
+        $geoCoordinatesThingValues = "NULL";
+        $placeValues = "";
+        $geoCoordinateValues = "";
+        $postalAddressValues = "";
+
+        foreach ($attributes as $information => $value)
+        {
+            $attributeInformation = explode(":", $information);
+            if ($attributeInformation[0] == "things")
+            {
+                $thingQuery = $thingQuery . ', ' . $attributeInformation[1];
+                if (is_null($value)) $thingValues = $thingValues . ", NULL";
+                else $thingValues = $thingValues . ", '" . $value . "'";
+            }
+            else if ($attributeInformation[0] == "postalAddressThings")
+            {
+                $postalAddressThingQuery = $postalAddressThingQuery . ", " . $attributeInformation[1];
+                if (is_null($value)) $postalAddressThingValues = $postalAddressThingValues . ", NULL";
+                else $postalAddressThingValues = $postalAddressThingValues . ", '" . $value . "'";
+                $insertAPostalAddress = true;
+            }
+            else if ($attributeInformation[0] == "geoCoordinateThings")
+            {
+                $geoCoordinateThingQuery = $geoCoordinateThingQuery . ", " . $attributeInformation[1];
+                if (is_null($value)) $geoCoordinatesThingValues = $geoCoordinatesThingValues . ", NULL";
+                else $geoCoordinatesThingValues = $geoCoordinatesThingValues . ", '" . $value . "'";
+                $insertAGeoCoordinates = true;
+            }
+            else if ($attributeInformation[0] == "places")
+            {
+                $placeQuery = $placeQuery . ", " . $attributeInformation[1];
+                if (is_null($value)) $placeValues = $placeValues . ", NULL";
+                else $placeValues = $placeValues . ", '" . $value . "'";
+            }
+            else if ($attributeInformation[0] == "geoCoordinates")
+            {
+                $geoCoordinateQuery = $geoCoordinateQuery . ", " . $attributeInformation[1];
+                if (is_null($value)) $geoCoordinateValues = $geoCoordinateValues . ", NULL";
+                else $geoCoordinateValues = $geoCoordinateValues . ", '" . $value . "'";
+                $insertAGeoCoordinates = true;
+            }
+            else if ($attributeInformation[0] == "postalAddresses")
+            {
+                $postalAddressQuery = $postalAddressQuery . ", " . $attributeInformation[1];
+                if (is_null($value)) $postalAddressValues = $postalAddressValues . ", NULL";
+                else $postalAddressValues = $postalAddressValues . ", '" . $value . "'";
+                $insertAPostalAddress = true;
+            }
+
+        }
+
+        $geoCoordinatesId = "NULL";
+        $postalAddressId = "NULL";
+
+        if ($insertAGeoCoordinates)
+        {
+            $geoCoordinateThingQuery = $geoCoordinateThingQuery . ") VALUES (" . $geoCoordinatesThingValues . ");";
+            mysqli_query($database, $geoCoordinateThingQuery);
+
+            $geoCoordinatesId = $database->insert_id;
+
+            mysqli_query($database, "INSERT INTO intangibles (id) VALUES ($geoCoordinatesId);");
+            mysqli_query($database, "INSERT INTO structuredValues (id) VALUES ($geoCoordinatesId);");
+
+            $geoCoordinateQuery = $geoCoordinateQuery . ") VALUES (" . $geoCoordinatesId . $geoCoordinateValues . ");";
+            mysqli_query($database, $geoCoordinateQuery);
+        }
+
+        if ($insertAPostalAddress)
+        {
+            $postalAddressThingQuery = $postalAddressThingQuery . ") VALUES (" . $postalAddressThingValues . ");";
+            mysqli_query($database, $postalAddressThingQuery);
+
+            $postalAddressId = $database->insert_id;
+
+            mysqli_query($database, "INSERT INTO intangibles (id) VALUES ($postalAddressId);");
+            mysqli_query($database, "INSERT INTO structuredValues (id) VALUES ($postalAddressId);");
+            mysqli_query($database, "INSERT INTO contactPoints (id) VALUES ($postalAddressId);");
+
+            $postalAddressQuery = $postalAddressQuery . ") VALUES (" . $postalAddressId . $postalAddressValues . ");";
+            mysqli_query($database, $postalAddressQuery);
+        }
+
+        $thingQuery = $thingQuery . ") VALUES (" . $thingValues . ");";
+        mysqli_query($database, $thingQuery);
+
+        $thingId = $database->insert_id;
+
+        $placeQuery = $placeQuery . ") VALUES (" . $thingId . ", $geoCoordinatesId, $postalAddressId" . $placeValues . ");";
+        mysqli_query($database, $placeQuery);
+
+        mysqli_query($database, "INSERT INTO administrativeAreas (id) VALUES ($thingId);");
+        mysqli_query($database, "INSERT INTO cities (id) VALUES ($thingId);");
+
+        return $thingId;
     }
 
     public function storeAnEvent($attributes, $database, $identifier)
@@ -285,13 +418,20 @@ class EventsWriter implements WriterInterface
             {
                 $thingQuery = $thingQuery . ', ' . $attributeInformation[1];
                 if (is_null($value)) $thingValues = $thingValues . ", NULL";
-                $thingValues = $thingValues . ", '" . $value . "'";
+                else $thingValues = $thingValues . ", '" . $value . "'";
             }
-            else if ($attributeInformation[0] == "organizations")
+            else if ($attributeInformation[0] == "events")
             {
                 $eventQuery = $eventQuery . ", " . $attributeInformation[1];
+                //If the value has to be a date/datime, its necessary to do this
+                if ($attributeInformation[1] == "startDate" or $attributeInformation[1] == "endDate" or $attributeInformation[1] == "doorTime")
+                {
+                    //We do not know the format of the date, so we have to try different formats
+                    $value = $this->getTheRightDate($value);
+                }
+                if ($attributeInformation[1] == "duration") $value = new \Time($value);
                 if (is_null($value)) $eventValues = $eventValues . ", NULL";
-                $eventValues = $eventValues . ", '" . $value . "'";
+                else $eventValues = $eventValues . ", '" . $value . "'";
             }
 
         }
@@ -300,9 +440,46 @@ class EventsWriter implements WriterInterface
         mysqli_query($database, $thingQuery);
 
         $thingId = $database->insert_id;
+
         $eventQuery = $eventQuery . ") VALUES (" . $thingId  . $eventValues . ");";
         mysqli_query($database, $eventQuery);
-
         return $thingId;
+    }
+
+    private function getTheRightDate($value)
+    {
+        $date = \DateTime::createFromFormat('d-m-Y H:i:s', $value);
+        if ( ! $date) {
+            $date = \DateTime::createFromFormat('d-m-Y', $value);
+            if ($date) $date->setTime(0,0,0);
+        }
+        if ( ! $date) $date = \DateTime::createFromFormat('m-d-Y H:i:s', $value);
+        if ( ! $date) {
+            $date = \DateTime::createFromFormat('m-d-Y', $value);
+            if ($date) $date->setTime(0,0,0);
+        }
+        if ( ! $date) $date = \DateTime::createFromFormat('Y-m-d H:i:s', $value);
+        if ( ! $date) {
+            $date = \DateTime::createFromFormat('Y-m-d', $value);
+            if ($date) $date->setTime(0,0,0);
+        }
+        if ( ! $date) $date = \DateTime::createFromFormat('d/m/Y H:i:s', $value);
+        if ( ! $date) {
+            $date = \DateTime::createFromFormat('d/m/Y', $value);
+            if ($date) $date->setTime(0,0,0);
+        }
+        if ( ! $date) $date = \DateTime::createFromFormat('m/d/Y H:i:s', $value);
+        if ( ! $date) {
+            $date = \DateTime::createFromFormat('m/d/Y', $value);
+            if ($date) $date->setTime(0,0,0);
+        }
+        if ( ! $date) $date = \DateTime::createFromFormat('Y/m/d H:i:s', $value);
+        if ( ! $date) {
+            $date = \DateTime::createFromFormat('Y/m/d', $value);
+            if ($date) $date->setTime(0,0,0);
+        }
+        if ( ! $date) return 'NULL';
+
+        return $date->format('Y/m/d H:i:s');
     }
 }

@@ -22,8 +22,10 @@ class CreateThingsTable extends Migration {
 			$table->string('image')->nullable();
 			$table->string('sameAs')->nullable();
 			$table->string('url')->nullable();
-            $table->timestamps();
-		});
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+
+        });
 	}
 
 

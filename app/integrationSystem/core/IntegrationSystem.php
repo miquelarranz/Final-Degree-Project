@@ -36,7 +36,7 @@ class IntegrationSystem
         $dataArray = $reader->toArray($data);
 
         $city = 'Barcelona';
-        $configurationFilePath = '/files/Configuration.json';
+        $configurationFilePath = '/files/ConfigurationBCNEsports.json';
 
         $this->eventsWriter->storeTheData($dataArray, $configurationFilePath, $city);
     }

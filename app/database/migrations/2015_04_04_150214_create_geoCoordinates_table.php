@@ -16,8 +16,8 @@ class CreateGeoCoordinatesTable extends Migration {
 		{
 			$table->increments('id');
             $table->foreign('id')->references('id')->on('structuredValues');
-            $table->double('latitude');
-			$table->double('longitude');
+            $table->double('latitude')->nullable();
+			$table->double('longitude')->nullable();
 		});
 	}
 

@@ -1,0 +1,17 @@
+{
+    "actes:nom": {
+        "nom": "things:name",
+        "data_inici": "events:startDate",
+        "data_fi": "events:endDate",
+        "tipus_acte": "events:type",
+        "lloc_simple": {
+            "class_name": "locations",
+            "municipi": "things:name",
+            "x": "geoCoordinates:latitude",
+            "y": "geoCoordinates:longitude",
+            "codi_postal": "postalAddresses:postalCode",
+            "carrer": "postalAddresses:streetAddress",
+            "nom": "postalAddressThings:name"
+        }
+    }
+}
