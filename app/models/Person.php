@@ -16,7 +16,7 @@ class Person extends Thing {
 
     public $timestamps = false;
 
-    protected $fillable = array('id', 'email', 'familyName', 'birthDate', 'nationality', 'gender');
+    protected $fillable = array('id', 'familyName', 'birthDate', 'nationality', 'gender');
 
     public function thing()
     {
