@@ -64,3 +64,27 @@ Route::get('reader', [
     'as' => 'integration_path',
     'uses' => 'IntegrationController@reader'
 ]);
+
+/**
+ * Profile
+ */
+
+Route::get('profile', [
+    'as' => 'profile_path',
+    'uses' => 'ProfileController@show'
+]);
+
+Route::get('profile/modify', [
+    'as' => 'profile_modify_path',
+    'uses' => 'ProfileController@create'
+]);
+
+Route::post('profile/modify', [
+    'as' => 'profile_modify_path',
+    'uses' => 'ProfileController@store'
+]);
+
+Route::get('profile/delete', [
+    'as' => 'profile_delete_path',
+    'uses' => 'ProfileController@delete'
+]);

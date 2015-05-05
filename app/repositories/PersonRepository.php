@@ -20,16 +20,24 @@ class PersonRepository implements RepositoryInterface {
 
     public function read($id, array $related = null)
     {
-        // TODO: Implement read() method.
+        return Person::find($id);
     }
 
     public function update(array $data)
     {
-        // TODO: Implement update() method.
+        $person = $this->read($data['id']);
+
+        $person->updateAPerson($data['lastName'], $data['birthDate'], $data['gender'], $data['nationality']);
+
+        $person->save();
+
+        return $person;
     }
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        $person = $this->read($id);
+
+        $person->delete();
     }
 }

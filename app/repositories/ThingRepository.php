@@ -20,16 +20,24 @@ class ThingRepository implements RepositoryInterface {
 
     public function read($id, array $related = null)
     {
-        // TODO: Implement read() method.
+        return Thing::find($id);
     }
 
     public function update(array $data)
     {
-        // TODO: Implement update() method.
+        $thing = $this->read($data['id']);
+
+        $thing->updateAPersonThing($data['name']);
+
+        $thing->save();
+
+        return $thing;
     }
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        $thing = $this->read($id);
+
+        $thing->delete();
     }
 }

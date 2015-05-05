@@ -23,10 +23,23 @@ class Person extends Thing {
         return $this->belongsTo('Thing', 'id', 'id');
     }
 
+    public function countryNationality()
+    {
+        return $this->belongsTo('Country', 'nationality', 'id');
+    }
+
     public static function createAPerson($id, $familyName, $birthDate, $nationality, $gender)
     {
         $person = new static(compact('id', 'familyName', 'birthDate', 'nationality', 'gender'));
 
         return $person;
+    }
+
+    public function updateAPerson($familyName, $birthDate, $gender, $nationality)
+    {
+        $this->attributes['familyName'] = $familyName;
+        $this->attributes['birthDate'] = $birthDate;
+        $this->attributes['gender'] = $gender;
+        $this->attributes['nationality'] = $nationality;
     }
 }

@@ -116,3 +116,35 @@ body {
 .hr-login {
     margin-top: 40px !important;
 }
+
+/* Profile styles */
+
+.profile-container {
+    color: white;
+    text-align: center;
+}
+
+.profile-container > .row {
+    padding: 0 20px;
+}
+
+.profile-modify-button {
+    margin-top: 30px;
+}
+
+.profile-delete-button {
+    margin-top: 30px;
+}
+
+.profile-delete-button > div > div > a {
+    background-color: #DA7A7A !important;
+}
+
+.profile-delete-button > div > div > a:hover {
+    background-color: rgba(218, 122, 122, 0.90) !important;
+}
+
+.profile-container > .row > div {
+    padding: 20px 0;
+    border-bottom: 1px solid #f8f8f8;
+}

@@ -10,12 +10,18 @@
 
         <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>    </head>
     <body>
+        <div id="wrapper">
+            @include('layouts.partials.sidebar')
 
-        @include('layouts.partials.nav')
-        <div class="container">
-            @include('flash::message')
+            @include('layouts.partials.sidebarnav')
 
-            @yield('content')
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    @include('flash::message')
+
+                    @yield('content')
+                </div>
+            </div>
         </div>
 
         <script src="//code.jquery.com/jquery.js"></script>

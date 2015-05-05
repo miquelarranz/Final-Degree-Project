@@ -18,4 +18,9 @@ class Thing extends Eloquent {
 
         return $thing;
     }
+
+    public function updateAPersonThing($name)
+    {
+        $this->attributes['name'] = $name;
+    }
 }

@@ -20,16 +20,27 @@ class UserRepository implements RepositoryInterface {
 
     public function read($id, array $related = null)
     {
-        // TODO: Implement read() method.
+        return User::find($id);
     }
 
     public function update(array $data)
     {
-        // TODO: Implement update() method.
+        $user = $this->read($data['id']);
+
+        if ($data['password'] !== "")
+        {
+            $user->updateAUser($data['password']);
+
+            $user->save();
+        }
+
+        return $user;
     }
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        $user = $this->read($id);
+
+        $user->delete();
     }
 }

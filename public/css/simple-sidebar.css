@@ -118,6 +118,32 @@
     text-decoration: none;
 }
 
+.sidebar-language-content {
+    padding: 30px;
+    border-bottom: none !important;
+}
+
+.sidebar-language-content:hover {
+    color: #777 !important;
+    background: none !important;
+}
+
+.sidebar-language-label {
+    display: inline;
+    margin-left: -10px;
+}
+
+.sidebar-language-select {
+    width: auto;
+    display: inline;
+    margin-left: 20px;
+}
+
+.sidebar-language-container {
+
+}
+
+
 .sidebar-nav > .sidebar-brand {
     height: 65px;
     font-size: 18px;
@@ -138,6 +164,7 @@
     border: 0px solid white;
     border-radius: 0px;
     background-color: transparent;
+    margin-bottom: 0px;
 }
 
 @media(min-width:768px) {
@@ -158,7 +185,7 @@
     }
 
     #page-content-wrapper {
-        padding: 20px;
+        padding: 0px 20px 20px;
         position: relative;
     }
 
