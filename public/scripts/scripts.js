@@ -25,3 +25,14 @@ if($(window).width()<762){
         $('#sidebar-button-icon').addClass('glyphicon-arrow-left');
     }
 }
+
+$('.datepicker').datetimepicker(
+    {
+        timepicker: false,
+        format: 'Y/m/d'
+    });
+$('.timepicker').datetimepicker(
+    {
+        datepicker:false,
+        format: 'H:i'
+    });

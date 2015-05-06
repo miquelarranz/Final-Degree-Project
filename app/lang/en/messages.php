@@ -41,4 +41,13 @@ return array(
     'profile/deleted' => 'Your account have been deleted!',
     'profile/password' => 'New password',
     'profile/passwordConfirmation' => 'New password confirmation',
+    'filters/startDate' => 'Start date',
+    'filters/endDate' => 'End date',
+    'filters/time' => 'Hour (HH/MM)',
+    'filters/date' => 'Date (YY/MM/DD)',
+    'filters/name' => 'Event name',
+    'filters/type' => 'Event type',
+    'filters/cityempty' => 'Select a city',
+    'filters/submit' => 'Search!',
+    'filters/title' => 'Show the searching filters',
 );

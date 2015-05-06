@@ -31,7 +31,16 @@ class PlacesService {
 
     public function getAllTheCountries()
     {
-        return $this->countryRepository->all();
+        $countries = $this->countryRepository->all();
+
+        $countryNames = array();
+
+        foreach ($countries as $country)
+        {
+            $countryNames[$country->id] = $country->administrativeArea->place->thing->name;
+        }
+
+        return $countryNames;
     }
 
     public function addCountries($countries)

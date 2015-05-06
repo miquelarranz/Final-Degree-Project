@@ -30,14 +30,8 @@ class RegistrationController extends \BaseController {
 	 */
 	public function create()
 	{
-        $countryNames = array();
 
-        $countries = $this->placesService->getAllTheCountries();
-
-        foreach ($countries as $country)
-        {
-            $countryNames[$country->id] = $country->administrativeArea->place->thing->name;
-        }
+        $countryNames = $this->placesService->getAllTheCountries();
 
 		return View::make('registration.create')->with(array('countryNames' => $countryNames));
 	}

@@ -42,4 +42,13 @@ return array(
     'profile/modify' => 'El perfil ha estado actualizado correctamente!',
     'profile/password' => 'Nueva contraseña',
     'profile/passwordConfirmation' => 'Confirmación de la nueva contraseña',
+    'filters/startDate' => 'Fecha de inicio',
+    'filters/endDate' => 'Fecha de fin',
+    'filters/time' => 'Hora (HH/MM)',
+    'filters/date' => 'Fecha (YY/MM/DD)',
+    'filters/name' => 'Nombre del evento',
+    'filters/type' => 'Tipo de evento',
+    'filters/cityempty' => 'Selecciona una ciudad',
+    'filters/submit' => 'Busca!',
+    'filters/title' => 'Muestra los filtros de búsqueda',
 );

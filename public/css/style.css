@@ -148,3 +148,24 @@ body {
     padding: 20px 0;
     border-bottom: 1px solid #f8f8f8;
 }
+
+/* Filters style */
+
+.filters-title {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.filters-title:hover {
+    color: #446CB3 !important;
+    text-decoration: none;
+}
+
+.filters-btn {
+    background-color: #446CB3;
+    color: white;
+}
+
+.filters-label {
+    color: #777 !important;
+}

@@ -41,4 +41,13 @@ return array(
     'profile/deleted' => 'T\'has donat de baixa!',
     'profile/password' => 'Nova contrasenya',
     'profile/passwordConfirmation' => 'Confirmació de la nova contrasenya',
+    'filters/startDate' => 'Data d\'inici',
+    'filters/endDate' => 'Data de fi',
+    'filters/time' => 'Hora (HH/MM)',
+    'filters/date' => 'Data (YY/MM/DD)',
+    'filters/name' => 'Nom de l\'esdeveniment',
+    'filters/type' => 'Tipus d\'esdeveniment',
+    'filters/cityempty' => 'Selecciona una ciutat',
+    'filters/submit' => 'Cerca!',
+    'filters/title' => 'Mostra els filtres de cerca',
 );
