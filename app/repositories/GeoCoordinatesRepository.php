@@ -1,8 +1,8 @@
 <?php namespace repositories;
 
-use AdministrativeArea;
+use GeoCoordinates;
 
-class AdministrativeAreaRepository implements RepositoryInterface {
+class GeoCoordinatesRepository implements RepositoryInterface {
 
     public function all(array $related = null)
     {
@@ -11,16 +11,12 @@ class AdministrativeAreaRepository implements RepositoryInterface {
 
     public function create(array $data)
     {
-        $administrativeArea = AdministrativeArea::createAnAdministrativeArea($data['id']);
 
-        $administrativeArea->save();
-
-        return $administrativeArea;
     }
 
     public function read($id, array $related = null)
     {
-        return AdministrativeArea::find($id);
+        return GeoCoordinates::find($id);
     }
 
     public function update(array $data)
@@ -30,8 +26,8 @@ class AdministrativeAreaRepository implements RepositoryInterface {
 
     public function delete($id)
     {
-        $administrativeArea = $this->read($id);
+        $geoCoordinates = $this->read($id);
 
-        $administrativeArea->delete();
+        $geoCoordinates->delete();
     }
 }

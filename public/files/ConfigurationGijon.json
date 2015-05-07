@@ -1,0 +1,12 @@
+{
+    "directorio": {
+        "web": "things:url",
+        "tipo": "events:type",
+        "foto": "things:image",
+        "direccion": {
+            "class_name": "locations",
+            "city_name": "things:name",
+            "0": "postalAddresses:streetAddress"
+        }
+    }
+}

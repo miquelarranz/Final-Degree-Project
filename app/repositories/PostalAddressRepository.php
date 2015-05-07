@@ -1,8 +1,8 @@
 <?php namespace repositories;
 
-use Place;
+use PostalAddress;
 
-class PlaceRepository implements RepositoryInterface {
+class PostalAddressRepository implements RepositoryInterface {
 
     public function all(array $related = null)
     {
@@ -11,27 +11,23 @@ class PlaceRepository implements RepositoryInterface {
 
     public function create(array $data)
     {
-        $place = Place::createAPlace($data['id']);
 
-        $place->save();
-
-        return $place;
     }
 
     public function read($id, array $related = null)
     {
-        return Place::find($id);
+        return PostalAddress::find($id);
     }
 
     public function update(array $data)
     {
-        // TODO: Implement update() method.
+
     }
 
     public function delete($id)
     {
-        $place = $this->read($id);
+        $postalAddress = $this->read($id);
 
-        $place->delete();
+        $postalAddress->delete();
     }
 }

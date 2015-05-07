@@ -6,6 +6,7 @@ class JSONReader implements ReaderInterface
 {
     public function readFromAnURL($url)
     {
+        header('Content-Type: text/html; charset=utf-8');
         return file_get_contents($url);
     }
 

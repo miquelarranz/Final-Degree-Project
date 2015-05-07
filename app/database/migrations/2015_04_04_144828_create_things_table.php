@@ -17,7 +17,7 @@ class CreateThingsTable extends Migration {
 			$table->increments('id');
 			$table->string('additionalType')->nullable();
 			$table->string('alternateName')->nullable();
-			$table->string('description')->nullable();
+			$table->text('description')->nullable();
 			$table->string('name')->nullable();
 			$table->string('image')->nullable();
 			$table->string('sameAs')->nullable();

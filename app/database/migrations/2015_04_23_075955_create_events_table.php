@@ -20,7 +20,7 @@ class CreateEventsTable extends Migration {
 			$table->time('duration')->nullable();
 			$table->dateTime('startDate')->nullable();
 			$table->dateTime('endDate')->nullable();
-			$table->string('type')->nullable();
+			$table->text('type')->nullable();
 			$table->string('typicalAgeRange')->nullable();
             $table->integer('eventStatus')->unsigned()->default(197);
             $table->foreign('eventStatus')->references('id')->on('eventStatusTypes');

@@ -1,8 +1,8 @@
 <?php namespace repositories;
 
-use Place;
+use ContactPoint;
 
-class PlaceRepository implements RepositoryInterface {
+class ContactPointRepository implements RepositoryInterface {
 
     public function all(array $related = null)
     {
@@ -11,27 +11,23 @@ class PlaceRepository implements RepositoryInterface {
 
     public function create(array $data)
     {
-        $place = Place::createAPlace($data['id']);
 
-        $place->save();
-
-        return $place;
     }
 
     public function read($id, array $related = null)
     {
-        return Place::find($id);
+        return ContactPoint::find($id);
     }
 
     public function update(array $data)
     {
-        // TODO: Implement update() method.
+
     }
 
     public function delete($id)
     {
-        $place = $this->read($id);
+        $contactPoint = $this->read($id);
 
-        $place->delete();
+        $contactPoint->delete();
     }
 }

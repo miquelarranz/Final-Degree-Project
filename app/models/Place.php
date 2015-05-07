@@ -23,6 +23,16 @@ class Place extends Thing {
         return $this->belongsTo('Thing', 'id', 'id');
     }
 
+    public function postalAddress()
+    {
+        return $this->belongsTo('PostalAddress', 'address');
+    }
+
+    public function geoCoordinates()
+    {
+        return $this->belongsTo('GeoCoordinates', 'geo');
+    }
+
     public static function createAPlace($id, $address = null, $geo = null, $containedIn = null)
     {
         $place = new static(compact('id', 'address', 'geo', 'containedIn'));

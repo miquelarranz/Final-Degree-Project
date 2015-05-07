@@ -29,14 +29,15 @@ class IntegrationSystem
         if ( ! $reader) throw new \Exception("The extension is not compatible with the integration system.");
 
         $data = $reader->readFromAnURL($url);
-
         //TODO: check the errors thrown
         if (empty($data)) throw new \Exception("The file is empty or wrong.");
 
         $dataArray = $reader->toArray($data);
+        //dd($dataArray);
 
-        $city = 'Barcelona';
-        $configurationFilePath = '/files/ConfigurationBCNEsports.json';
+        $city = 'Gijón';
+        //$configurationFilePath = '/files/ConfigurationBCNEsports.json';
+        $configurationFilePath = '/files/ConfigurationGijon.json';
 
         $this->eventsWriter->storeTheData($dataArray, $configurationFilePath, $city);
     }

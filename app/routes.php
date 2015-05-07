@@ -56,6 +56,11 @@ Route::get('events', [
     'uses' => 'EventsController@index'
 ]);
 
+Route::post('filter', [
+    'as' => 'filter_path',
+    'uses' => 'EventsController@filter'
+]);
+
 /**
  * Integration System testing
  */
@@ -63,6 +68,11 @@ Route::get('events', [
 Route::get('reader', [
     'as' => 'integration_path',
     'uses' => 'IntegrationController@reader'
+]);
+
+Route::get('clean', [
+    'as' => 'clean_path',
+    'uses' => 'IntegrationController@clean'
 ]);
 
 /**

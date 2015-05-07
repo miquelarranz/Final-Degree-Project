@@ -39,8 +39,8 @@ class EventsWriter implements WriterInterface
         $this->city = $city;
         //First we need to look for the events inside the open data
         $events = $this->objectSearch(key($configurationFile), $data);
+        if (is_null($events)) $events = $this->tagSearch(key($configurationFile), $data);
 
-        //dd($events);
         foreach ($events as $event)
         {
             $this->initializeTheObjectArrays();
@@ -74,6 +74,7 @@ class EventsWriter implements WriterInterface
 
             //Once we have looked for all the objects of the data, we have to store them
             $locationId = null;
+
             foreach ($this->citiesPendingToStore as $city) $locationId = $this->storeInTheDatabase($city, 'locations', $database);
 
             $eventId = $this->storeInTheDatabase($attributes, 'events', $database, $locationId);
@@ -82,9 +83,8 @@ class EventsWriter implements WriterInterface
 
             foreach ($this->offersPendingToStore as $offer) $this->storeInTheDatabase($offer, 'offers', $database, $eventId);
         }
-
         mysqli_close($database);
-        dd('done');
+        dd("Read!");
     }
 
     private function objectSearch($object, $array)
@@ -94,7 +94,6 @@ class EventsWriter implements WriterInterface
         //issue. The "checksum" value must exists in all the objects of the key
         $objectData = explode(":", $object);
         $return = null;
-
         //We check that the key has 2 values, else it is a tag search
         if (count($objectData) == 2)
         {
@@ -103,7 +102,6 @@ class EventsWriter implements WriterInterface
                 if ($key === $objectData[0])
                 {
                     //We need to check if the $value is the object or if it is an array of objects
-                    //dd($value);
                     if ($this->checkIfObject($objectData[1], current($value))) return $value;
                     else return current($value);
                 } else
@@ -112,7 +110,6 @@ class EventsWriter implements WriterInterface
                 }
             }
         }
-
         return $return;
     }
 
@@ -190,18 +187,22 @@ class EventsWriter implements WriterInterface
     {
         $attributes = array();
         $className = null;
+
         foreach ($configurationFile as $configurationKey => $configurationValue)
         {
-            if ($configurationKey == "class_name")
+            if ($configurationKey === "class_name")
             {
                 $className = $configurationValue;
+            }
+            if ($configurationKey === "city_name")
+            {
+                $attributes[$configurationValue] = $this->city;
             }
             else
             {
                 $attributes[$configurationValue] = $this->attributeSearch($configurationKey, $data);
             }
         }
-
         //TODO: si no hay class_name pum
         if ($className == 'offers') $this->offersPendingToStore[] = $attributes;
         if ($className == 'organizations') $this->organizationsPendingToStore[] = $attributes;
@@ -382,6 +383,7 @@ class EventsWriter implements WriterInterface
             $postalAddressId = $database->insert_id;
 
             mysqli_query($database, "INSERT INTO intangibles (id) VALUES ($postalAddressId);");
+
             mysqli_query($database, "INSERT INTO structuredValues (id) VALUES ($postalAddressId);");
             mysqli_query($database, "INSERT INTO contactPoints (id) VALUES ($postalAddressId);");
 
@@ -437,12 +439,15 @@ class EventsWriter implements WriterInterface
         }
 
         $thingQuery = $thingQuery . ") VALUES (" . $thingValues . ");";
+
         mysqli_query($database, $thingQuery);
 
         $thingId = $database->insert_id;
 
         $eventQuery = $eventQuery . ") VALUES (" . $thingId  . $eventValues . ");";
+
         mysqli_query($database, $eventQuery);
+
         return $thingId;
     }
 
