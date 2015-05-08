@@ -30,6 +30,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->belongsTo('Person', 'person');
     }
 
+    public function city()
+    {
+        return $this->belongsTo('OpenDataCity', 'defaultCity');
+    }
+
     /**
      * Password must always be hashed.
      * @param $password
@@ -50,5 +55,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function updateAUser($password)
     {
         $this->setPasswordAttribute($password);
+    }
+
+    public function updateTheDefaultCity($city)
+    {
+        $this->attributes['defaultCity'] = $city;
     }
 }

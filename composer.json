@@ -6,8 +6,9 @@
 	"require": {
 		"laravel/framework": "4.2.*",
         "laracasts/validation": "~1.0",
-        "laracasts/flash": "~1.0"
-	},
+        "laracasts/flash": "~1.0",
+        "torann/geoip": "0.1.*@dev"
+    },
     "require-dev": {
         "way/generators": "~2.0",
         "codeception/codeception": "~2.0",

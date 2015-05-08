@@ -27,6 +27,8 @@ class EventsController extends \BaseController {
     {
         $cities = $this->openDataService->getAllTheCities();
 
+        dd(GeoIP::getLocation(Request::getClientIp(true)));
+
         return View::make('events.index')->with(array('cities' => $cities));
     }
 
@@ -52,7 +54,7 @@ class EventsController extends \BaseController {
         }
 
         $events = $this->eventsService->getFilteredEvents(Input::all());
-        dd($events);
+        //dd($events);
         return Redirect::route('events_path')->with(array('events' => $events));
     }
 }

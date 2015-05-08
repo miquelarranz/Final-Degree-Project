@@ -2,37 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5299be8-cb10-4b5e-abde-a0340cb8b7e9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/City.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/repositories/CityRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/files/ConfigurationGijon.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/ContactPoint.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/repositories/ContactPointRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/repositories/EventRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/EventsService.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/GeoCoordinates.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/repositories/GeoCoordinatesRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/Intangible.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/repositories/IntangibleRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/Offer.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/repositories/OfferRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/OpenEvent.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/Organization.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/repositories/OrganizationRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/PostalAddress.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/repositories/PostalAddressRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/StructuredValue.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/repositories/StructuredValuePointRepository.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/partials/avatar.blade.php" afterPath="$PROJECT_DIR$/app/views/events/partials/filters.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2015_04_04_144828_create_things_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2015_04_04_144828_create_things_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2015_04_23_075955_create_events_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2015_04_23_075955_create_events_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/repositories/AdministrativeAreaRepository.php" afterPath="$PROJECT_DIR$/app/repositories/AdministrativeAreaRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/database/migrations/2015_05_02_172309_add_defaultCity_to_users_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/repositories/EventRepository.php" afterPath="$PROJECT_DIR$/app/repositories/EventRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/EventsController.php" afterPath="$PROJECT_DIR$/app/controllers/EventsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/EventsService.php" afterPath="$PROJECT_DIR$/app/services/EventsService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/IntegrationController.php" afterPath="$PROJECT_DIR$/app/controllers/IntegrationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/IntegrationService.php" afterPath="$PROJECT_DIR$/app/services/IntegrationService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Place.php" afterPath="$PROJECT_DIR$/app/models/Place.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/repositories/PlaceRepository.php" afterPath="$PROJECT_DIR$/app/repositories/PlaceRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/events/index.blade.php" afterPath="$PROJECT_DIR$/app/views/events/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User.php" afterPath="$PROJECT_DIR$/app/models/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/repositories/UserRepository.php" afterPath="$PROJECT_DIR$/app/repositories/UserRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/app.php" afterPath="$PROJECT_DIR$/app/config/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/events/partials/filters.blade.php" afterPath="$PROJECT_DIR$/app/views/events/partials/filters.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TFG.iws" />
@@ -58,33 +37,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EventsWriter.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/IntegrationSystem/writers/EventsWriter.php">
+      <file leaf-file-name="EventsController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/EventsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6216216" vertical-offset="0" max-vertical-offset="11385">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding>
-                <marker date="1431034667000" expanded="true" signature="7895:7917" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="7950:7986" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="9274:9296" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="9327:9354" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="9380:9409" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="11240:11262" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="11288:11324" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="11363:11385" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="11424:11446" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="11480:11510" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="11544:11575" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="14693:14748" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="14790:14850" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="15360:15414" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="15457:15516" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="15558:15614" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="16174:16228" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="16266:16307" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="16444:16466" placeholder="INSERT INTO ..." />
-                <marker date="1431034667000" expanded="true" signature="16492:16524" placeholder="INSERT INTO ..." />
-              </folding>
+            <state vertical-scroll-proportion="0.45973155" vertical-offset="370" max-vertical-offset="1495">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,12 +60,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/layouts/default.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/layouts/auth.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
-        <option value="$PROJECT_DIR$/app/models/OpenDataCity.php" />
-        <option value="$PROJECT_DIR$/app/services/OpenDataService.php" />
-        <option value="$PROJECT_DIR$/app/services/PlacesService.php" />
         <option value="$PROJECT_DIR$/app/controllers/RegistrationController.php" />
         <option value="$PROJECT_DIR$/app/controllers/ProfileController.php" />
         <option value="$PROJECT_DIR$/app/repositories/OpenDataCityRepository.php" />
@@ -116,9 +68,6 @@
         <option value="$PROJECT_DIR$/app/lang/cat/messages.php" />
         <option value="$PROJECT_DIR$/app/lang/en/messages.php" />
         <option value="$PROJECT_DIR$/app/views/events/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/events/partials/filters.blade.php" />
-        <option value="$PROJECT_DIR$/app/services/EventsService.php" />
-        <option value="$PROJECT_DIR$/app/controllers/EventsController.php" />
         <option value="$PROJECT_DIR$/public/files/ConfigurationMadrid.json" />
         <option value="$PROJECT_DIR$/app/IntegrationSystem/readers/XMLReader.php" />
         <option value="$PROJECT_DIR$/public/files/ConfigurationCentrosLecturaGijon.json" />
@@ -146,13 +95,22 @@
         <option value="$PROJECT_DIR$/app/repositories/GeoCoordinatesRepository.php" />
         <option value="$PROJECT_DIR$/app/models/Event.php" />
         <option value="$PROJECT_DIR$/app/models/OpenEvent.php" />
-        <option value="$PROJECT_DIR$/app/repositories/EventRepository.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_04_04_144828_create_things_table.php" />
         <option value="$PROJECT_DIR$/public/files/ConfigurationGijon.json" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_04_23_075955_create_events_table.php" />
         <option value="$PROJECT_DIR$/app/services/IntegrationService.php" />
         <option value="$PROJECT_DIR$/app/controllers/IntegrationController.php" />
         <option value="$PROJECT_DIR$/app/IntegrationSystem/writers/EventsWriter.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_05_02_172309_add_defaultCity_to_users_table.php" />
+        <option value="$PROJECT_DIR$/app/views/events/partials/filters.blade.php" />
+        <option value="$PROJECT_DIR$/app/services/EventsService.php" />
+        <option value="$PROJECT_DIR$/app/repositories/UserRepository.php" />
+        <option value="$PROJECT_DIR$/app/models/User.php" />
+        <option value="$PROJECT_DIR$/app/repositories/EventRepository.php" />
+        <option value="$PROJECT_DIR$/vendor/stevebauman/location/src/Location.php" />
+        <option value="$PROJECT_DIR$/app/config/app.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/app/controllers/EventsController.php" />
       </list>
     </option>
   </component>
@@ -203,6 +161,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="TFG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TFG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TFG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -594,6 +566,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TFG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TFG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -605,11 +595,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/database/migrations" />
       <recent name="$PROJECT_DIR$/app/repositories" />
       <recent name="$PROJECT_DIR$/app/models" />
       <recent name="$PROJECT_DIR$/public/files" />
       <recent name="$PROJECT_DIR$/app/services" />
-      <recent name="$PROJECT_DIR$/app/views/events/partials" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/IntegrationSystem/readers" />
@@ -814,24 +804,24 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32936507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21164021" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21164021" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21164021" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17689823" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21164021" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3473344" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -885,118 +875,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/lang/es/messages.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57550335" vertical-offset="715" max-vertical-offset="1357">
-          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/lang/cat/messages.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65268457" vertical-offset="669" max-vertical-offset="1334">
-          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/lang/en/messages.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6912752" vertical-offset="646" max-vertical-offset="1334">
-          <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65268457" vertical-offset="1290" max-vertical-offset="2139">
-          <caret line="74" column="21" selection-start-line="73" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/auth.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22818792" vertical-offset="232" max-vertical-offset="874">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/events/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42449665" vertical-offset="0" max-vertical-offset="596">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/lang/en/validation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5302013" vertical-offset="914" max-vertical-offset="2530">
-          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/events/partials/filters.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38590604" vertical-offset="46" max-vertical-offset="1702">
-          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/OpenDataService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7684564" vertical-offset="117" max-vertical-offset="759">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/DB.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23154363" vertical-offset="0" max-vertical-offset="596">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/IntegrationSystem/core/WriterInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="596">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/files/ConfigurationBCNEsports.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23154363" vertical-offset="0" max-vertical-offset="596">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/IntegrationSystem/core/ReaderInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30872482" vertical-offset="0" max-vertical-offset="596">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/IntegrationSystem/readers/XMLReader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6912752" vertical-offset="393" max-vertical-offset="1150">
-          <caret line="36" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/IntegrationSystem/readers/JSONReader.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.57885903" vertical-offset="0" max-vertical-offset="596">
@@ -1017,22 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7298658" vertical-offset="1244" max-vertical-offset="2415">
           <caret line="73" column="6" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/EventsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.807047" vertical-offset="715" max-vertical-offset="1449">
-          <caret line="53" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/EventsService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.807047" vertical-offset="623" max-vertical-offset="1288">
-          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -1093,14 +955,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/repositories/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.19295302" vertical-offset="115" max-vertical-offset="1196">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/repositories/OfferRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38590604" vertical-offset="0" max-vertical-offset="897">
@@ -1138,16 +992,6 @@
         <state vertical-scroll-proportion="-0.11912752" vertical-offset="485" max-vertical-offset="1081">
           <caret line="19" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/repositories/EventRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49832216" vertical-offset="1750" max-vertical-offset="2346">
-          <caret line="90" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
-          <folding>
-            <marker date="1431021572000" expanded="true" signature="-1:-1" placeholder="SELECT e.* F..events..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1282,40 +1126,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/IntegrationController.php">
+    <entry file="file://$PROJECT_DIR$/app/IntegrationSystem/writers/EventsWriter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45973155" vertical-offset="278" max-vertical-offset="1242">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.5402685" vertical-offset="805" max-vertical-offset="11385">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+          <folding>
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431075320000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_05_02_172309_add_defaultCity_to_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61744964" vertical-offset="0" max-vertical-offset="943">
+          <caret line="17" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/IntegrationSystem/writers/EventsWriter.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/IntegrationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6216216" vertical-offset="0" max-vertical-offset="11385">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.61409396" vertical-offset="347" max-vertical-offset="1242">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/events/partials/filters.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5016779" vertical-offset="851" max-vertical-offset="1702">
+          <caret line="50" column="147" selection-start-line="50" selection-start-column="147" selection-end-line="50" selection-end-column="147" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/EventsService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7298658" vertical-offset="807" max-vertical-offset="1495">
+          <caret line="55" column="60" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/repositories/UserRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17785235" vertical-offset="515" max-vertical-offset="1426">
+          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/repositories/EventRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38590604" vertical-offset="1173" max-vertical-offset="2346">
+          <caret line="62" column="14" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
           <folding>
-            <marker date="1431034667000" expanded="true" signature="7895:7917" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="7950:7986" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="9274:9296" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="9327:9354" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="9380:9409" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="11240:11262" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="11288:11324" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="11363:11385" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="11424:11446" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="11480:11510" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="11544:11575" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="14693:14748" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="14790:14850" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="15360:15414" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="15457:15516" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="15558:15614" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="16174:16228" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="16266:16307" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="16444:16466" placeholder="INSERT INTO ..." />
-            <marker date="1431034667000" expanded="true" signature="16492:16524" placeholder="INSERT INTO ..." />
+            <marker date="1431080382000" expanded="true" signature="-1:-1" placeholder="SELECT e.* F..events..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0419463" vertical-offset="552" max-vertical-offset="1541">
+          <caret line="54" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Config/Repository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42449665" vertical-offset="1748" max-vertical-offset="9637">
+          <caret line="89" column="28" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3187919" vertical-offset="1978" max-vertical-offset="5290">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30872482" vertical-offset="0" max-vertical-offset="1771">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/EloquentUserProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="1098" max-vertical-offset="2967">
+          <caret line="56" column="43" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laracasts/testdummy/src/Laracasts/TestDummy/EloquentDatabaseProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.322807" vertical-offset="0" max-vertical-offset="1150">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.3674498" vertical-offset="667" max-vertical-offset="4692">
+          <caret line="194" column="55" selection-start-line="194" selection-start-column="55" selection-end-line="194" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34731543" vertical-offset="0" max-vertical-offset="1288">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/EventsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45973155" vertical-offset="370" max-vertical-offset="1495">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

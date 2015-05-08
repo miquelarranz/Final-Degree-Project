@@ -60,7 +60,7 @@ class EventRepository implements RepositoryInterface {
                 $now = date_create()->format('Y-m-d H:i:s');
                 $query = $query . "AND (e.startDate > '$now' or e.startDate = NULL) ";
             }
-            dd($query . "ORDER BY e.startDate ASC LIMIT 50");
+            //dd($query . "ORDER BY e.startDate ASC LIMIT 50");
             $result = DB::select($query . " ORDER BY e.startDate ASC LIMIT 50");
 
             //dd(DB::getQueryLog());

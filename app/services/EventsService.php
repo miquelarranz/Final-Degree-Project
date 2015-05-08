@@ -1,14 +1,22 @@
 <?php namespace services;
 
+use Illuminate\Support\Facades\Auth;
 use repositories\EventRepository;
+use repositories\UserRepository;
 
 class EventsService {
 
     protected $eventRepository;
 
-    public function __construct(EventRepository $eventRepository)
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
+
+    public function __construct(UserRepository $userRepository, EventRepository $eventRepository)
     {
         $this->eventRepository = $eventRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function getFilteredEvents($data)
@@ -45,7 +53,9 @@ class EventsService {
         if ($data['name'] != "") $dataArray['name'] = $data['name'];
         if ($data['city'] != "") $dataArray['city'] = $data['city'];
 
-        if (empty($dataArray)) return array();
+        if ($data['city'] != "") $this->userRepository->update(array('city' => $data['city'], 'id' => Auth::id()));
+
+        if (empty($dataArray)) $this->eventRepository->all(null);
         else return $this->eventRepository->all($dataArray);
     }
 }

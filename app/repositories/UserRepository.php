@@ -26,14 +26,24 @@ class UserRepository implements RepositoryInterface {
     public function update(array $data)
     {
         $user = $this->read($data['id']);
-
-        if ($data['password'] !== "")
+        if (array_key_exists('password', $data))
         {
-            $user->updateAUser($data['password']);
+            if ($data['password'] != "")
+            {
+                $user->updateAUser($data['password']);
 
-            $user->save();
+                $user->save();
+            }
         }
+        if (array_key_exists('city', $data))
+        {
+            if ($data['city'] !== "")
+            {
+                $user->updateTheDefaultCity($data['city']);
 
+                $user->save();
+            }
+        }
         return $user;
     }
 
