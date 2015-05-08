@@ -7,7 +7,7 @@
             <a href="{{ URL::route('profile_path') }}"><span class="sidebar-icons glyphicon glyphicon-user" aria-hidden="true"></span>@lang('messages.sidebar/profile')</a>
         </li>
         <li>
-            <a href="#"><span class="sidebar-icons glyphicon glyphicon-search" aria-hidden="true"></span>@lang('messages.sidebar/search')</a>
+            <a href="{{ URL::route('events_path') }}"><span class="sidebar-icons glyphicon glyphicon-search" aria-hidden="true"></span>@lang('messages.sidebar/search')</a>
         </li>
         <li>
             <a href="#"><span class="sidebar-icons glyphicon glyphicon-star" aria-hidden="true"></span>@lang('messages.sidebar/favorite')</a>

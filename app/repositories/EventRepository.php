@@ -11,12 +11,15 @@ class EventRepository implements RepositoryInterface {
 
         if ( ! is_null($related))
         {
-            $query = "SELECT DISTINCT e.* FROM events e, things t, things pt, places p, openDataCities o WHERE ";
+            $queryHeader = "SELECT DISTINCT e.* FROM events e";
+            $query = " WHERE ";
             $first = true;
+            //, things t, things pt, places p, openDataCities o
             $startDateAdded = false;
 
             if (array_key_exists('name', $related))
             {
+                $queryHeader = $queryHeader . ", things t";
                 $name = $related['name'];
                 if ($first)
                 {
@@ -54,6 +57,7 @@ class EventRepository implements RepositoryInterface {
             }
             if (array_key_exists('location', $related))
             {
+                $queryHeader = $queryHeader . ", things pt, places p, openDataCities o";
                 $city = $related['location'];
                 if ($first)
                 {
@@ -66,6 +70,8 @@ class EventRepository implements RepositoryInterface {
                 $now = date_create()->format('Y-m-d H:i:s');
                 $query = $query . "AND (e.startDate > '$now' or e.startDate IS NULL) ";
             }
+
+            $query = $queryHeader . $query;
             //dd($query . "ORDER BY e.startDate ASC LIMIT 50");
             /*$result = array();
             $eloquentFilter = array();

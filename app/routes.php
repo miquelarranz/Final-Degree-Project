@@ -56,6 +56,11 @@ Route::get('events', [
     'uses' => 'EventsController@index'
 ]);
 
+Route::get('event/{id}', [
+    'as' => 'event_path',
+    'uses' => 'EventsController@show'
+]);
+
 Route::post('filter', [
     'as' => 'filter_path',
     'uses' => 'EventsController@filter'

@@ -109,4 +109,9 @@ class EventsService {
             else  return $this->eventRepository->all($dataArray);
         }
     }
+
+    public function getAnEvent($id)
+    {
+        return $this->eventRepository->read($id);
+    }
 }

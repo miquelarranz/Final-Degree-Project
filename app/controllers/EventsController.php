@@ -60,4 +60,11 @@ class EventsController extends \BaseController {
 
         return View::make('events.index')->with(array('cities' => $cities, 'events' => $events));
     }
+
+    public function show($id)
+    {
+        $event = $this->eventsService->getAnEvent($id);
+
+        return View::make('events.show')->with(array('event' => $event));
+    }
 }

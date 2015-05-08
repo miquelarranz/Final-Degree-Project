@@ -199,3 +199,11 @@ body {
     font-size: 12px;
     color: #AAA;
 }
+
+.event-link:hover {
+    text-decoration: none;
+}
+
+.event-link > div:hover {
+    opacity: 0.8;
+}
