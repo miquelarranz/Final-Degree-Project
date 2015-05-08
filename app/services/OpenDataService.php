@@ -20,7 +20,7 @@ class OpenDataService {
 
         foreach ($cities as $city)
         {
-            $citiesArray[$city->id] = $city->name;
+            $citiesArray[$city->id] = utf8_decode($city->name);
         }
 
         return $citiesArray;

@@ -33,4 +33,21 @@ class OpenEvent extends Thing {
     {
         return $this->hasMany('Organization', 'event');
     }
+
+    public function newFromStd(stdClass $std)
+    {
+        // backup fillable
+        $fillable = $this->getFillable();
+
+        // set id and other fields you want to be filled
+        $this->fillable(['id', 'doorTime', 'duration', 'startDate', 'endDate', 'type', 'typicalAgeRange', 'eventStatus', 'location']);
+
+        // fill $this->attributes array
+        $this->fill((array) $std);
+
+        // restore fillable
+        $this->fillable($fillable);
+
+        return $this;
+    }
 }

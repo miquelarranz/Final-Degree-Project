@@ -13,10 +13,10 @@
     </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            {{ Form::open() }}
+            {{ Form::open(array('route' => 'filter_path')) }}
                 <div class="row">
                     <div class = "form-group col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-                        {{ Form::select('city', array('Barcelona', 'London'), null, ['class' => 'form-control', 'required' => 'required']) }}
+                        {{ Form::select('city', array(null => Lang::get('messages.filters/cityempty')) + $cities, null, ['class' => 'form-control', 'required' => 'required']) }}
                     </div>
                 </div>
                 <div class="row">
@@ -26,7 +26,7 @@
                             <span class="input-group-addon">
                                 <span class="home-search glyphicon glyphicon-search" aria-hidden="true"></span>
                             </span>
-                            {{ Form::text('keyword', null, ['class' => 'form-control', 'required' => 'required']) }}
+                                {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => Lang::get('messages.filters/name')] ) }}
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-default home-button" type="button">@lang("messages.home/search")</button>
                             </span>

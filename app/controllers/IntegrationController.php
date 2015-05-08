@@ -21,9 +21,9 @@ class IntegrationController extends \BaseController {
         $url = 'http://datos.alcobendas.org/dataset/2458d605-1fd0-4d16-a1ef-795bc243e152/resource/96860600-1b5b-46f4-841b-53ffcf78711e/download/agendacultural.json';
         $url = 'http://www.nycgovparks.org/xml/events_300_rss.xml';
         //OK Gijon
-        //$url = 'http://datos.gijon.es/doc/cultura-ocio/sala-exposiciones.xml';
+        $url = 'http://datos.gijon.es/doc/cultura-ocio/sala-exposiciones.xml';
         //OK BCN esports
-        $url = 'http://w10.bcn.es/APPS/asiasiacache/peticioXmlAsia?id=203';
+        //$url = 'http://w10.bcn.es/APPS/asiasiacache/peticioXmlAsia?id=203';
         //$url = 'http://www.nanaimo.ca/PRC/CulturalMap/odata/Entities';
         //OK
         //$url = 'http://api.seatgeek.com/2/events?venue.city=NY&per_page=10&format=xml&id=2393462';

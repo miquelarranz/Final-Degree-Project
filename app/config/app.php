@@ -125,6 +125,7 @@ return array(
         'Laracasts\Validation\ValidationServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
         'Torann\GeoIP\GeoIPServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
     ),
 
 	/*
@@ -192,7 +193,8 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
         'Flash'           => 'Laracasts\Flash\Flash',
-        'GeoIP'           => 'Torann\GeoIP\GeoIPFacade'
+        'GeoIP'           => 'Torann\GeoIP\GeoIPFacade',
+        'Debugbar'        => 'Barryvdh\Debugbar\Facade'
     ],
 
 );

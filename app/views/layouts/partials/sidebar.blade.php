@@ -12,6 +12,9 @@
         <li>
             <a href="#"><span class="sidebar-icons glyphicon glyphicon-star" aria-hidden="true"></span>@lang('messages.sidebar/favorite')</a>
         </li>
+        <li>
+            <a href="{{ URL::route('logout_path') }}"><span class="sidebar-icons glyphicon glyphicon-log-out" aria-hidden="true"></span>@lang('messages.home/logout')</a>
+        </li>
         <li class="sidebar-language-container">
             <a class="sidebar-language-content">
                 {{ Form::open(array('route' => 'language_path', 'id' => 'language-form', 'class' => 'inline-form')) }}

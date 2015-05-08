@@ -48,7 +48,11 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class = "form-group register-input">
-                                {{ Form::select('city', array(null => Lang::get('messages.filters/cityempty')) + $cities, $currentUser->defaultCity, ['class' => 'form-control'] ) }}
+                                @if ($currentUser)
+                                    {{ Form::select('city', array(null => Lang::get('messages.filters/cityempty')) + $cities, $currentUser->defaultCity, ['class' => 'form-control'] ) }}
+                                @else
+                                    {{ Form::select('city', array(null => Lang::get('messages.filters/cityempty')) + $cities, null, ['class' => 'form-control'] ) }}
+                                @endif
                             </div>
                         </div>
                     </div>

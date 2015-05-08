@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends(Auth::user() ? 'layouts.auth' : 'layouts.default')
 
 @section('content')
     <div class="row">
@@ -8,7 +8,34 @@
             @include('events.partials.filters')
 
             <h1 class="text-center white-color title-margin">Events list</h1>
-
+            @if (count($events) > 0)
+                @foreach(array_chunk($events, 3) as $eventSet)
+                    <div class="row">
+                        @foreach($eventSet as $event)
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail event-container">
+                                        @if (is_null($event->thing->image))
+                                            <img class="img-responsive img-thumbnail event-image" src="/images/images-background.jpeg" alt="Event">
+                                        @else
+                                            <img class="img-responsive img-thumbnail event-image" src="{{ $event->thing->image }}" alt="Event">
+                                        @endif
+                                    <div class="caption">
+                                        <h3 class="text-center event-title" title="{{ $event->thing->name }}"> {{ str_limit(utf8_decode($event->thing->name), 30) }} </h3>
+                                        @if ( ! is_null($event->startDate))
+                                            <p class="text-center"><b> {{ $event->startDate }} </b></p>
+                                        @else
+                                            <p class="text-center event-permanent"><b>  Permanente </b></p>
+                                        @endif
+                                        <p class="text-center event-type" title="{{ $event->type }}"> {{ str_limit(utf8_decode($event->type), 50) }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endforeach
+            @else
+                <p>Error</p>
+            @endif
         </div>
     </div>
 

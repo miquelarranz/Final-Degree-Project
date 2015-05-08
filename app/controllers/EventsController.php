@@ -15,7 +15,7 @@ class EventsController extends \BaseController {
      */
     function __construct(OpenDataService $openDataService, EventsService $eventsService)
     {
-        $this->beforeFilter('auth');
+        //$this->beforeFilter('auth');
         $this->openDataService = $openDataService;
         $this->eventsService = $eventsService;
     }
@@ -27,14 +27,16 @@ class EventsController extends \BaseController {
     {
         $cities = $this->openDataService->getAllTheCities();
 
-        dd(GeoIP::getLocation(Request::getClientIp(true)));
+        //dd(GeoIP::getLocation(Request::getClientIp(true)));
 
-        return View::make('events.index')->with(array('cities' => $cities));
+        $events = $this->eventsService->getFilteredEvents(array());
+
+        return View::make('events.index')->with(array('cities' => $cities, 'events' => $events));
     }
 
     public function filter()
     {
-        extract(Input::only('startDate', 'endDate'));
+        /*extract(Input::only('startDate', 'endDate'));
 
         $validator = Validator::make(
             [
@@ -51,10 +53,11 @@ class EventsController extends \BaseController {
         {
             $errors = $validator->messages();
             return Redirect::back()->withInput()->with(array('errors' => $errors));
-        }
+        }*/
 
         $events = $this->eventsService->getFilteredEvents(Input::all());
-        //dd($events);
-        return Redirect::route('events_path')->with(array('events' => $events));
+        $cities = $this->openDataService->getAllTheCities();
+
+        return View::make('events.index')->with(array('cities' => $cities, 'events' => $events));
     }
 }

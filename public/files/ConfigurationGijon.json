@@ -1,6 +1,7 @@
 {
     "directorio": {
         "web": "things:url",
+        "nombre": "things:name",
         "tipo": "events:type",
         "foto": "things:image",
         "direccion": {

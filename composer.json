@@ -7,7 +7,8 @@
 		"laravel/framework": "4.2.*",
         "laracasts/validation": "~1.0",
         "laracasts/flash": "~1.0",
-        "torann/geoip": "0.1.*@dev"
+        "torann/geoip": "0.1.*@dev",
+		"barryvdh/laravel-debugbar": "~1.8"
     },
     "require-dev": {
         "way/generators": "~2.0",
