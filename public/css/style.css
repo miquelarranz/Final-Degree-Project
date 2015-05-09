@@ -207,3 +207,44 @@ body {
 .event-link > div:hover {
     opacity: 0.8;
 }
+
+.event-container {
+    color: #777;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.event-container > .row {
+    padding: 0 30px;
+}
+
+.event-container > .row > div:first-child {
+    padding: 20px 0 10px;
+    color: #446CB3;
+    text-align: left;
+    border-top: 1px solid #446CB3;
+}
+
+.event-container > .row:last-child > div:last-child {
+    border-bottom: 1px solid #446CB3;
+}
+
+.event-container > .row > div {
+    padding: 0 0px 20px 0;
+    border-top: none;
+}
+
+.event-performer {
+
+}
+
+.performer-icon {
+    cursor: pointer;
+    padding-left: 20px;
+    color: #446CB3;
+}
+
+.performer-icon:hover {
+    padding-left: 20px;
+    color: #F2784B;
+}

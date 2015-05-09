@@ -10,7 +10,7 @@
             @if ( ! is_null($event->startDate))
                 <p class="text-center"><b> {{ $event->startDate }} </b></p>
             @else
-                <p class="text-center event-permanent"><b>  Permanente </b></p>
+                <p class="text-center event-permanent"><b> @lang('messages.event/date') </b></p>
             @endif
             <p class="text-center event-type" title="{{ $event->type }}"> {{ str_limit(utf8_decode($event->type), 50) }}</p>
         </div>
