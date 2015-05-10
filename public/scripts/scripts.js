@@ -30,9 +30,13 @@ $('.datepicker').datetimepicker(
     {
         timepicker: false,
         format: 'Y/m/d'
-    });
+    }
+);
 $('.timepicker').datetimepicker(
     {
         datepicker:false,
         format: 'H:i'
-    });
+    }
+);
+
+

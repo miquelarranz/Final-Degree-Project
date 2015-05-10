@@ -103,3 +103,17 @@ Route::get('profile/delete', [
     'as' => 'profile_delete_path',
     'uses' => 'ProfileController@delete'
 ]);
+
+/**
+ * Google
+ */
+
+Route::get('login/google', [
+    'as' => 'google_login_path',
+    'uses' => 'GoogleController@login'
+]);
+
+Route::post('addEvent', [
+    'as' => 'add_event_path',
+    'uses' => 'GoogleController@addEvent'
+]);

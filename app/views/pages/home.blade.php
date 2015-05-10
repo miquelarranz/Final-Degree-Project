@@ -26,7 +26,7 @@
                             <span class="input-group-addon">
                                 <span class="home-search glyphicon glyphicon-search" aria-hidden="true"></span>
                             </span>
-                                {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => Lang::get('messages.filters/name')] ) }}
+                            {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => Lang::get('messages.filters/name')] ) }}
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-default home-button" type="button">@lang("messages.home/search")</button>
                             </span>

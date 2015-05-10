@@ -62,4 +62,9 @@ return array(
     'event/status' => 'Estado',
     'event/typicalAgeRange' => 'Edad recomendada',
     'event/performers' => 'Artistas',
+    'event/calendar' => 'Añadelo a Google Calendar',
+    'google/title' => 'Escoge un calendario',
+    'google/add' => 'Añade el evento!',
+    'google/calendarError' => 'No tienes ningun calendario, crea uno en Google Calendar primero.',
+
 );

@@ -65,6 +65,8 @@ class EventsController extends \BaseController {
     {
         $event = $this->eventsService->getAnEvent($id);
 
+        Session::put('event', $id);
+
         return View::make('events.show')->with(array('event' => $event));
     }
 }

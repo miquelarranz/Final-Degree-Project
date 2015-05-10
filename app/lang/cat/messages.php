@@ -61,4 +61,8 @@ return array(
     'event/status' => 'Estat',
     'event/typicalAgeRange' => 'Edat recomendada',
     'event/performers' => 'Artistes',
+    'event/calendar' => 'Afegeix-lo a Google Calendar',
+    'google/title' => 'Escull un calendari',
+    'google/add' => 'Afegeix l\'esdeveniment!',
+    'google/calendarError' => 'No tens cap calendari, crea un primer a Google Calendar.',
 );

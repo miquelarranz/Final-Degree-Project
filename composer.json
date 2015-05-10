@@ -8,7 +8,9 @@
         "laracasts/validation": "~1.0",
         "laracasts/flash": "~1.0",
         "torann/geoip": "0.1.*@dev",
-		"barryvdh/laravel-debugbar": "~1.8"
+		"barryvdh/laravel-debugbar": "~1.8",
+        "artdarek/oauth-4-laravel": "dev-master",
+        "google/apiclient": "1.0.*@beta"
     },
     "require-dev": {
         "way/generators": "~2.0",

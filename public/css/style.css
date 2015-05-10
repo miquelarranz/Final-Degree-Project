@@ -248,3 +248,25 @@ body {
     padding-left: 20px;
     color: #F2784B;
 }
+
+.event-add-button {
+    color: white;
+}
+
+.event-add-button:hover, .event-add-button:focus {
+    color: white;
+}
+
+/* Google styles */
+
+.google-add-button {
+    margin: 20px 0;
+    background-color: #446CB3;
+    color: white;
+}
+
+.google-add-button:hover {
+    background-color: #446CB3;
+    color: white;
+    opacity: 0.8;
+}

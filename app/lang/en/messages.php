@@ -61,4 +61,9 @@ return array(
     'event/status' => 'Status',
     'event/typicalAgeRange' => 'Typical age range',
     'event/performers' => 'Performers',
+    'event/calendar' => 'Add to Google Calendar',
+    'google/title' => 'Select a calendar',
+    'google/add' => 'Add the event!',
+    'google/calendarError' => 'You do not have calendars, create one on Google Calendar first.',
+
 );
