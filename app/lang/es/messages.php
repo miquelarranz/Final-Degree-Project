@@ -66,5 +66,6 @@ return array(
     'google/title' => 'Escoge un calendario',
     'google/add' => 'Añade el evento!',
     'google/calendarError' => 'No tienes ningun calendario, crea uno en Google Calendar primero.',
+    'google/add' => 'El evento ha sido añadido a tu calendario!',
 
 );

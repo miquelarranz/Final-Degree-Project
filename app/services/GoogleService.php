@@ -1,6 +1,7 @@
 <?php namespace services;
 
 use Google_Client;
+use Google_Service_Calendar_EventSource;
 use Illuminate\Support\Facades\Session;
 use OAuth;
 use redirect;
@@ -19,7 +20,7 @@ class GoogleService {
         $this->eventRepository = $eventRepository;
     }
 
-    public function login2($code)
+    /*public function login2($code)
     {
         $this->googleService = OAuth::consumer( 'Google', 'http://localhost:8000/login/google/' );
         // check if code is valid
@@ -36,9 +37,9 @@ class GoogleService {
             // return to google login url
             return (string)$url;
         }
-    }
+    }*/
 
-    public function getTheCalendarList2()
+    /*public function getTheCalendarList2()
     {
         $result = json_decode( $this->googleService->request( 'https://www.googleapis.com/calendar/v3/users/me/calendarList' ), true);
         $calendarsArray = array();
@@ -95,7 +96,7 @@ class GoogleService {
         $result = json_decode( $this->googleService->request( "https://www.googleapis.com/calendar/v3/calendars/$calendarId/events/" . $result['id'], "PUT", $data ), true);
         dd($result);
 
-    }
+    }*/
 
     private function getClient()
     {
@@ -104,24 +105,10 @@ class GoogleService {
         $client->setClientSecret('BfOUsUkBDfguxCMPBLXlcv7y');
         $client->setRedirectUri('http://localhost:8000/login/google/');
         $client->setScopes('https://www.googleapis.com/auth/calendar');
+        $client->setAccessType("online");
+        $client-> setApprovalPrompt("auto");
 
         return $client;
-    }
-
-    public function updateAnEvent($calendarId, $eventId, $data)
-    {
-        $client = $this->getClient();
-
-        //$token = Session::get('access_token');
-        //$client->setAccessToken($token->getAccessToken());
-
-        $calendar_service = new \Google_Service_Calendar($client);
-
-        $event = $calendar_service->events->get($calendarId, $eventId);
-        dd($event);
-        $updatedEvent = $calendar_service->events->update($calendarId, $eventId, $data);
-
-        dd($updatedEvent);
     }
 
     public function login()
@@ -129,35 +116,37 @@ class GoogleService {
         $client = $this->getClient();
 
         $service = new \Google_Service_Calendar($client);
-        if (isset($_REQUEST['logout'])) {
+
+        /*if($client->isAccessTokenExpired() and isset($_GET['code']))
+        {
+            $resp = $client->authenticate($_GET['code']);
+            $_SESSION['token'] = $client->getAccessToken();
+            $array = get_object_vars(json_decode($resp));
+            // store and use $refreshToken to get new access tokens
+            dd($array);
+            $refreshToken = $array['refreshToken'];
+        }*/
+        /**if (isset($_REQUEST['logout'])) {
             unset($_SESSION['upload_token']);
-        }
+        }**/
         if (isset($_GET['code'])) {
             $client->authenticate($_GET['code']);
-            $_SESSION['upload_token'] = $client->getAccessToken();
-            $_SESSION['upload_token'];
-            //$redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-            //header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
+            Session::put('upload_token', $client->getAccessToken());
         }
-        if (isset($_SESSION['upload_token']) && $_SESSION['upload_token']) {
-            $client->setAccessToken($_SESSION['upload_token']);
-            if ($client->isAccessTokenExpired()) {
-                unset($_SESSION['upload_token']);
-            }
+        if (Session::has('upload_token') && Session::get('upload_token')) {
+            $client->setAccessToken(Session::get('upload_token'));
+            return null;
         } else {
             $authUrl = $client->createAuthUrl();
             return $authUrl;
         }
-
-
     }
 
     public function getTheCalendarList()
     {
         $client = $this->getClient();
         $service = new \Google_Service_Calendar($client);
-
-        $client->setAccessToken($_SESSION['upload_token']);
+        $client->setAccessToken(Session::get('upload_token'));
 
         $calendars = $service->calendarList->listCalendarList();
 
@@ -166,9 +155,8 @@ class GoogleService {
         foreach ($calendars->getItems() as $calendar) {
              if ($calendar->getAccessRole() == 'owner') $calendarsArray[$calendar->getId()] = $calendar->getSummary();
         }
+
         return $calendarsArray;
-
-
     }
 
     public function addEvent($eventId, $calendarId)
@@ -178,47 +166,44 @@ class GoogleService {
         $client = $this->getClient();
         $service = new \Google_Service_Calendar($client);
 
-        $client->setAccessToken($_SESSION['upload_token']);
+        $client->setAccessToken(Session::get('upload_token'));
 
 
         $event = $this->eventRepository->read($eventId);
 
         $eventCreated = $service->events->quickAdd($calendarId, $event->thing->name);
 
-        $eventCreated->setLocation(utf8_decode($event->eventLocation->postalAddress->streetAddress) . ", " . utf8_decode($event->eventLocation->thing->name));
-        $data = array();
-        $updatedEvent = $service->events->update($calendarId, $eventCreated->getId(), $eventCreated);
-        //dd($updatedEvent->getLocation());
-        /*
-        if ( ! is_null($event->endDate)) $data['end']['datetime'] = $event->endDate;
-        else $data['end'] = $result['end'];
-        if ( ! is_null($event->startDate)) $data['start']['datetime'] = $event->startDate;
-        else $data['start'] = $result['start'];
+        if ( ! is_null($event->startDate))
+        {
+            $start = new \DateTime($event->startDate);
+            $eventCreated->getStart()->setDateTime($start->format('Y-m-d\TH:i:sP'));
+        }
+        if ( ! is_null($event->endDate))
+        {
+            $end = new \DateTime($event->endDate);
+            $eventCreated->getEnd()->setDateTime($end->format('Y-m-d\TH:i:sP'));
+        }
 
         if ( ! is_null($event->thing->url))
         {
-            if ((strpos($event->thing->url, 'http://') !== false) or (strpos($event->thing->url, 'https://') !== false)) $data['source']['url'] = $event->thing->url;
-            else $data['source']['url'] = 'http://' . $event->thing->url;
+            $source = new Google_Service_Calendar_EventSource();
+
+            if ((strpos($event->thing->url, 'http://') !== false) or (strpos($event->thing->url, 'https://') !== false)) $source->setUrl($event->thing->url);
+            else $source->setUrl('http://' . $event->thing->url);
+
+            $eventCreated->setSource($source);
         }
-        if ( ! is_null($event->thing->description)) $data['description'] = utf8_decode($event->thing->description);
+        if ( ! is_null($event->thing->description)) $eventCreated->setDescription(utf8_decode($event->thing->description));
         if ( ! is_null($event->location))
         {
             if ( ! is_null($event->eventLocation->address))
             {
                 if ( ! is_null($event->eventLocation->postalAddress->streetAddress)) {
-                    $data['location'] = utf8_decode($event->eventLocation->postalAddress->streetAddress) . ", " . utf8_decode($event->eventLocation->thing->name);
+                    $eventCreated->setLocation(utf8_decode($event->eventLocation->postalAddress->streetAddress) . ", " . utf8_decode($event->eventLocation->thing->name));
                 }
             }
         }
 
-        $this->updateAnEvent($calendarId, $eventId, $data);
-
-        //dd("https://www.googleapis.com/calendar/v3/calendars/$calendarId/events/" . $result['id']);
-        //dd($data);
-        $result = json_decode( $this->googleService->request( "https://www.googleapis.com/calendar/v3/calendars/$calendarId/events/" . $result['id'], "PUT", $data ), true);
-        dd($result);*/
-
+        $updatedEvent = $service->events->update($calendarId, $eventCreated->getId(), $eventCreated);
     }
-
-
 }

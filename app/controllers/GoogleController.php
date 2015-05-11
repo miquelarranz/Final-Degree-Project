@@ -14,11 +14,9 @@ class GoogleController extends \BaseController {
 
     public function login() {
 
-        // get data from input
         $code = Input::get( 'code' );
 
-
-        $result = $this->googleService->login();
+        $result = $this->googleService->login($code);
         if ( ! is_null($result)) {
             return Redirect::to($result);
         }
@@ -42,6 +40,8 @@ class GoogleController extends \BaseController {
         $calendarId = Input::get('calendar');
 
         $this->googleService->addEvent($eventId, $calendarId);
+
+        Flash::message(Lang::get('messages.google/added'));
 
         return Redirect::route('event_path', array('id' => $eventId));
     }

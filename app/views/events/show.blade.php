@@ -14,7 +14,7 @@
                 <div class="caption">
                     <h3 class="text-center event-title" title="{{ utf8_decode($event->thing->name) }}"> {{ utf8_decode($event->thing->name) }} </h3>
                     @if ( ! is_null($event->startDate))
-                        <p class="text-center"><b> {{ $event->startDate }} - {{ $event->finishDate }} </b></p>
+                        <p class="text-center"><b> {{ $event->startDate }} - {{ $event->endDate }} </b></p>
                     @else
                         <p class="text-center event-permanent"><b> @lang('messages.event/date') </b></p>
                     @endif
