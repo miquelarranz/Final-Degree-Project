@@ -3,14 +3,10 @@
 use Google_Client;
 use Google_Service_Calendar_EventSource;
 use Illuminate\Support\Facades\Session;
-use OAuth;
-use redirect;
 use repositories\EventRepository;
 
 class GoogleService {
-
-    private $googleService;
-
+    
     private $eventRepository;
 
     function __construct(EventRepository $eventRepository)
@@ -117,27 +113,24 @@ class GoogleService {
 
         $service = new \Google_Service_Calendar($client);
 
-        /*if($client->isAccessTokenExpired() and isset($_GET['code']))
-        {
-            $resp = $client->authenticate($_GET['code']);
-            $_SESSION['token'] = $client->getAccessToken();
-            $array = get_object_vars(json_decode($resp));
-            // store and use $refreshToken to get new access tokens
-            dd($array);
-            $refreshToken = $array['refreshToken'];
-        }*/
-        /**if (isset($_REQUEST['logout'])) {
-            unset($_SESSION['upload_token']);
-        }**/
+        /* Si el token expira, s'ha de tornar a autenticar */
+
         if (isset($_GET['code'])) {
             $client->authenticate($_GET['code']);
             Session::put('upload_token', $client->getAccessToken());
         }
         if (Session::has('upload_token') && Session::get('upload_token')) {
             $client->setAccessToken(Session::get('upload_token'));
+            if($client->isAccessTokenExpired()) {
+                Session::forget('upload_token');
+                $authUrl = $client->createAuthUrl();
+                header('Location: ' . filter_var($authUrl, FILTER_SANITIZE_URL));
+                return $authUrl;
+            }
             return null;
         } else {
             $authUrl = $client->createAuthUrl();
+            header('Location: ' . filter_var($authUrl, FILTER_SANITIZE_URL));
             return $authUrl;
         }
     }
@@ -206,4 +199,5 @@ class GoogleService {
 
         $updatedEvent = $service->events->update($calendarId, $eventCreated->getId(), $eventCreated);
     }
+    
 }

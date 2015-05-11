@@ -45,5 +45,4 @@ class GoogleController extends \BaseController {
 
         return Redirect::route('event_path', array('id' => $eventId));
     }
-
 }

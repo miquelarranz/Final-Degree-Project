@@ -16,7 +16,12 @@ class EventRepository implements RepositoryInterface {
             $first = true;
             //, things t, things pt, places p, openDataCities o
             $startDateAdded = false;
+            $limit = 50;
 
+            if (array_key_exists('limit', $related))
+            {
+                $limit = $related['limit'];
+            }
             if (array_key_exists('name', $related))
             {
                 $queryHeader = $queryHeader . ", things t";
@@ -72,7 +77,7 @@ class EventRepository implements RepositoryInterface {
             }
 
             $query = $queryHeader . $query;
-            //dd($query . "ORDER BY e.startDate ASC LIMIT 50");
+            //dd($query . "ORDER BY e.startDate ASC LIMIT " . $limit);
             /*$result = array();
             $eloquentFilter = array();
             $manualFilter = array();
@@ -94,7 +99,7 @@ class EventRepository implements RepositoryInterface {
                 }
             }
             else $result = $eloquentResult;*/
-            $result = DB::select( DB::raw($query . "ORDER BY e.startDate ASC LIMIT 50") );
+            $result = DB::select( DB::raw($query . "ORDER BY e.startDate ASC LIMIT " . $limit) );
 
             $events = array();
             if ( ! empty($result))

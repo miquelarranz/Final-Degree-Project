@@ -126,7 +126,7 @@ return array(
         'Laracasts\Flash\FlashServiceProvider',
         'Torann\GeoIP\GeoIPServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
-        'Artdarek\OAuth\OAuthServiceProvider',
+        'Barryvdh\DomPDF\ServiceProvider',
     ),
 
 	/*
@@ -196,7 +196,7 @@ return array(
         'Flash'           => 'Laracasts\Flash\Flash',
         'GeoIP'           => 'Torann\GeoIP\GeoIPFacade',
         'Debugbar'        => 'Barryvdh\Debugbar\Facade',
-        'OAuth'           => 'Artdarek\OAuth\Facade\OAuth',
+        'PDF'             => 'Barryvdh\DomPDF\Facade',
     ],
 
 );

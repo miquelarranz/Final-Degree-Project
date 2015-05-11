@@ -66,6 +66,11 @@ Route::post('filter', [
     'uses' => 'EventsController@filter'
 ]);
 
+Route::get('download/{id}', [
+    'as' => 'event_download_path',
+    'uses' => 'EventsController@download'
+]);
+
 /**
  * Integration System testing
  */

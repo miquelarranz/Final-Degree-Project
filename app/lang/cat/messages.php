@@ -65,5 +65,8 @@ return array(
     'google/title' => 'Escull un calendari',
     'google/add' => 'Afegeix l\'esdeveniment!',
     'google/calendarError' => 'No tens cap calendari, crea un primer a Google Calendar.',
-    'google/add' => 'L\'esdeveniment ha estat afegit al teu calendari!',
+    'google/added' => 'L\'esdeveniment ha estat afegit al teu calendari!',
+    'event/location' => 'Mapa de l\'esdeveniment',
+    'event/similars' => 'Esdeveniments similars',
+    'event/download' => 'Descarrega l\'esdeveniment',
 );

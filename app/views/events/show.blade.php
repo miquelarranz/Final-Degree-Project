@@ -43,7 +43,7 @@
                                         </div>
                                     </div>
                                 @endif
-                                @if ( ! is_null($event->performers))
+                                @if ( ! empty($event->performers))
                                     <div class="row text-centered">
                                         <div class="col-xs-12">
                                             @lang('messages.event/performers')
@@ -131,36 +131,19 @@
                                 @endif
                             </div>
                             <div class="col-md-6">
-                                @if ($currentUser)
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h3 data-toggle="collapse" class="text-center panel-title" href="#calendar" aria-expanded="true" aria-controls="collapseOne">
-                                                <a class="filters-title">
-                                                    @lang('messages.event/calendar')
-                                                </a>
-                                            </h3>
-                                        </div>
-                                        <div class="panel-collapse collapse profile-delete-button" id="calendar">
-                                            <div class="panel-body">
-                                                <div class = "text-center form-group">
-                                                    <a href="{{ URL::route('google_login_path') }}" class="btn btn-default form-control event-add-button">@lang('messages.event/calendar')</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h3 data-toggle="collapse" class="text-center panel-title" href="#location" aria-expanded="true" aria-controls="collapseOne">
+                                        <h3 data-toggle="collapse" class="text-center panel-title" href="#calendar" aria-expanded="true" aria-controls="collapseOne">
                                             <a class="filters-title">
-                                                @lang('messages.event/location')
+                                                @lang('messages.event/calendar')
                                             </a>
                                         </h3>
                                     </div>
-                                    <div class="panel-collapse collapse" id="location">
+                                    <div class="panel-collapse collapse profile-delete-button" id="calendar">
                                         <div class="panel-body">
-
+                                            <div class = "text-center form-group">
+                                                <a href="{{ URL::route('google_login_path') }}" class="btn btn-default form-control event-add-button">@lang('messages.event/calendar')</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -179,6 +162,48 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 data-toggle="collapse" class="text-center panel-title" href="#similar" aria-expanded="true" aria-controls="collapseOne">
+                                            <a class="filters-title">
+                                                @lang('messages.event/similar')
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="similar">
+                                        <div class="panel-body">
+                                            @foreach ($similarEvents as $similarEvent)
+                                                <a href="{{ URL::route('event_path', array('id' => $similarEvent->id)) }}">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-body">
+                                                            <h4><b>{{ utf8_decode($similarEvent->thing->name) }}</b></h4>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @if ($currentUser)
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 data-toggle="collapse" class="text-center panel-title" href="#download" aria-expanded="true" aria-controls="collapseOne">
+                                                <a class="filters-title">
+                                                    @lang('messages.event/download')
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="panel-collapse collapse" id="download">
+                                            <div class="panel-body">
+                                                <div class = "text-center form-group">
+                                                    <a href="{{ URL::route('event_download_path', array('id' => $event->id)) }}" class="btn btn-success form-control event-download-button">@lang('messages.event/download')</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -187,6 +212,126 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <!--<script src="/scripts/map.js"></script>-->
+    <script>
+        var map;
+        var pos;
+        var directionsService = new google.maps.DirectionsService();
+
+        function initialize() {
+            var mapOptions = {
+                zoom: 14
+            };
+            map = new google.maps.Map(document.getElementById('map'),
+                mapOptions);
+
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    pos = new google.maps.LatLng(position.coords.latitude,
+                        position.coords.longitude);
+
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        map: map,
+                    });
+
+                    map.setCenter(pos);
+
+                    @if ( ! is_null($event->location))
+                        @if ( ! is_null($event->eventLocation->geo))
+                            @if ( ! is_null($event->eventLocation->geo) and ! is_null($event->eventLocation->geoCoordinates->latitude) and ! is_null($event->eventLocation->geoCoordinates->longitude))
+                                var latlng = new google.maps.LatLng( {{ $event->eventLocation->geoCoordinates->latitude }}, {{ $event->eventLocation->geoCoordinates->longitude }});
+                                geocoder = new google.maps.Geocoder();
+                                geocoder.geocode( { 'latLng': latlng}, function(results, status) {
+                                    if (status == google.maps.GeocoderStatus.OK) {
+                                        var marker = new google.maps.Marker({
+                                            map: map,
+                                            position: results[0].geometry.location
+                                        });
+                                        directionsDisplay = new google.maps.DirectionsRenderer();
+                                        var request = {
+                                            origin: pos,
+                                            destination: results[0].geometry.location,
+                                            travelMode: google.maps.TravelMode.DRIVING
+                                        };
+                                        directionsService.route(request, function(response, status) {
+                                            if (status == google.maps.DirectionsStatus.OK) {
+                                                directionsDisplay.setMap(map);
+                                                directionsDisplay.setDirections(response);
+                                            }
+                                        });
+                                    } else {
+                                        alert('Geocode was not successful for the following reason: ' + status);
+                                    }
+                                });
+                            @endif
+                        @else
+                            @if ( ! is_null($event->eventLocation->address))
+                                var address = "";
+
+                                address = address + ", " + "{{ utf8_decode($event->eventLocation->postalAddress->streetAddress) }}";
+
+                                address = address + ", " + "{{ utf8_decode($event->eventLocation->postalAddress->addressRegion) }}";
+
+                                address = address + ", " + "{{ utf8_decode($event->eventLocation->postalAddress->postalCode) }}";
+
+                                address = address + ", " + "{{ utf8_decode($event->eventLocation->thing->name) }}";
+
+                                geocoder = new google.maps.Geocoder();
+                                geocoder.geocode( { 'address': address}, function(results, status) {
+                                    if (status == google.maps.GeocoderStatus.OK) {
+                                        var marker = new google.maps.Marker({
+                                            map: map,
+                                            position: results[0].geometry.location
+                                        });
+                                        directionsDisplay = new google.maps.DirectionsRenderer();
+                                        var request = {
+                                            origin: pos,
+                                            destination: results[0].geometry.location,
+                                            travelMode: google.maps.TravelMode.DRIVING
+                                        };
+                                        directionsService.route(request, function(response, status) {
+                                            if (status == google.maps.DirectionsStatus.OK) {
+                                                directionsDisplay.setMap(map);
+                                                directionsDisplay.setDirections(response);
+                                            }
+                                        });
+                                    } else {
+                                        alert('Geocode was not successful for the following reason: ' + status);
+                                    }
+                                });
+                            @endif
+                        @endif
+                    @endif
+                }, function() {
+                    handleNoGeolocation(true);
+                });
+            } else {
+                handleNoGeolocation(false);
+            }
+        }
+
+        function handleNoGeolocation(errorFlag) {
+            var div = document.getElementById('map');
+
+            if (errorFlag) {
+                var content = 'Error: The Geolocation service failed.';
+                div.html('<p>' + content + '</p>')
+            } else {
+                var content = 'Error: Your browser doesn\'t support geolocation.';
+                div.html('<p>' + content + '</p>')
+            }
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        google.maps.event.addDomListener(window, 'resize', function() {
+            map.setCenter(pos);
+        });
+    </script>
 @endsection
 
 

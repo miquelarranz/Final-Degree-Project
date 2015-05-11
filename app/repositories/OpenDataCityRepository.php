@@ -16,7 +16,10 @@ class OpenDataCityRepository implements RepositoryInterface {
 
     public function read($id, array $related = null)
     {
-        // TODO: Implement read() method.
+        if (is_null($id) and ! is_null($related))
+        {
+            return OpenDataCity::where($related)->first();
+        }
     }
 
     public function update(array $data)

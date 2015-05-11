@@ -9,8 +9,8 @@
         "laracasts/flash": "~1.0",
         "torann/geoip": "0.1.*@dev",
 		"barryvdh/laravel-debugbar": "~1.8",
-        "artdarek/oauth-4-laravel": "dev-master",
-        "google/apiclient": "1.0.*@beta"
+        "google/apiclient": "1.0.*@beta",
+        "barryvdh/laravel-dompdf": "0.4.*"
     },
     "require-dev": {
         "way/generators": "~2.0",

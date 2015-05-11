@@ -25,4 +25,12 @@ class OpenDataService {
 
         return $citiesArray;
     }
+
+    public function getACityIdentifier($data)
+    {
+        $openDataCity = $this->openDataCityRepository->read(null, $data);
+
+        if (is_null($openDataCity)) return null;
+        else return $openDataCity->id;
+    }
 }

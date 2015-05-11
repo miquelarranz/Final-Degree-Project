@@ -1,6 +1,8 @@
 <?php namespace services;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 use repositories\EventRepository;
 use repositories\UserRepository;
 
@@ -28,9 +30,18 @@ class EventsService {
 
         $startDateTimestamp = 0;
         $endDateTimestamp = 0;
+        $limit = '50';
 
         if ( ! empty($data))
         {
+            if (array_key_exists('limit', $data))
+            {
+                if ($data['limit'] != "")
+                {
+                    $dataArray['limit'] = $data['limit'];
+                }
+            }
+
             if (array_key_exists('startDate', $data))
             {
                 if ($data['startDate'] != "")
@@ -113,5 +124,18 @@ class EventsService {
     public function getAnEvent($id)
     {
         return $this->eventRepository->read($id);
+    }
+
+    public function getAnEventPDF($id)
+    {
+        $pdf = App::make('dompdf');
+
+        $event = $this->eventRepository->read($id);
+
+        $html = View::make('events.download')->with(array('event' => $event))->render();
+
+        $pdf->loadHTML($html);
+
+        return $pdf->download("event-$event->id.pdf");
     }
 }
