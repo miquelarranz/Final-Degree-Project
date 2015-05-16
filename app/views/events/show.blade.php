@@ -204,6 +204,49 @@
                                         </div>
                                     </div>
                                 @endif
+
+                                @if ($currentUser)
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 data-toggle="collapse" class="text-center panel-title" href="#subscribe" aria-expanded="true" aria-controls="collapseOne">
+                                                <a class="filters-title">
+                                                    @lang('messages.event/subscribe')
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="panel-collapse collapse" id="subscribe">
+                                            <div class="panel-body">
+                                                <div class = "text-center form-group">
+                                                    @if ($subscribed)
+                                                        <a href="{{ URL::route('event_subscriptions_path') }}" class="btn btn-success form-control event-download-button">@lang('messages.event/subscriptions')</a>
+                                                    @else
+                                                        <a href="{{ URL::route('event_subscription_path', array('id' => $event->id)) }}" class="btn btn-success form-control event-download-button">@lang('messages.event/subscribe')</a>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+
+                                @if ($currentUser)
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 data-toggle="collapse" class="text-center panel-title" href="#share" aria-expanded="true" aria-controls="collapseOne">
+                                                <a class="filters-title">
+                                                    @lang('messages.event/share')
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="panel-collapse collapse" id="share">
+                                            <div class="panel-body">
+                                                <div class = "text-center">
+                                                    <div class="g-plus" data-action="share" data-annotation="none" data-width="450"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+
                             </div>
                         </div>
                     </div>

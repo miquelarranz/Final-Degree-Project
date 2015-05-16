@@ -35,6 +35,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->belongsTo('OpenDataCity', 'defaultCity');
     }
 
+    public function events()
+    {
+        return $this->hasMany('SubscribedEvent', 'user');
+    }
+
     /**
      * Password must always be hashed.
      * @param $password

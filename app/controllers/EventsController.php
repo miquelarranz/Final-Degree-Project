@@ -84,12 +84,35 @@ class EventsController extends \BaseController {
             }
         }
 
-        return View::make('events.show')->with(array('event' => $event, 'similarEvents' => $similarEvents));
+        $subscribed = $this->eventsService->isSubscribed($id);
+
+        return View::make('events.show')->with(array('event' => $event, 'similarEvents' => $similarEvents, 'subscribed' => $subscribed));
     }
 
     public function download($id)
     {
         return $this->eventsService->getAnEventPDF($id);
+    }
+
+    public function subscribe($id)
+    {
+        $this->eventsService->subscribe($id);
+
+        return Redirect::route('event_path', ['id' => $id]);
+    }
+
+    public function unsubscribe($id)
+    {
+        $eventId = $this->eventsService->unsubscribe($id);
+
+        return Redirect::route('event_path', ['id' => $eventId]);
+    }
+
+    public function subscriptions()
+    {
+        $subscribedEvents = Auth::user()->events;
+
+        return View::make('events.subscriptions')->with(array('subscribedEvents' => $subscribedEvents));
     }
 
 }

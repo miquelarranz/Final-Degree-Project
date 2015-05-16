@@ -10,7 +10,7 @@
             <a href="{{ URL::route('events_path') }}"><span class="sidebar-icons glyphicon glyphicon-search" aria-hidden="true"></span>@lang('messages.sidebar/search')</a>
         </li>
         <li>
-            <a href="#"><span class="sidebar-icons glyphicon glyphicon-star" aria-hidden="true"></span>@lang('messages.sidebar/favorite')</a>
+            <a href="{{ URL::route('event_subscriptions_path') }}"><span class="sidebar-icons glyphicon glyphicon-star" aria-hidden="true"></span>@lang('messages.sidebar/favorite')</a>
         </li>
         <li>
             <a href="{{ URL::route('logout_path') }}"><span class="sidebar-icons glyphicon glyphicon-log-out" aria-hidden="true"></span>@lang('messages.home/logout')</a>

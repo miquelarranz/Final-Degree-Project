@@ -3,22 +3,27 @@
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+use repositories\EventPersonRepository;
 use repositories\EventRepository;
+use repositories\SubscribedEventRepository;
 use repositories\UserRepository;
 
 class EventsService {
 
     protected $eventRepository;
 
+    protected $subscribedEventRepository;
+
     /**
      * @var UserRepository
      */
     private $userRepository;
 
-    public function __construct(UserRepository $userRepository, EventRepository $eventRepository)
+    public function __construct(UserRepository $userRepository, EventRepository $eventRepository, SubscribedEventRepository $subscribedEventRepository)
     {
         $this->eventRepository = $eventRepository;
         $this->userRepository = $userRepository;
+        $this->subscribedEventRepository = $subscribedEventRepository;
     }
 
     public function getFilteredEvents($data)
@@ -137,5 +142,73 @@ class EventsService {
         $pdf->loadHTML($html);
 
         return $pdf->download("event-$event->id.pdf");
+    }
+
+    public function subscribe($id)
+    {
+        $event = $this->eventRepository->read($id);
+
+        $address = $this->getAddress($event);
+
+        $this->subscribedEventRepository->create(array('name' => $event->thing->name, 'url' => $event->thing->url, 'description' => $event->thing->description, 'startDate' => $event->startDate, 'address' => $address, 'city' => $event->eventLocation->thing->name, 'user' => Auth::id(), 'type' => $event->type, 'associatedEvent' => $id));
+    }
+
+    public function unsubscribe($id)
+    {
+        $subscribedEvent = $this->subscribedEventRepository->read($id);
+
+        $eventId = $subscribedEvent->associatedEvent;
+
+        $this->subscribedEventRepository->delete($id);
+
+        return $eventId;
+    }
+
+    public function isSubscribed($id)
+    {
+        $subscribedEvents = Auth::user()->events;
+
+        foreach ($subscribedEvents as $subscribedEvent)
+        {
+            if ($subscribedEvent->associatedEvent == $id) return true;
+        }
+
+        return false;
+    }
+
+    private function getAddress($event)
+    {
+        $address = null;
+        $first = true;
+
+        if ( ! is_null($event->eventLocation->address))
+        {
+            if ( ! is_null($event->eventLocation->postalAddress->streetAddress))
+            {
+                if ($first) {
+                    $address = $address . $event->eventLocation->postalAddress->streetAddress;
+                    $first = false;
+                }
+                else $address = $address . ', ' . $event->eventLocation->postalAddress->streetAddress;
+            }
+            if ( ! is_null($event->eventLocation->postalAddress->addressRegion))
+            {
+                if ($first) {
+                    $address = $address . $event->eventLocation->postalAddress->streetAddress;
+                    $first = false;
+                }
+                else $address = $address . ', ' . $event->eventLocation->postalAddress->streetAddress;
+            }
+            if ( ! is_null($event->eventLocation->postalAddress->postalCode))
+            {
+                if ($first) {
+                    $address = $address . $event->eventLocation->postalAddress->streetAddress;
+                    $first = false;
+                }
+                else $address = $address . ', ' . $event->eventLocation->postalAddress->streetAddress;
+            }
+        }
+
+        return $address;
     }
 }

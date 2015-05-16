@@ -71,6 +71,21 @@ Route::get('download/{id}', [
     'uses' => 'EventsController@download'
 ]);
 
+Route::get('subscribe/{id}', [
+    'as' => 'event_subscription_path',
+    'uses' => 'EventsController@subscribe'
+]);
+
+Route::get('unsubscribe/{id}', [
+    'as' => 'event_unsubscription_path',
+    'uses' => 'EventsController@unsubscribe'
+]);
+
+Route::get('subscriptions', [
+    'as' => 'event_subscriptions_path',
+    'uses' => 'EventsController@subscriptions'
+]);
+
 /**
  * Integration System testing
  */
