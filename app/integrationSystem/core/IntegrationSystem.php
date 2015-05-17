@@ -21,7 +21,7 @@ class IntegrationSystem
     }
 
 
-    public function integrateAnOpenDataSource($url, $extension)
+    public function integrateAnOpenDataSource($url, $extension, $city, $configurationFilePath)
     {
 
         $reader = $this->findTheReader($extension);
@@ -35,9 +35,9 @@ class IntegrationSystem
         $dataArray = $reader->toArray($data);
         //dd($dataArray);
 
-        $city = 'Gijón';
+        //$city = 'Gijón';
         //$configurationFilePath = '/files/ConfigurationBCNEsports.json';
-        $configurationFilePath = '/files/ConfigurationGijon.json';
+        //$configurationFilePath = '/files/ConfigurationGijon.json';
 
         $this->eventsWriter->storeTheData($dataArray, $configurationFilePath, $city);
     }

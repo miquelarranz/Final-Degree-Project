@@ -43,8 +43,15 @@ class SessionsController extends \BaseController {
 
         if (Auth::attempt($formData))
         {
-            Flash::message(Lang::get('messages.events/welcome'));
-            return Redirect::intended('events');
+            if (Auth::user()->role == 'systemAdministrator')
+            {
+                return Redirect::intended('sources');
+            }
+            else
+            {
+                Flash::message(Lang::get('messages.events/welcome'));
+                return Redirect::intended('events');
+            }
         }
 
         Flash::error(Lang::get('messages.login/error'));

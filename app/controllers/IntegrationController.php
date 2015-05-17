@@ -8,6 +8,7 @@ class IntegrationController extends \BaseController {
 
     public function __construct(IntegrationService $integrationService)
     {
+        //$this->beforeFilter('admin');
         $this->integrationService = $integrationService;
     }
 
@@ -39,6 +40,8 @@ class IntegrationController extends \BaseController {
             dd($exception->getMessage() . $exception->getTraceAsString());
         }
     }
+
+
 
     public function clean()
     {

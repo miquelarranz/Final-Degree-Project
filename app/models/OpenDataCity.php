@@ -14,6 +14,14 @@ class OpenDataCity  extends Eloquent {
      */
     protected $table = 'openDataCities';
 
+    public $timestamps = false;
+
     protected $fillable = array('id', 'name');
 
+    public static function createAnOpenDataCity($name)
+    {
+        $city = new static(compact('name'));
+
+        return $city;
+    }
 }

@@ -11,7 +11,11 @@ class OpenDataCityRepository implements RepositoryInterface {
 
     public function create(array $data)
     {
-        // TODO: Implement create() method.
+        $city = OpenDataCity::createAnOpenDataCity($data['name']);
+
+        $city->save();
+
+        return $city;
     }
 
     public function read($id, array $related = null)
@@ -19,6 +23,9 @@ class OpenDataCityRepository implements RepositoryInterface {
         if (is_null($id) and ! is_null($related))
         {
             return OpenDataCity::where($related)->first();
+        }
+        else {
+            return OpenDataCity::find($id);
         }
     }
 
@@ -29,6 +36,8 @@ class OpenDataCityRepository implements RepositoryInterface {
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        $city = $this->read($id);
+
+        $city->delete();
     }
 }

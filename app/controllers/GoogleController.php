@@ -8,7 +8,7 @@ class GoogleController extends \BaseController {
 
     function __construct(GoogleService $googleService)
     {
-        $this->beforeFilter('auth');
+        //$this->beforeFilter('auth');
         $this->googleService = $googleService;
     }
 

@@ -70,5 +70,8 @@ return array(
     'event/location' => 'Mapa del evento',
     'event/similar' => 'Eventos similares',
     'event/download' => 'Descarga el evento',
+    'events/noEventsTitle' => 'No hemos encontrado ningun evento!',
+    'events/noEventsText' => 'Prueba con valores distintos en el filtro',
+    'events/title' => 'Listado de eventos',
 
 );

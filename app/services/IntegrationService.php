@@ -8,6 +8,8 @@ use repositories\EventRepository;
 use repositories\GeoCoordinatesRepository;
 use repositories\IntangibleRepository;
 use repositories\OfferRepository;
+use repositories\OpenDataCityRepository;
+use repositories\OpenDataSourceRepository;
 use repositories\OrganizationRepository;
 use repositories\PlaceRepository;
 use repositories\PostalAddressRepository;
@@ -42,7 +44,11 @@ class IntegrationService {
 
     private $geoCoordinatesRepository;
 
-    public function __construct(IntegrationSystem $integrationSystem, ThingRepository $thingRepository, IntangibleRepository $intangibleRepository, OfferRepository $offerRepository, OrganizationRepository $organizationRepository, EventRepository $eventRepository, CityRepository $cityRepository, AdministrativeAreaRepository $administrativeAreaRepository, PlaceRepository $placeRepository, PostalAddressRepository $postalAddressRepository, ContactPointRepository $contactPointRepository, StructuredValueRepository $structuredValueRepository, GeoCoordinatesRepository $geoCoordinatesRepository)
+    private $openDataCityRepository;
+
+    private $openDataSourceRepository;
+
+    public function __construct(IntegrationSystem $integrationSystem, ThingRepository $thingRepository, IntangibleRepository $intangibleRepository, OfferRepository $offerRepository, OrganizationRepository $organizationRepository, EventRepository $eventRepository, CityRepository $cityRepository, AdministrativeAreaRepository $administrativeAreaRepository, PlaceRepository $placeRepository, PostalAddressRepository $postalAddressRepository, ContactPointRepository $contactPointRepository, StructuredValueRepository $structuredValueRepository, GeoCoordinatesRepository $geoCoordinatesRepository, OpenDataCityRepository $openDataCityRepository, OpenDataSourceRepository $openDataSourceRepository)
     {
         $this->integrationSystem = $integrationSystem;
         $this->thingRepository = $thingRepository;
@@ -57,11 +63,13 @@ class IntegrationService {
         $this->contactPointRepository = $contactPointRepository;
         $this->structuredValueRepository = $structuredValueRepository;
         $this->geoCoordinatesRepository = $geoCoordinatesRepository;
+        $this->openDataCityRepository = $openDataCityRepository;
+        $this->openDataSourceRepository = $openDataSourceRepository;
     }
 
-    public function integrateAnOpenDataSource($data)
+    public function integrateAnOpenDataSource($source)
     {
-        $this->integrationSystem->integrateAnOpenDataSource($data['url'], $data['extension']);
+        $this->integrationSystem->integrateAnOpenDataSource($source->url, $source->extension, $source->relatedCity->name, $source->configurationFilePath);
     }
 
     public function cleanAllTheEvents()
@@ -130,6 +138,15 @@ class IntegrationService {
                 $this->thingRepository->delete($geoCoordinatesId);
             }
         }
-        dd('All cleaned');
+    }
+
+    public function updateAllTheSources()
+    {
+        $openDataSources = $this->openDataSourceRepository->all();
+
+        foreach ($openDataSources as $openDataSource)
+        {
+            $this->integrateAnOpenDataSource($openDataSource);
+        }
     }
 }

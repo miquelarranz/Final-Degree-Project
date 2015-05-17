@@ -7,7 +7,7 @@
 
             @include('events.partials.filters')
 
-            <h1 class="text-center white-color title-margin">Events list</h1>
+            <h1 class="text-center white-color title-margin">@lang('messages.events/title')</h1>
             @if (count($events) > 0)
                 @foreach(array_chunk($events, 3) as $eventSet)
                     <div class="row">
@@ -19,7 +19,16 @@
                     </div>
                 @endforeach
             @else
-                <p>Error</p>
+               <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="text-center panel-title">
+                            @lang('messages.events/noEventsTitle')
+                        </h3>
+                    </div>
+                    <div class="text-center panel-body">
+                        @lang('messages.events/noEventsText')
+                    </div>
+                </div>
             @endif
         </div>
     </div>

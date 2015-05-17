@@ -84,7 +84,6 @@ class EventsWriter implements WriterInterface
             foreach ($this->offersPendingToStore as $offer) $this->storeInTheDatabase($offer, 'offers', $database, $eventId);
         }
         mysqli_close($database);
-        dd("Read!");
     }
 
     private function objectSearch($object, $array)
@@ -393,11 +392,13 @@ class EventsWriter implements WriterInterface
 
         $thingQuery = $thingQuery . ") VALUES (" . $thingValues . ");";
         mysqli_query($database, $thingQuery);
+        var_dump($database->error);
 
         $thingId = $database->insert_id;
 
         $placeQuery = $placeQuery . ") VALUES (" . $thingId . ", $geoCoordinatesId, $postalAddressId" . $placeValues . ");";
         mysqli_query($database, $placeQuery);
+        var_dump($database->error);
 
         mysqli_query($database, "INSERT INTO administrativeAreas (id) VALUES ($thingId);");
         mysqli_query($database, "INSERT INTO cities (id) VALUES ($thingId);");
@@ -420,7 +421,7 @@ class EventsWriter implements WriterInterface
             {
                 $thingQuery = $thingQuery . ', ' . $attributeInformation[1];
                 if (is_null($value)) $thingValues = $thingValues . ", NULL";
-                else $thingValues = $thingValues . ", '" . $value . "'";
+                else $thingValues = $thingValues . ", '" . str_replace("'", "\'", $value) . "'";
             }
             else if ($attributeInformation[0] == "events")
             {
@@ -433,7 +434,7 @@ class EventsWriter implements WriterInterface
                 }
                 if ($attributeInformation[1] == "duration") $value = new \Time($value);
                 if (is_null($value)) $eventValues = $eventValues . ", NULL";
-                else $eventValues = $eventValues . ", '" . $value . "'";
+                else $eventValues = $eventValues . ", '" . str_replace("'", "\'", $value) . "'";
             }
 
         }
@@ -441,12 +442,14 @@ class EventsWriter implements WriterInterface
         $thingQuery = $thingQuery . ") VALUES (" . $thingValues . ");";
 
         mysqli_query($database, $thingQuery);
-
+        var_dump($database->error);
+        if ($database->error != "") dd($thingQuery);
         $thingId = $database->insert_id;
 
         $eventQuery = $eventQuery . ") VALUES (" . $thingId  . $eventValues . ");";
 
         mysqli_query($database, $eventQuery);
+        var_dump($database->error);
 
         return $thingId;
     }

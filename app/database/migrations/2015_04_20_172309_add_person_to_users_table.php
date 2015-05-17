@@ -14,7 +14,7 @@ class AddPersonToUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-            $table->integer('person')->unsigned();
+            $table->integer('person')->unsigned()->nullable();
             $table->foreign('person')->references('id')->on('persons');
 		});
 	}

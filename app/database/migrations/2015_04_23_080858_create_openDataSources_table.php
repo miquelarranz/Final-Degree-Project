@@ -20,8 +20,8 @@ class CreateOpenDataSourcesTable extends Migration {
 			$table->integer('city')->unsigned();
             $table->foreign('city')->references('id')->on('openDataCities');
             $table->string('extension');
-			$table->dateTime('lastUpdateDate');
-			$table->dateTime('updateInterval');
+			$table->dateTime('lastUpdateDate')->nullable();
+			$table->integer('updateInterval');
 			$table->string('configurationFilePath');
 		});
 	}

@@ -137,3 +137,27 @@ Route::post('addEvent', [
     'as' => 'add_event_path',
     'uses' => 'GoogleController@addEvent'
 ]);
+
+/**
+ * OpenData
+ */
+
+Route::get('sources', [
+    'as' => 'sources_path',
+    'uses' => 'OpenDataController@index'
+]);
+
+Route::get('source/new', [
+    'as' => 'source_new_path',
+    'uses' => 'OpenDataController@create'
+]);
+
+Route::post('source/new', [
+    'as' => 'source_new_path',
+    'uses' => 'OpenDataController@store'
+]);
+
+Route::get('sources/update', [
+    'as' => 'sources_update_path',
+    'uses' => 'OpenDataController@update'
+]);

@@ -18,7 +18,7 @@ class EventsController extends \BaseController {
      */
     function __construct(OpenDataService $openDataService, EventsService $eventsService, GoogleService $googleService)
     {
-        //$this->beforeFilter('auth');
+        //$this->beforeFilter('auth', array('except' => 'getLogin'));
         $this->openDataService = $openDataService;
         $this->eventsService = $eventsService;
         $this->googleService = $googleService;
@@ -84,7 +84,11 @@ class EventsController extends \BaseController {
             }
         }
 
-        $subscribed = $this->eventsService->isSubscribed($id);
+        $subscribed = false;
+        if (Auth::user())
+        {
+            $subscribed = $this->eventsService->isSubscribed($id);
+        }
 
         return View::make('events.show')->with(array('event' => $event, 'similarEvents' => $similarEvents, 'subscribed' => $subscribed));
     }

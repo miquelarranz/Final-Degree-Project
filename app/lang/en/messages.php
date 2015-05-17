@@ -67,7 +67,10 @@ return array(
     'google/calendarError' => 'You do not have calendars, create one on Google Calendar first.',
     'google/added' => 'The event has been added to your calendar!',
     'event/location' => 'Event map',
-    'event/similars' => 'Similar events',
+    'event/similar' => 'Similar events',
     'event/download' => 'Download the event',
+    'events/noEventsTitle' => 'We have not found any event!',
+    'events/noEventsText' => 'Try with different filter values',
+    'events/title' => 'Events list',
 
 );

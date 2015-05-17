@@ -2,14 +2,18 @@
 
 
 use repositories\OpenDataCityRepository;
+use repositories\OpenDataSourceRepository;
 
 class OpenDataService {
 
     protected $openDataCityRepository;
 
-    function __construct(OpenDataCityRepository $openDataCityRepository)
+    protected $openDataSourceRepository;
+
+    function __construct(OpenDataCityRepository $openDataCityRepository, OpenDataSourceRepository $openDataSourceRepository)
     {
         $this->openDataCityRepository = $openDataCityRepository;
+        $this->openDataSourceRepository = $openDataSourceRepository;
     }
 
     public function getAllTheCities()
@@ -32,5 +36,34 @@ class OpenDataService {
 
         if (is_null($openDataCity)) return null;
         else return $openDataCity->id;
+    }
+
+    public function getAllTheSources()
+    {
+        return $this->openDataSourceRepository->all();
+    }
+
+    public function createAnOpenDataSource($data)
+    {
+        if ($data['new_city'] != "")
+        {
+            $city = $this->openDataCityRepository->read(null, array('name' => $data['new_city']));
+            if (is_null($city))
+            {
+                $city = $this->openDataCityRepository->create(array('name' => $data['new_city']));
+            }
+
+            $data['city'] = $city->id;
+        }
+
+        $configurationFile = $data['configurationFile'];
+
+        $data['configurationFilePath'] = "/files/" . $configurationFile->getClientOriginalName();
+
+        $configurationFile->move(public_path() . "/files/", $configurationFile->getClientOriginalName());
+
+        $source = $this->openDataSourceRepository->create($data);
+
+        return $source;
     }
 }
