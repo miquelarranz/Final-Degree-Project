@@ -27,7 +27,12 @@ class OpenDataSourceRepository implements RepositoryInterface {
     {
         $source = $this->read($data['id']);
 
-        $source->updateAnOpenDataSource($data['url'], $data['description'], $data['city'], $data['extension'], $data['lastUpdateDate'], $data['updateInterval'], $data['configurationFilePath']);
+        if (($source->configurationFilePath != $data['configurationFilePath']) and ($data['configurationFilePath'] != ""))
+        {
+            unlink(public_path() . $source->configurationFilePath);
+        }
+
+        $source->updateAnOpenDataSource($data['url'], $data['description'], $data['city'], $data['extension'], $data['updateInterval'], $data['configurationFilePath']);
 
         $source->save();
 
@@ -37,6 +42,8 @@ class OpenDataSourceRepository implements RepositoryInterface {
     public function delete($id)
     {
         $source = $this->read($id);
+
+        unlink(public_path() . $source->configurationFilePath);
 
         $source->delete();
     }

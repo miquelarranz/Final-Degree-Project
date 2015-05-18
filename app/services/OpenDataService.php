@@ -24,7 +24,7 @@ class OpenDataService {
 
         foreach ($cities as $city)
         {
-            $citiesArray[$city->id] = utf8_decode($city->name);
+            $citiesArray[$city->id] = $city->name;
         }
 
         return $citiesArray;
@@ -65,5 +65,67 @@ class OpenDataService {
         $source = $this->openDataSourceRepository->create($data);
 
         return $source;
+    }
+
+    public function deleteAnOpenDataSource($id)
+    {
+        $sources = $this->openDataSourceRepository->all();
+
+        $sourceToDelete = $this->openDataSourceRepository->read($id);
+
+        $sourcesWithTheSameCity = 0;
+        foreach ($sources as $source)
+        {
+            if ($source->city == $sourceToDelete->city) $sourcesWithTheSameCity = $sourcesWithTheSameCity + 1;
+        }
+
+        if ($sourcesWithTheSameCity == 1)
+        {
+            $cityId = $source->city;
+
+            $this->openDataSourceRepository->delete($id);
+
+            $this->openDataCityRepository->delete($cityId);
+        }
+        else
+        {
+            $this->openDataSourceRepository->delete($id);
+        }
+    }
+
+    public function updateAnOpenDataSource($data)
+    {
+        if ($data['new_city'] != "")
+        {
+            $city = $this->openDataCityRepository->read(null, array('name' => $data['new_city']));
+            if (is_null($city))
+            {
+                $city = $this->openDataCityRepository->create(array('name' => $data['new_city']));
+            }
+
+            $data['city'] = $city->id;
+        }
+
+        if ( ! is_null($data['configurationFile']))
+        {
+            $configurationFile = $data['configurationFile'];
+
+            $data['configurationFilePath'] = "/files/" . $configurationFile->getClientOriginalName();
+
+            $configurationFile->move(public_path() . "/files/", $configurationFile->getClientOriginalName());
+        }
+        else
+        {
+            $data['configurationFilePath'] = "";
+        }
+
+        $source = $this->openDataSourceRepository->update($data);
+
+        return $source;
+    }
+
+    public function getASource($id)
+    {
+        return $this->openDataSourceRepository->read($id);
     }
 }

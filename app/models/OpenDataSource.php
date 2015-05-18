@@ -33,6 +33,6 @@ class OpenDataSource extends Eloquent {
         $this->attributes['city'] = $city;
         $this->attributes['extension'] = $extension;
         $this->attributes['updateInterval'] = $updateInterval;
-        $this->attributes['configurationFilePath'] = $configurationFilePath;
+        if ($configurationFilePath != "") $this->attributes['configurationFilePath'] = $configurationFilePath;
     }
 }

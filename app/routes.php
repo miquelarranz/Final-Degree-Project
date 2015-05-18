@@ -147,17 +147,32 @@ Route::get('sources', [
     'uses' => 'OpenDataController@index'
 ]);
 
-Route::get('source/new', [
+Route::get('source/create', [
     'as' => 'source_new_path',
     'uses' => 'OpenDataController@create'
 ]);
 
-Route::post('source/new', [
+Route::post('source/create', [
     'as' => 'source_new_path',
     'uses' => 'OpenDataController@store'
 ]);
 
 Route::get('sources/update', [
     'as' => 'sources_update_path',
+    'uses' => 'OpenDataController@updateAll'
+]);
+
+Route::get('source/{id}/edit', [
+    'as' => 'source_edit_path',
+    'uses' => 'OpenDataController@edit'
+]);
+
+Route::put('source/{id}/edit', [
+    'as' => 'source_edit_path',
     'uses' => 'OpenDataController@update'
+]);
+
+Route::get('source/{id}/destroy', [
+    'as' => 'source_destroy_path',
+    'uses' => 'OpenDataController@destroy'
 ]);
