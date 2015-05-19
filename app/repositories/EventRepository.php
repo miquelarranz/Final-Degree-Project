@@ -43,22 +43,24 @@ class EventRepository implements RepositoryInterface {
             }
             if (array_key_exists('startDate', $related))
             {
-                $startDate = $related['startDate'];
+                $startDate = new \DateTime($related['startDate']);
+                $date = $startDate->format('Y-m-d H:i:s');
                 if ($first)
                 {
-                    $query = $query . "e.startDate >= '$startDate' ";
+                    $query = $query . "e.startDate >= '$date' ";
                     $first = false;
-                } else $query = $query . "AND e.startDate >= '$startDate' ";
+                } else $query = $query . "AND e.startDate >= '$date' ";
                 $startDateAdded = true;
             }
             if (array_key_exists('endDate', $related))
             {
-                $endDate = $related['endDate'];
+                $endDate = new \DateTime($related['endDate']);
+                $date = $endDate->format('Y-m-d H:i:s');
                 if ($first)
                 {
-                    $query = $query . "e.endDate <= '$endDate' ";
+                    $query = $query . "e.startDate <= '$date' ";
                     $first = false;
-                } else $query = $query . "AND e.endDate <= '$endDate' ";
+                } else $query = $query . "AND e.startDate <= '$date' ";
             }
             if (array_key_exists('location', $related))
             {
@@ -72,8 +74,9 @@ class EventRepository implements RepositoryInterface {
             }
             if ( ! $startDateAdded)
             {
-                $now = date_create()->format('Y-m-d H:i:s');
-                $query = $query . "AND (e.startDate > '$now' or e.startDate IS NULL) ";
+                $now = new \DateTime('now');
+                $date = $now->format('Y-m-d H:i:s');
+                $query = $query . "AND (e.startDate > '$date' or e.startDate IS NULL) ";
             }
 
             $query = $queryHeader . $query;

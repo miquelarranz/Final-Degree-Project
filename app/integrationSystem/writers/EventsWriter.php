@@ -55,7 +55,8 @@ class EventsWriter implements WriterInterface
                     //"array" structure.
                     if (is_null($objectData)) {
                         $tagData = $this->tagSearch($configurationKey, $event);
-                        $this->objectProcessing($tagData, $configurationValue);
+                        if ( ! is_null($tagData)) $this->objectProcessing($tagData, $configurationValue);
+                        else $this->objectProcessing($event, $configurationValue);
                     }
                     else
                     {
@@ -193,7 +194,7 @@ class EventsWriter implements WriterInterface
             {
                 $className = $configurationValue;
             }
-            if ($configurationKey === "city_name")
+            else if ($configurationKey === "city_name")
             {
                 $attributes[$configurationValue] = $this->city;
             }
@@ -232,13 +233,13 @@ class EventsWriter implements WriterInterface
             {
                 $thingQuery = $thingQuery . ', ' . $attributeInformation[1];
                 if (is_null($value)) $thingValues = $thingValues . ", NULL";
-                else $thingValues = $thingValues . ", '" . $value . "'";
+                else $thingValues = $thingValues . ", '" . str_replace("'", "\'", $value) . "'";
             }
             else if ($attributeInformation[0] == "organizations")
             {
                 $organizationQuery = $organizationQuery . ", " . $attributeInformation[1];
                 if (is_null($value)) $organizationValues = $organizationValues . ", NULL";
-                else $organizationValues = $organizationValues . ", '" . $value . "'";
+                else $organizationValues = $organizationValues . ", '" . str_replace("'", "\'", $value) . "'";
             }
 
         }
@@ -264,19 +265,19 @@ class EventsWriter implements WriterInterface
             {
                 $thingQuery = $thingQuery . ', ' . $attributeInformation[1];
                 if (is_null($value)) $thingValues = $thingValues . ", NULL";
-                else $thingValues = $thingValues . ", '" . $value . "'";
+                else $thingValues = $thingValues . ", '" . str_replace("'", "\'", $value) . "'";
             }
             else if ($attributeInformation[0] == "intangibles")
             {
                 $intangibleQuery = $intangibleQuery . ", " . $attributeInformation[1];
                 if (is_null($value)) $intangibleValues = $intangibleValues . ", NULL";
-                else $intangibleValues = $intangibleValues . ", '" . $value . "'";
+                else $intangibleValues = $intangibleValues . ", '" . str_replace("'", "\'", $value) . "'";
             }
             else if ($attributeInformation[0] == "offers")
             {
                 $offerQuery = $offerQuery . ", " . $attributeInformation[1];
                 if (is_null($value)) $offerValues = $offerValues . ", NULL";
-                else $offerValues = $offerValues . ", '" . $value . "'";
+                else $offerValues = $offerValues . ", '" . str_replace("'", "\'", $value) . "'";
             }
 
         }
@@ -324,34 +325,34 @@ class EventsWriter implements WriterInterface
             {
                 $postalAddressThingQuery = $postalAddressThingQuery . ", " . $attributeInformation[1];
                 if (is_null($value)) $postalAddressThingValues = $postalAddressThingValues . ", NULL";
-                else $postalAddressThingValues = $postalAddressThingValues . ", '" . $value . "'";
+                else $postalAddressThingValues = $postalAddressThingValues . ", '" . str_replace("'", "\'", $value) . "'";
                 $insertAPostalAddress = true;
             }
             else if ($attributeInformation[0] == "geoCoordinateThings")
             {
                 $geoCoordinateThingQuery = $geoCoordinateThingQuery . ", " . $attributeInformation[1];
                 if (is_null($value)) $geoCoordinatesThingValues = $geoCoordinatesThingValues . ", NULL";
-                else $geoCoordinatesThingValues = $geoCoordinatesThingValues . ", '" . $value . "'";
+                else $geoCoordinatesThingValues = $geoCoordinatesThingValues . ", '" . str_replace("'", "\'", $value) . "'";
                 $insertAGeoCoordinates = true;
             }
             else if ($attributeInformation[0] == "places")
             {
                 $placeQuery = $placeQuery . ", " . $attributeInformation[1];
                 if (is_null($value)) $placeValues = $placeValues . ", NULL";
-                else $placeValues = $placeValues . ", '" . $value . "'";
+                else $placeValues = $placeValues . ", '" . str_replace("'", "\'", $value) . "'";
             }
             else if ($attributeInformation[0] == "geoCoordinates")
             {
                 $geoCoordinateQuery = $geoCoordinateQuery . ", " . $attributeInformation[1];
                 if (is_null($value)) $geoCoordinateValues = $geoCoordinateValues . ", NULL";
-                else $geoCoordinateValues = $geoCoordinateValues . ", '" . $value . "'";
+                else $geoCoordinateValues = $geoCoordinateValues . ", '" . str_replace("'", "\'", $value) . "'";
                 $insertAGeoCoordinates = true;
             }
             else if ($attributeInformation[0] == "postalAddresses")
             {
                 $postalAddressQuery = $postalAddressQuery . ", " . $attributeInformation[1];
                 if (is_null($value)) $postalAddressValues = $postalAddressValues . ", NULL";
-                else $postalAddressValues = $postalAddressValues . ", '" . $value . "'";
+                else $postalAddressValues = $postalAddressValues . ", '" . str_replace("'", "\'", $value) . "'";
                 $insertAPostalAddress = true;
             }
 
@@ -443,7 +444,6 @@ class EventsWriter implements WriterInterface
 
         mysqli_query($database, $thingQuery);
         var_dump($database->error);
-        if ($database->error != "") dd($thingQuery);
         $thingId = $database->insert_id;
 
         $eventQuery = $eventQuery . ") VALUES (" . $thingId  . $eventValues . ");";
@@ -486,6 +486,8 @@ class EventsWriter implements WriterInterface
             $date = \DateTime::createFromFormat('Y/m/d', $value);
             if ($date) $date->setTime(0,0,0);
         }
+        if ( ! $date) $date = \DateTime::createFromFormat('Y-m-d\TH:i:s', $value);
+
         if ( ! $date) return 'NULL';
 
         return $date->format('Y/m/d H:i:s');

@@ -32,7 +32,12 @@ class XMLReader implements ReaderInterface
                 E_USER_ERROR);
 
         }*/
-        header('Content-Type: text/html; charset=utf-8');
+        if (headers_sent()) {
+
+        }
+        else {
+            header('Content-Type: text/html; charset=utf-8');
+        }
         $data = file_get_contents($url);
         $xml = simplexml_load_string($data);
 

@@ -14,7 +14,7 @@
                 <div class="caption">
                     <h3 class="text-center event-title" title="{{ utf8_decode($event->thing->name) }}"> {{ utf8_decode($event->thing->name) }} </h3>
                     @if ( ! is_null($event->startDate))
-                        <p class="text-center"><b> {{ $event->startDate }} - {{ $event->endDate }} </b></p>
+                        <p class="text-center"><b> {{ $event->startDate }} @if ( ! is_null($event->endDate)) - {{ $event->endDate }} @endif</b></p>
                     @else
                         <p class="text-center event-permanent"><b> @lang('messages.event/date') </b></p>
                     @endif
@@ -43,15 +43,31 @@
                                         </div>
                                     </div>
                                 @endif
-                                @if ( ! empty($event->performers))
+                                @if (count($event->performers) > 0)
                                     <div class="row text-centered">
                                         <div class="col-xs-12">
                                             @lang('messages.event/performers')
                                         </div>
                                         @foreach($event->performers as $performer)
                                             <div class="col-xs-12">
-                                                {{ $performer->thing->name }} @if( ! is_null($performer->email)) <span class="glyphicon glyphicon-envelope performer-icon" aria-hidden="true"></span> @endif
+                                                {{ utf8_decode($performer->thing->name) }} @if( ! is_null($performer->email)) <span class="glyphicon glyphicon-envelope performer-icon" aria-hidden="true"></span> @endif
                                             </div>
+                                        @endforeach
+                                    </div>
+                                @endif
+                                @if (count($event->offers) > 0)
+                                    <div class="row text-centered">
+                                        <div class="col-xs-12">
+                                            @lang('messages.event/offers')
+                                        </div>
+                                        @foreach($event->offers as $offer)
+                                            @if( ! is_null($offer->price))
+                                                <div class="col-xs-12">
+                                                    {{ $offer->price }} @if( ! is_null($offer->priceCurrency)) $offer->priceCurrency @endif
+                                                </div>
+                                            @else
+                                                <p>@lang('messages.event/unavailable')</p>
+                                            @endif
                                         @endforeach
                                     </div>
                                 @endif
