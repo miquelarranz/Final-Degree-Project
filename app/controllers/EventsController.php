@@ -78,6 +78,7 @@ class EventsController extends \BaseController {
 
         if ( ! is_null($cityId))  {
             $events = $this->eventsService->getFilteredEvents(array('city' => $cityId, 'limit' => 4));
+
             foreach ($events as $similarEvent)
             {
                 if ($similarEvent->id != $event->id) $similarEvents[] = $similarEvent;

@@ -152,7 +152,7 @@ class GoogleService {
         return $calendarsArray;
     }
 
-    public function addEvent($eventId, $calendarId)
+    public function addEvent($eventId, $calendarId, $startDate, $startTime, $endDate, $endTime)
     {
         session_start();
 
@@ -161,6 +161,11 @@ class GoogleService {
 
         $client->setAccessToken(Session::get('upload_token'));
 
+        $now = new \DateTime();
+        $now->setTime(0, 0, 0);
+
+        $startDateTimestamp = 0;
+        $endDateTimestamp = 0;
 
         $event = $this->eventRepository->read($eventId);
 
@@ -171,10 +176,26 @@ class GoogleService {
             $start = new \DateTime($event->startDate);
             $eventCreated->getStart()->setDateTime($start->format('Y-m-d\TH:i:sP'));
         }
+        else {
+            $date = new \DateTime($startDate);
+            $startDateTimestamp = $startDateTimestamp + $date->getTimestamp();
+
+            $startDateTimestamp = $startDateTimestamp + strtotime($startTime) - $now->getTimestamp();
+
+            $eventCreated->getStart()->setDateTime(date('Y-m-d\TH:i:sP', $startDateTimestamp));
+        }
         if ( ! is_null($event->endDate))
         {
             $end = new \DateTime($event->endDate);
             $eventCreated->getEnd()->setDateTime($end->format('Y-m-d\TH:i:sP'));
+        }
+        else {
+            $date = new \DateTime($endDate);
+            $endDateTimestamp = $endDateTimestamp + $date->getTimestamp();
+
+            $endDateTimestamp = $endDateTimestamp + strtotime($endTime) - $now->getTimestamp();
+
+            $eventCreated->getEnd()->setDateTime(date('Y-m-d\TH:i:sP', $endDateTimestamp));
         }
 
         if ( ! is_null($event->thing->url))

@@ -11,7 +11,7 @@ class OpenDataCityRepository implements RepositoryInterface {
 
     public function create(array $data)
     {
-        $city = OpenDataCity::createAnOpenDataCity($data['name']);
+        $city = OpenDataCity::createAnOpenDataCity(utf8_encode($data['name']));
 
         $city->save();
 

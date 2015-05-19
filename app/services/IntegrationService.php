@@ -69,7 +69,7 @@ class IntegrationService {
 
     public function integrateAnOpenDataSource($source)
     {
-        $this->integrationSystem->integrateAnOpenDataSource($source->url, $source->extension, $source->relatedCity->name, $source->configurationFilePath);
+        $this->integrationSystem->integrateAnOpenDataSource($source->url, $source->extension, utf8_decode($source->relatedCity->name), $source->configurationFilePath);
     }
 
     public function cleanAllTheEvents()

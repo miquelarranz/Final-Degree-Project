@@ -3,6 +3,7 @@
 
 use repositories\OpenDataCityRepository;
 use repositories\OpenDataSourceRepository;
+use repositories\UserRepository;
 
 class OpenDataService {
 
@@ -10,10 +11,13 @@ class OpenDataService {
 
     protected $openDataSourceRepository;
 
-    function __construct(OpenDataCityRepository $openDataCityRepository, OpenDataSourceRepository $openDataSourceRepository)
+    private $userRepository;
+
+    function __construct(OpenDataCityRepository $openDataCityRepository, OpenDataSourceRepository $openDataSourceRepository, UserRepository $userRepository)
     {
         $this->openDataCityRepository = $openDataCityRepository;
         $this->openDataSourceRepository = $openDataSourceRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function getAllTheCities()
@@ -24,7 +28,7 @@ class OpenDataService {
 
         foreach ($cities as $city)
         {
-            $citiesArray[$city->id] = $city->name;
+            $citiesArray[$city->id] = utf8_decode($city->name);
         }
 
         return $citiesArray;
@@ -84,6 +88,13 @@ class OpenDataService {
             $cityId = $source->city;
 
             $this->openDataSourceRepository->delete($id);
+
+            $users = $this->userRepository->all(array('defaultCity' => $sourceToDelete->city));
+
+            foreach ($users as $user)
+            {
+                $user->updateTheDefaultCity(null);
+            }
 
             $this->openDataCityRepository->delete($cityId);
         }

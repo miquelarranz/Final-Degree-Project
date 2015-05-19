@@ -211,4 +211,12 @@ class EventsService {
 
         return $address;
     }
+
+    public function hasDate($id)
+    {
+        $event = $this->eventRepository->read($id);
+
+        if (is_null($event->startDate) or is_null($event->endDate)) return false;
+        else return true;
+    }
 }

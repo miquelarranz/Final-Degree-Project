@@ -149,7 +149,7 @@
                                 </div>
 
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">
+                                    <div class="panel-heading" onclick="resize()">
                                         <h3 data-toggle="collapse" class="text-center panel-title" href="#location" aria-expanded="true" aria-controls="collapseOne">
                                             <a class="filters-title">
                                                 @lang('messages.event/location')
@@ -264,7 +264,7 @@
         var pos;
         var directionsService = new google.maps.DirectionsService();
 
-        function initialize() {
+        function resize() {
             var mapOptions = {
                 zoom: 14
             };
@@ -281,7 +281,7 @@
                         map: map,
                     });
 
-                    map.setCenter(pos);
+                    google.maps.event.trigger(window.map, 'resize');
 
                     @if ( ! is_null($event->location))
                         @if ( ! is_null($event->eventLocation->geo))
@@ -349,6 +349,7 @@
                             @endif
                         @endif
                     @endif
+
                 }, function() {
                     handleNoGeolocation(true);
                 });
@@ -369,7 +370,8 @@
             }
         }
 
-        google.maps.event.addDomListener(window, 'load', initialize);
+
+        //google.maps.event.addDomListener(window, 'load', initialize);
 
         google.maps.event.addDomListener(window, 'resize', function() {
             map.setCenter(pos);

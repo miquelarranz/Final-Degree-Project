@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5299be8-cb10-4b5e-abde-a0340cb8b7e9" name="Default" comment="Added the administrator area">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/files/ConfigurationGijonExposiciones.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/openData/edit.blade.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/ConfigurationGijon.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/OpenDataController.php" afterPath="$PROJECT_DIR$/app/controllers/OpenDataController.php" />
+    <list default="true" id="d5299be8-cb10-4b5e-abde-a0340cb8b7e9" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/ConfigurationGijonExposiciones.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/EventsController.php" afterPath="$PROJECT_DIR$/app/controllers/EventsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/EventsService.php" afterPath="$PROJECT_DIR$/app/services/EventsService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/GoogleController.php" afterPath="$PROJECT_DIR$/app/controllers/GoogleController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/GoogleService.php" afterPath="$PROJECT_DIR$/app/services/GoogleService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/IntegrationService.php" afterPath="$PROJECT_DIR$/app/services/IntegrationService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/repositories/OpenDataCityRepository.php" afterPath="$PROJECT_DIR$/app/repositories/OpenDataCityRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/OpenDataService.php" afterPath="$PROJECT_DIR$/app/services/OpenDataService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/OpenDataSource.php" afterPath="$PROJECT_DIR$/app/models/OpenDataSource.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/repositories/OpenDataSourceRepository.php" afterPath="$PROJECT_DIR$/app/repositories/OpenDataSourceRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/openData/index.blade.php" afterPath="$PROJECT_DIR$/app/views/openData/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/google/calendars.blade.php" afterPath="$PROJECT_DIR$/app/views/google/calendars.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/events/show.blade.php" afterPath="$PROJECT_DIR$/app/views/events/show.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TFG.iws" />
@@ -36,11 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="OpenDataService.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/services/OpenDataService.php">
+      <file leaf-file-name="GoogleService.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/services/GoogleService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5724907" vertical-offset="1532" max-vertical-offset="3105">
-              <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.35873607" vertical-offset="3970" max-vertical-offset="5198">
+              <caret line="184" column="71" selection-start-line="184" selection-start-column="71" selection-end-line="184" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -60,10 +61,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app/views/google/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/google/calendars.blade.php" />
         <option value="$PROJECT_DIR$/vendor/lusitanian/oauth/src/OAuth/OAuth2/Service/AbstractService.php" />
         <option value="$PROJECT_DIR$/vendor/lusitanian/oauth/src/OAuth/Common/Http/Client/StreamClient.php" />
-        <option value="$PROJECT_DIR$/app/services/GoogleService.php" />
         <option value="$PROJECT_DIR$/public/scripts/map.js" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -80,18 +79,14 @@
         <option value="$PROJECT_DIR$/app/repositories/SubscribedEventRepository.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_05_18_214418_create_subscribedEvents_table.php" />
         <option value="$PROJECT_DIR$/app/views/events/subscriptions.blade.php" />
-        <option value="$PROJECT_DIR$/app/services/EventsService.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/partials/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/auth.blade.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/default.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/events/show.blade.php" />
         <option value="$PROJECT_DIR$/app/views/events/index.blade.php" />
         <option value="$PROJECT_DIR$/app/lang/es/messages.php" />
         <option value="$PROJECT_DIR$/app/controllers/LanguageController.php" />
-        <option value="$PROJECT_DIR$/app/controllers/EventsController.php" />
         <option value="$PROJECT_DIR$/app/lang/cat/messages.php" />
         <option value="$PROJECT_DIR$/app/lang/en/messages.php" />
-        <option value="$PROJECT_DIR$/app/controllers/GoogleController.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_04_20_172309_add_person_to_users_table.php" />
         <option value="$PROJECT_DIR$/app/controllers/IntegrationController.php" />
         <option value="$PROJECT_DIR$/app/controllers/SessionsController.php" />
@@ -100,8 +95,6 @@
         <option value="$PROJECT_DIR$/app/models/OpenDataCity.php" />
         <option value="$PROJECT_DIR$/app/IntegrationSystem/core/IntegrationSystem.php" />
         <option value="$PROJECT_DIR$/app/views/openData/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/repositories/OpenDataCityRepository.php" />
-        <option value="$PROJECT_DIR$/app/services/IntegrationService.php" />
         <option value="$PROJECT_DIR$/app/IntegrationSystem/writers/EventsWriter.php" />
         <option value="$PROJECT_DIR$/app/models/OpenDataSource.php" />
         <option value="$PROJECT_DIR$/app/views/openData/edit.blade.php" />
@@ -109,7 +102,15 @@
         <option value="$PROJECT_DIR$/app/controllers/OpenDataController.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/views/openData/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/events/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/repositories/OpenDataCityRepository.php" />
+        <option value="$PROJECT_DIR$/app/controllers/EventsController.php" />
         <option value="$PROJECT_DIR$/app/services/OpenDataService.php" />
+        <option value="$PROJECT_DIR$/app/services/IntegrationService.php" />
+        <option value="$PROJECT_DIR$/app/services/EventsService.php" />
+        <option value="$PROJECT_DIR$/app/controllers/GoogleController.php" />
+        <option value="$PROJECT_DIR$/app/views/google/calendars.blade.php" />
+        <option value="$PROJECT_DIR$/app/services/GoogleService.php" />
       </list>
     </option>
   </component>
@@ -620,7 +621,13 @@
       <option name="project" value="LOCAL" />
       <updated>1431800541240</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Added the administrator area">
+      <created>1431984984844</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1431984984844</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -719,28 +726,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/City.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68401486" vertical-offset="92" max-vertical-offset="644">
-          <caret line="23" column="5" selection-start-line="17" selection-start-column="4" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_04_04_144828_create_things_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64126396" vertical-offset="230" max-vertical-offset="1081">
-          <caret line="26" column="0" selection-start-line="22" selection-start-column="12" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/repositories/SubscribedEventRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67407405" vertical-offset="73" max-vertical-offset="1150">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/SubscribedEvent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5962963" vertical-offset="46" max-vertical-offset="621">
@@ -761,14 +746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46851853" vertical-offset="0" max-vertical-offset="540">
           <caret line="11" column="186" selection-start-line="11" selection-start-column="186" selection-end-line="11" selection-end-column="186" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/EventsService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87222224" vertical-offset="3140" max-vertical-offset="4899">
-          <caret line="163" column="24" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -813,26 +790,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/events/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0892193" vertical-offset="5003" max-vertical-offset="8878">
-          <caret line="243" column="25" selection-start-line="243" selection-start-column="25" selection-end-line="243" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/events/partials/event.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.68401486" vertical-offset="0" max-vertical-offset="538">
           <caret line="16" column="10" selection-start-line="1" selection-start-column="4" selection-end-line="16" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/events/partials/filters.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08550186" vertical-offset="0" max-vertical-offset="1794">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="11" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -849,14 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51301116" vertical-offset="0" max-vertical-offset="538">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/EventsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48698884" vertical-offset="1624" max-vertical-offset="2898">
-          <caret line="84" column="9" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -909,14 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/GoogleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5297398" vertical-offset="474" max-vertical-offset="1242">
-          <caret line="33" column="86" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Thing.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.64126396" vertical-offset="92" max-vertical-offset="736">
@@ -929,14 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7267658" vertical-offset="0" max-vertical-offset="1127">
           <caret line="17" column="22" selection-start-line="13" selection-start-column="8" selection-end-line="17" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/repositories/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51301116" vertical-offset="506" max-vertical-offset="1426">
-          <caret line="34" column="30" selection-start-line="32" selection-start-column="16" selection-end-line="34" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -957,14 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/RegistrationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78624535" vertical-offset="1440" max-vertical-offset="2070">
-          <caret line="82" column="5" selection-start-line="29" selection-start-column="4" selection-end-line="81" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_04_23_080858_create_openDataSources_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.68401486" vertical-offset="69" max-vertical-offset="1035">
@@ -981,83 +910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44423792" vertical-offset="497" max-vertical-offset="1656">
-          <caret line="35" column="5" selection-start-line="29" selection-start-column="4" selection-end-line="32" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/OpenDataCity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68401486" vertical-offset="69" max-vertical-offset="690">
-          <caret line="22" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/SessionsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65799254" vertical-offset="819" max-vertical-offset="1863">
-          <caret line="51" column="40" selection-start-line="51" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/openData/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.598513" vertical-offset="0" max-vertical-offset="1794">
-          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/IntegrationSystem/writers/EventsWriter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.67658" vertical-offset="0" max-vertical-offset="11454">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding>
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/IntegrationSystem/core/IntegrationSystem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65799254" vertical-offset="83" max-vertical-offset="1426">
-          <caret line="22" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/IntegrationService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9758365" vertical-offset="2751" max-vertical-offset="3289">
-          <caret line="64" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/filters.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1710037" vertical-offset="474" max-vertical-offset="2185">
@@ -1070,22 +922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.95724905" vertical-offset="290" max-vertical-offset="1012">
           <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/repositories/OpenDataSourceRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46096656" vertical-offset="672" max-vertical-offset="1288">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/OpenDataController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.401487" vertical-offset="2866" max-vertical-offset="3519">
-          <caret line="135" column="28" selection-start-line="134" selection-start-column="28" selection-end-line="134" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1124,26 +960,201 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/openData/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/OpenDataController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7267658" vertical-offset="92" max-vertical-offset="713">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8977695" vertical-offset="1196" max-vertical-offset="3519">
+          <caret line="74" column="50" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/IntegrationSystem/core/IntegrationSystem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65799254" vertical-offset="83" max-vertical-offset="1426">
+          <caret line="22" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/IntegrationSystem/writers/EventsWriter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2788104" vertical-offset="7210" max-vertical-offset="11454">
+          <caret line="320" column="72" selection-start-line="320" selection-start-column="72" selection-end-line="320" selection-end-column="72" />
+          <folding>
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431899366000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/OpenDataCity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.94052047" vertical-offset="0" max-vertical-offset="690">
+          <caret line="25" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/events/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.421875" vertical-offset="7627" max-vertical-offset="8924">
+          <caret line="341" column="50" selection-start-line="341" selection-start-column="50" selection-end-line="341" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/repositories/UserRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0687733" vertical-offset="0" max-vertical-offset="1426">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/repositories/EventRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8550186" vertical-offset="1173" max-vertical-offset="3404">
+          <caret line="72" column="35" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
+          <folding>
+            <marker date="1431525454000" expanded="true" signature="-1:-1" placeholder="SELECT DISTI..events..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5297398" vertical-offset="1118" max-vertical-offset="1656">
+          <caret line="64" column="40" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/repositories/OpenDataSourceRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.598513" vertical-offset="129" max-vertical-offset="1288">
+          <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/repositories/OpenDataCityRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44423792" vertical-offset="589" max-vertical-offset="1127">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.6747212" vertical-offset="74" max-vertical-offset="1127">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/openData/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8977695" vertical-offset="0" max-vertical-offset="713">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/openData/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64126396" vertical-offset="598" max-vertical-offset="1794">
+          <caret line="41" column="62" selection-start-line="41" selection-start-column="62" selection-end-line="41" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/services/OpenDataService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5724907" vertical-offset="1532" max-vertical-offset="3105">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33203125" vertical-offset="1256" max-vertical-offset="3335">
+          <caret line="64" column="88" selection-start-line="62" selection-start-column="86" selection-end-line="62" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/IntegrationService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5297398" vertical-offset="2751" max-vertical-offset="3289">
+          <caret line="146" column="39" selection-start-line="132" selection-start-column="39" selection-end-line="132" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/SessionsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65799254" vertical-offset="819" max-vertical-offset="1863">
+          <caret line="51" column="40" selection-start-line="51" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/RegistrationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8717472" vertical-offset="1049" max-vertical-offset="2070">
+          <caret line="67" column="10" selection-start-line="46" selection-start-column="8" selection-end-line="66" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/EventsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65799254" vertical-offset="1003" max-vertical-offset="2921">
+          <caret line="61" column="50" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/EventsService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44423792" vertical-offset="451" max-vertical-offset="5083">
+          <caret line="36" column="30" selection-start-line="26" selection-start-column="8" selection-end-line="30" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/events/partials/filters.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78624535" vertical-offset="612" max-vertical-offset="1794">
+          <caret line="45" column="26" selection-start-line="26" selection-start-column="20" selection-end-line="45" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/google/calendars.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14498141" vertical-offset="359" max-vertical-offset="1311">
+          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/GoogleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25650558" vertical-offset="0" max-vertical-offset="1840">
+          <caret line="7" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/GoogleService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35873607" vertical-offset="3970" max-vertical-offset="5198">
+          <caret line="184" column="71" selection-start-line="184" selection-start-column="71" selection-end-line="184" selection-end-column="71" />
           <folding />
         </state>
       </provider>
