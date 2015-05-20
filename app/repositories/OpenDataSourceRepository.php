@@ -27,12 +27,17 @@ class OpenDataSourceRepository implements RepositoryInterface {
     {
         $source = $this->read($data['id']);
 
-        if (($source->configurationFilePath != $data['configurationFilePath']) and ($data['configurationFilePath'] != ""))
+        if (array_key_exists('lastUpdateDate', $data))
         {
-            unlink(public_path() . $source->configurationFilePath);
+            $source->updateAnOpenDataSource(null, null, null, null, null, null, $data['lastUpdateDate']);
         }
-
-        $source->updateAnOpenDataSource($data['url'], $data['description'], $data['city'], $data['extension'], $data['updateInterval'], $data['configurationFilePath']);
+        else {
+            if (($source->configurationFilePath != $data['configurationFilePath']) and ($data['configurationFilePath'] != ""))
+            {
+                unlink(public_path() . $source->configurationFilePath);
+            }
+            $source->updateAnOpenDataSource($data['url'], $data['description'], $data['city'], $data['extension'], $data['updateInterval'], $data['configurationFilePath'], null);
+        }
 
         $source->save();
 

@@ -176,3 +176,15 @@ Route::get('source/{id}/destroy', [
     'as' => 'source_destroy_path',
     'uses' => 'OpenDataController@destroy'
 ]);
+
+/* Communication */
+
+Route::get('performer/{id}/contact', [
+    'as' => 'communicate_path',
+    'uses' => 'CommunicationController@create'
+]);
+
+Route::post('performer/{id}/contact', [
+    'as' => 'communicate_path',
+    'uses' => 'CommunicationController@communicate'
+]);

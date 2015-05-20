@@ -6,12 +6,9 @@
         "tipus_acte": "events:type",
         "lloc_simple": {
             "class_name": "locations",
-            "municipi": "things:name",
-            "x": "geoCoordinates:latitude",
-            "y": "geoCoordinates:longitude",
             "codi_postal": "postalAddresses:postalCode",
-            "carrer": "postalAddresses:streetAddress",
-            "nom": "postalAddressThings:name"
+            "districte": "postalAddresses:addressRegion",
+            "carrer": "postalAddresses:streetAddress"
         }
     }
 }

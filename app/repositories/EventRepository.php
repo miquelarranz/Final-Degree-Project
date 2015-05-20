@@ -9,7 +9,7 @@ class EventRepository implements RepositoryInterface {
     {
         \Debugbar::enable();
 
-        if ( ! is_null($related))
+        if ( ! array_key_exists('clean', $related) and ! is_null($related))
         {
             $queryHeader = "SELECT DISTINCT e.* FROM events e";
             $query = " WHERE ";
@@ -115,6 +115,10 @@ class EventRepository implements RepositoryInterface {
             //dd($result);
             //dd(DB::getQueryLog());
             return $events;
+        }
+        else if (array_key_exists('clean', $related))
+        {
+            return OpenEvent::all();
         }
         else
         {

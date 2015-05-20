@@ -50,7 +50,7 @@
                                         </div>
                                         @foreach($event->performers as $performer)
                                             <div class="col-xs-12">
-                                                {{ utf8_decode($performer->thing->name) }} @if( ! is_null($performer->email)) <span class="glyphicon glyphicon-envelope performer-icon" aria-hidden="true"></span> @endif
+                                                {{ utf8_decode($performer->thing->name) }} @if( ! is_null($performer->email) and $currentUser) <a href="{{ URL::route('communicate_path', array('id' => $performer->id)) }}"><span class="glyphicon glyphicon-envelope performer-icon" aria-hidden="true"></span></a> @endif
                                             </div>
                                         @endforeach
                                     </div>

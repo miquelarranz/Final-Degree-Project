@@ -74,7 +74,7 @@ class IntegrationService {
 
     public function cleanAllTheEvents()
     {
-        $events = $this->eventRepository->all();
+        $events = $this->eventRepository->all(array('clean' => 'clean'));
 
         foreach($events as $event)
         {
@@ -108,7 +108,7 @@ class IntegrationService {
             {
                 if ( ! is_null($place->geoCoordinates)) $geoCoordinatesId = $place->geoCoordinates->id;
                 if ( ! is_null($place->postalAddress)) $postalAddressId = $place->postalAddress->id;
-                var_dump($postalAddressId);
+                //var_dump($postalAddressId);
             }
 
             $this->eventRepository->delete($eventId);
@@ -123,7 +123,7 @@ class IntegrationService {
             }
             if ( ! is_null($postalAddressId))
             {
-                var_dump($postalAddressId);
+                //var_dump($postalAddressId);
                 $this->postalAddressRepository->delete($postalAddressId);
                 $this->contactPointRepository->delete($postalAddressId);
                 $this->structuredValueRepository->delete($postalAddressId);
@@ -147,8 +147,10 @@ class IntegrationService {
         foreach ($openDataSources as $openDataSource)
         {
             $this->integrateAnOpenDataSource($openDataSource);
+
+            $date = new \DateTime();
+            $this->openDataSourceRepository->update(array('id' => $openDataSource->id, 'lastUpdateDate' => $date->format('Y-m-d H:i:s')));
         }
-        dd("");
-        dd(array());
+        //dd("");
     }
 }

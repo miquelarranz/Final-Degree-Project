@@ -46,7 +46,6 @@ class UsersService {
         $this->personRepository->delete($personId);
 
         $this->thingRepository->delete($thingId);
-
     }
 
 

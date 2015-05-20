@@ -393,13 +393,13 @@ class EventsWriter implements WriterInterface
 
         $thingQuery = $thingQuery . ") VALUES (" . $thingValues . ");";
         mysqli_query($database, $thingQuery);
-        var_dump($database->error);
+        //var_dump($database->error);
 
         $thingId = $database->insert_id;
 
         $placeQuery = $placeQuery . ") VALUES (" . $thingId . ", $geoCoordinatesId, $postalAddressId" . $placeValues . ");";
         mysqli_query($database, $placeQuery);
-        var_dump($database->error);
+        //var_dump($database->error);
 
         mysqli_query($database, "INSERT INTO administrativeAreas (id) VALUES ($thingId);");
         mysqli_query($database, "INSERT INTO cities (id) VALUES ($thingId);");
@@ -443,13 +443,12 @@ class EventsWriter implements WriterInterface
         $thingQuery = $thingQuery . ") VALUES (" . $thingValues . ");";
 
         mysqli_query($database, $thingQuery);
-        var_dump($database->error);
         $thingId = $database->insert_id;
 
         $eventQuery = $eventQuery . ") VALUES (" . $thingId  . $eventValues . ");";
 
         mysqli_query($database, $eventQuery);
-        var_dump($database->error);
+        if($database->error != "") dd($eventQuery);
 
         return $thingId;
     }
@@ -488,7 +487,7 @@ class EventsWriter implements WriterInterface
         }
         if ( ! $date) $date = \DateTime::createFromFormat('Y-m-d\TH:i:s', $value);
 
-        if ( ! $date) return 'NULL';
+        if ( ! $date) return null;
 
         return $date->format('Y/m/d H:i:s');
     }
