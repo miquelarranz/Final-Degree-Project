@@ -9,7 +9,7 @@
         "venue":
         {
             "class_name": "locations",
-            "city": "things:name",
+            "city_name": "things:name",
             "lat": "geoCoordinates:latitude",
             "lon": "geoCoordinates:longitude",
             "postal_code": "postalAddresses:postalCode",

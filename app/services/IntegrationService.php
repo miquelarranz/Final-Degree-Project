@@ -151,6 +151,5 @@ class IntegrationService {
             $date = new \DateTime();
             $this->openDataSourceRepository->update(array('id' => $openDataSource->id, 'lastUpdateDate' => $date->format('Y-m-d H:i:s')));
         }
-        //dd("");
     }
 }

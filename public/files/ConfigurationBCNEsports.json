@@ -6,6 +6,7 @@
         "tipus_acte": "events:type",
         "lloc_simple": {
             "class_name": "locations",
+            "city_name": "things:name",
             "codi_postal": "postalAddresses:postalCode",
             "districte": "postalAddresses:addressRegion",
             "carrer": "postalAddresses:streetAddress"
