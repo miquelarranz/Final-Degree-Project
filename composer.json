@@ -8,13 +8,11 @@
         "laracasts/validation": "~1.0",
         "laracasts/flash": "~1.0",
         "torann/geoip": "0.1.*@dev",
-		"barryvdh/laravel-debugbar": "~1.8",
         "google/apiclient": "1.0.*@beta",
         "barryvdh/laravel-dompdf": "0.4.*"
     },
     "require-dev": {
         "way/generators": "~2.0",
-        "codeception/codeception": "~2.0",
         "laracasts/testdummy": "~1.0",
         "fzaninotto/faker": "1.4.*"
     },

@@ -7,8 +7,6 @@ class EventRepository implements RepositoryInterface {
 
     public function all(array $related = null)
     {
-        \Debugbar::enable();
-
         if ( ! array_key_exists('clean', $related) and ! is_null($related))
         {
             $queryHeader = "SELECT DISTINCT e.* FROM events e";

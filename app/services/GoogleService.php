@@ -137,7 +137,7 @@ class GoogleService {
 
     public function getTheCalendarList()
     {
-        $client = $this->getClient();
+        $client = $this->getClient(); //Creates the client with the credentials for using the API
         $service = new \Google_Service_Calendar($client);
         $client->setAccessToken(Session::get('upload_token'));
 

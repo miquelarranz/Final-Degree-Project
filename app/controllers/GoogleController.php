@@ -11,7 +11,8 @@ class GoogleController extends \BaseController {
 
     function __construct(GoogleService $googleService, EventsService $eventsService)
     {
-        //$this->beforeFilter('auth');
+        $this->beforeFilter('auth');
+        $this->beforeFilter('user');
         $this->googleService = $googleService;
         $this->eventsService = $eventsService;
     }

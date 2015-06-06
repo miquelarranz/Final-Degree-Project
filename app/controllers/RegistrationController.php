@@ -75,11 +75,11 @@ class RegistrationController extends \BaseController {
 
         $user = $this->registrationService->registerAUser(Input::all());
 
-        Auth::login($user);
+        //Auth::login($user);
 
         Flash::message(Lang::get('messages.events/welcome'));
 
-        return Redirect::route('events_path');
+        return Redirect::route('login_path');
     }
 
 }

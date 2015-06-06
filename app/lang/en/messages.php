@@ -25,7 +25,7 @@ return array(
     'register/email' => 'Email:',
     'register/submit' => 'Sign In',
     'login/error' => 'Your credentials are not correct!',
-    'events/welcome' => 'Welcome!',
+    'events/welcome' => 'The registration has finished correctly, you can login now!',
     'sidebar/profile' => 'Profile',
     'sidebar/search' => 'Search events',
     'sidebar/favorite' => 'Favorite events',

@@ -63,7 +63,7 @@
                                         @foreach($event->offers as $offer)
                                             @if( ! is_null($offer->price))
                                                 <div class="col-xs-12">
-                                                    {{ $offer->price }} @if( ! is_null($offer->priceCurrency)) $offer->priceCurrency @endif
+                                                    {{ $offer->price }} @if( ! is_null($offer->priceCurrency)) $offer->priceCurrency @else $ @endif
                                                 </div>
                                             @else
                                                 <p>@lang('messages.event/unavailable')</p>
@@ -147,22 +147,24 @@
                                 @endif
                             </div>
                             <div class="col-md-6">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 data-toggle="collapse" class="text-center panel-title" href="#calendar" aria-expanded="true" aria-controls="collapseOne">
-                                            <a class="filters-title">
-                                                @lang('messages.event/calendar')
-                                            </a>
-                                        </h3>
-                                    </div>
-                                    <div class="panel-collapse collapse profile-delete-button" id="calendar">
-                                        <div class="panel-body">
-                                            <div class = "text-center form-group">
-                                                <a href="{{ URL::route('google_login_path') }}" class="btn btn-default form-control event-add-button">@lang('messages.event/calendar')</a>
+                                @if ($currentUser)
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 data-toggle="collapse" class="text-center panel-title" href="#calendar" aria-expanded="true" aria-controls="collapseOne">
+                                                <a class="filters-title">
+                                                    @lang('messages.event/calendar')
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="panel-collapse collapse profile-delete-button" id="calendar">
+                                            <div class="panel-body">
+                                                <div class = "text-center form-group">
+                                                    <a href="{{ URL::route('google_login_path') }}" class="btn btn-default form-control event-add-button">@lang('messages.event/calendar')</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
 
                                 <div class="panel panel-default">
                                     <div class="panel-heading" onclick="resize()">
@@ -255,9 +257,7 @@
                                         </div>
                                         <div class="panel-collapse collapse" id="share">
                                             <div class="panel-body">
-                                                <div class = "text-center">
-                                                    <div class="g-plus" data-action="share" data-annotation="none" data-width="450"></div>
-                                                </div>
+                                                <div class="g-plus" data-action="share" data-annotation="none" data-width="55" data-align="center"></div>                                                </div>
                                             </div>
                                         </div>
                                     </div>

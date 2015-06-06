@@ -25,7 +25,7 @@ return array(
     'register/email' => 'Email:',
     'register/submit' => 'Registrar-se',
     'login/error' => 'Les credencials introduïdes no són correctes!',
-    'events/welcome' => 'Benvingut!',
+    'events/welcome' => 'El registre ha acabat correctament, ja pots iniciar sessió!',
     'sidebar/profile' => 'Perfil',
     'sidebar/search' => 'Cerca esdeveniments',
     'sidebar/favorite' => 'Esdeveniments preferits',

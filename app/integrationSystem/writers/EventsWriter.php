@@ -31,6 +31,7 @@ class EventsWriter implements WriterInterface
 
     public function storeTheData($data, $configurationFilePath, $city)
     {
+        //dd($data);
         //Initializations of the object arrays
         $database = $this->connectToTheDatabase();
 
@@ -200,6 +201,7 @@ class EventsWriter implements WriterInterface
             }
             else
             {
+                $this->attributeFound = false;
                 $attributes[$configurationValue] = $this->attributeSearch($configurationKey, $data);
             }
         }

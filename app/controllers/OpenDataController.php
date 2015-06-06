@@ -32,7 +32,7 @@ class OpenDataController extends \BaseController {
     }
 
     /**
-     * Create a new Larabook user
+     * Create a
      *
      * @return string
      */

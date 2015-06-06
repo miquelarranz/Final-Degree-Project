@@ -62,6 +62,14 @@ Route::filter('admin', function()
     }
 });
 
+Route::filter('user', function()
+{
+    if (Auth::user()->role != 'registeredUser')
+    {
+        return Redirect::guest('login');
+    }
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter

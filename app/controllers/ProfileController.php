@@ -15,6 +15,7 @@ class ProfileController extends \BaseController {
         $this->placesService = $placesService;
 
         $this->beforeFilter('auth');
+        $this->beforeFilter('user');
     }
 
     /**

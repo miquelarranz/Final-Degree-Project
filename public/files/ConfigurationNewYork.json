@@ -1,5 +1,5 @@
 {
-    "events:title":
+    "events":
     {
         "title": "things:name",
         "datetime_local": "events:startDate",
@@ -27,3 +27,4 @@
         }
     }
 }
+
