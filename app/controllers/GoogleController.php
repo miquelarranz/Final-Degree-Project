@@ -37,9 +37,25 @@ class GoogleController extends \BaseController {
 
         if ( ! Session::get('event')) return Redirect::route('events_path');
 
-        $hasDate = $this->eventsService->hasDate(Session::get('event'));
+        $event = $this->eventsService->getAnEvent(Session::get('event'));
+        $endDate = null;
+        $endTime = null;
+        $startDate = null;
+        $startTime = null;
+        if ( ! is_null($event->endDate))
+        {
+            $eventEndDate = new \DateTime($event->endDate);
+            $endDate = $eventEndDate->format('Y/m/d');
+            $endTime = $eventEndDate->format('H:i:s');
+        }
+        if ( ! is_null($event->startDate))
+        {
+            $eventStartDate = new \DateTime($event->startDate);
+            $startDate = $eventStartDate->format('Y/m/d');
+            $startTime = $eventStartDate->format('H:i:s');
+        }
 
-        return View::make('google.calendars')->with(array('calendars' => $calendars, 'hasDate' => $hasDate));
+        return View::make('google.calendars')->with(array('calendars' => $calendars, 'startDate' => $startDate, 'startTime' => $startTime, 'endDate' => $endDate, 'endTime' => $endTime));
     }
 
     public function addEvent()
@@ -66,6 +82,12 @@ class GoogleController extends \BaseController {
                 'endTime' => 'required',
             ]
         );
+
+        if ($validator->fails())
+        {
+            $errors = $validator->messages();
+            return Redirect::back()->withInput()->with(array('errors' => $errors));
+        }
 
         $this->googleService->addEvent($eventId, $calendarId, $startDate, $startTime, $endDate, $endTime);
 

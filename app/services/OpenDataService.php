@@ -85,17 +85,20 @@ class OpenDataService {
 
         if ($sourcesWithTheSameCity == 1)
         {
-            $cityId = $source->city;
-
-            $this->openDataSourceRepository->delete($id);
+            $cityId = $sourceToDelete->city;
 
             $users = $this->userRepository->all(array('defaultCity' => $sourceToDelete->city));
 
-            foreach ($users as $user)
+            if ( ! empty($users))
             {
-                $user->updateTheDefaultCity(null);
+                foreach ($users as $user)
+                {
+                    $user->updateTheDefaultCity(null);
+                    $user->save();
+                }
             }
 
+            $this->openDataSourceRepository->delete($id);
             $this->openDataCityRepository->delete($cityId);
         }
         else
@@ -130,9 +133,35 @@ class OpenDataService {
             $data['configurationFilePath'] = "";
         }
 
-        $source = $this->openDataSourceRepository->update($data);
+        $sourceToUpdate = $this->openDataSourceRepository->read($data['id']);
+        $oldCityId = $sourceToUpdate->city;
 
-        return $source;
+        $updatedSource = $this->openDataSourceRepository->update($data);
+
+        $sources = $this->openDataSourceRepository->all();
+
+        $sourcesWithTheSameCity = 0;
+        foreach ($sources as $source)
+        {
+            if ($source->city == $oldCityId) $sourcesWithTheSameCity = $sourcesWithTheSameCity + 1;
+        }
+
+        if ($sourcesWithTheSameCity == 0)
+        {
+            $users = $this->userRepository->all(array('defaultCity' => $oldCityId));
+
+            if ( ! empty($users))
+            {
+                foreach ($users as $user)
+                {
+                    $user->updateTheDefaultCity(null);
+                    $user->save();
+                }
+            }
+            $this->openDataCityRepository->delete($oldCityId);
+        }
+
+        return $updatedSource;
     }
 
     public function getASource($id)

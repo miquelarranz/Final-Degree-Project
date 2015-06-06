@@ -171,32 +171,28 @@ class GoogleService {
 
         $eventCreated = $service->events->quickAdd($calendarId, $event->thing->name);
 
-        if ( ! is_null($event->startDate))
-        {
-            $start = new \DateTime($event->startDate);
-            $eventCreated->getStart()->setDateTime($start->format('Y-m-d\TH:i:sP'));
-        }
-        else {
-            $date = new \DateTime($startDate);
-            $startDateTimestamp = $startDateTimestamp + $date->getTimestamp();
+        $date = new \DateTime($startDate);
+        $startDateTimestamp = $startDateTimestamp + $date->getTimestamp();
 
-            $startDateTimestamp = $startDateTimestamp + strtotime($startTime) - $now->getTimestamp();
+        $startDateTimestamp = $startDateTimestamp + strtotime($startTime) - $now->getTimestamp();
 
-            $eventCreated->getStart()->setDateTime(date('Y-m-d\TH:i:sP', $startDateTimestamp));
-        }
-        if ( ! is_null($event->endDate))
-        {
-            $end = new \DateTime($event->endDate);
-            $eventCreated->getEnd()->setDateTime($end->format('Y-m-d\TH:i:sP'));
-        }
-        else {
-            $date = new \DateTime($endDate);
-            $endDateTimestamp = $endDateTimestamp + $date->getTimestamp();
+        $startDateFormated = new \DateTime("now", new \DateTimeZone('UTC'));
+        $startDateFormated->setTimestamp($startDateTimestamp);
+        $startDateFormated->sub(new \DateInterval('PT2H'));
 
-            $endDateTimestamp = $endDateTimestamp + strtotime($endTime) - $now->getTimestamp();
+        $eventCreated->getStart()->setDateTime($startDateFormated->format('Y-m-d\TH:i:s+00:00'));
 
-            $eventCreated->getEnd()->setDateTime(date('Y-m-d\TH:i:sP', $endDateTimestamp));
-        }
+        $date = new \DateTime($endDate);
+        $endDateTimestamp = $endDateTimestamp + $date->getTimestamp();
+
+        $endDateTimestamp = $endDateTimestamp + strtotime($endTime) - $now->getTimestamp();
+
+        $endDateFormated = new \DateTime("now", new \DateTimeZone('UTC'));
+        $endDateFormated->setTimestamp($endDateTimestamp);
+        $endDateFormated->sub(new \DateInterval('PT2H'));
+
+        $eventCreated->getEnd()->setDateTime($endDateFormated->format('Y-m-d\TH:i:s+00:00'));
+
 
         if ( ! is_null($event->thing->url))
         {

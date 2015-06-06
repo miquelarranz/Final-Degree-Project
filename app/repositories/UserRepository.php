@@ -6,7 +6,7 @@ class UserRepository implements RepositoryInterface {
 
     public function all(array $related = null)
     {
-        // TODO: Implement all() method.
+        return User::where($related)->get();
     }
 
     public function create(array $data)

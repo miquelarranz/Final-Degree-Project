@@ -13,29 +13,26 @@
                         <div class="panel-body text-center">
                             {{ Form::open(array('route' => 'add_event_path')) }}
                                 {{ Form::select('calendar', $calendars, null, ['class' => 'form-control', 'required' => 'required'] ) }}
-
-                                @if ($hasDate == false)
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class = "form-group register-input">
-                                                {{ Form::label('startDate', Lang::get('messages.filters/startDate'), ['class' => 'filters-label']) }}
-                                                {{ Form::text('startDate', null, ['class' => 'form-control datepicker', 'autocomplete' => 'off', 'placeholder' => Lang::get('messages.filters/date')] ) }}
-                                            </div>
-                                            <div class = "form-group register-input">
-                                                {{ Form::text('startTime', null, ['class' => 'form-control timepicker', 'autocomplete' => 'off', 'placeholder' => Lang::get('messages.filters/time')] ) }}
-                                            </div>
+                                <div style="margin-top: 20px;" class="row">
+                                    <div class="col-sm-6">
+                                        <div class = "form-group register-input">
+                                            {{ Form::label('startDate', Lang::get('messages.filters/startDate'), ['class' => 'filters-label']) }}
+                                            {{ Form::text('startDate', $startDate, ['class' => 'form-control datepicker', 'autocomplete' => 'off', 'placeholder' => Lang::get('messages.filters/date')] ) }}
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class = "form-group register-input">
-                                                {{ Form::label('endDate', Lang::get('messages.filters/endDate'), ['class' => 'filters-label']) }}
-                                                {{ Form::text('endDate', null, ['class' => 'form-control datepicker', 'autocomplete' => 'off', 'placeholder' => Lang::get('messages.filters/date')] ) }}
-                                            </div>
-                                            <div class = "form-group register-input">
-                                                {{ Form::text('endTime', null, ['class' => 'form-control timepicker', 'autocomplete' => 'off', 'placeholder' => Lang::get('messages.filters/time')] ) }}
-                                            </div>
+                                        <div class = "form-group register-input">
+                                            {{ Form::text('startTime', $startTime, ['class' => 'form-control timepicker', 'autocomplete' => 'off', 'placeholder' => Lang::get('messages.filters/time')] ) }}
                                         </div>
                                     </div>
-                                @endif
+                                    <div class="col-sm-6">
+                                        <div class = "form-group register-input">
+                                            {{ Form::label('endDate', Lang::get('messages.filters/endDate'), ['class' => 'filters-label']) }}
+                                            {{ Form::text('endDate', $endDate, ['class' => 'form-control datepicker', 'autocomplete' => 'off', 'placeholder' => Lang::get('messages.filters/date')] ) }}
+                                        </div>
+                                        <div class = "form-group register-input">
+                                            {{ Form::text('endTime', $startTime, ['class' => 'form-control timepicker', 'autocomplete' => 'off', 'placeholder' => Lang::get('messages.filters/time')] ) }}
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <button type="submit" class="google-add-button btn btn-default" type="button">@lang("messages.google/add")</button>
                             {{ Form::close() }}
