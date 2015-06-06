@@ -30,29 +30,29 @@
       <file leaf-file-name="EventsWriter.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/integrationSystem/writers/EventsWriter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6351085" vertical-offset="0" max-vertical-offset="11523">
-              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.66735965" vertical-offset="10075" max-vertical-offset="11523">
+              <caret line="452" column="54" selection-start-line="452" selection-start-column="54" selection-end-line="452" selection-end-column="54" />
               <folding>
-                <marker date="1433594364000" expanded="true" signature="8060:8082" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="8115:8151" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="9487:9509" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="9540:9567" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="9593:9622" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="11525:11547" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="11573:11609" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="11648:11670" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="11709:11731" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="11765:11795" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="11829:11860" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="15098:15153" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="15195:15255" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="15765:15819" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="15862:15921" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="15963:16019" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="16655:16709" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="16747:16788" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="16925:16947" placeholder="INSERT INTO ..." />
-                <marker date="1433594364000" expanded="true" signature="16973:17005" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="8060:8082" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="8115:8151" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="9487:9509" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="9540:9567" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="9593:9622" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="11525:11547" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="11573:11609" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="11648:11670" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="11709:11731" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="11765:11795" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="11829:11860" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="15098:15153" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="15195:15255" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="15765:15819" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="15862:15921" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="15963:16019" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="16655:16709" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="16747:16788" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="16925:16947" placeholder="INSERT INTO ..." />
+                <marker date="1433594494000" expanded="true" signature="16973:17005" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
@@ -1081,29 +1081,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/integrationSystem/writers/EventsWriter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6351085" vertical-offset="0" max-vertical-offset="11523">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.66735965" vertical-offset="10075" max-vertical-offset="11523">
+          <caret line="452" column="54" selection-start-line="452" selection-start-column="54" selection-end-line="452" selection-end-column="54" />
           <folding>
-            <marker date="1433594364000" expanded="true" signature="8060:8082" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="8115:8151" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="9487:9509" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="9540:9567" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="9593:9622" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="11525:11547" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="11573:11609" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="11648:11670" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="11709:11731" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="11765:11795" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="11829:11860" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="15098:15153" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="15195:15255" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="15765:15819" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="15862:15921" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="15963:16019" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="16655:16709" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="16747:16788" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="16925:16947" placeholder="INSERT INTO ..." />
-            <marker date="1433594364000" expanded="true" signature="16973:17005" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="8060:8082" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="8115:8151" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="9487:9509" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="9540:9567" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="9593:9622" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="11525:11547" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="11573:11609" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="11648:11670" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="11709:11731" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="11765:11795" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="11829:11860" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="15098:15153" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="15195:15255" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="15765:15819" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="15862:15921" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="15963:16019" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="16655:16709" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="16747:16788" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="16925:16947" placeholder="INSERT INTO ..." />
+            <marker date="1433594494000" expanded="true" signature="16973:17005" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
