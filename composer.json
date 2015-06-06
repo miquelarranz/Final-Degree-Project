@@ -28,7 +28,7 @@
             "app/services"
 		],
         "psr-4": {
-            "IntegrationSystem\\": "app/IntegrationSystem"
+            "IntegrationSystem\\": "app/integrationSystem"
         }
 	},
 	"scripts": {
