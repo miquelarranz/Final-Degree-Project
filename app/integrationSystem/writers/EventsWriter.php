@@ -9,7 +9,7 @@ class EventsWriter implements WriterInterface
         'host'      => '127.0.0.1',
         'database'  => 'tfg',
         'username'  => 'root',
-        'password'  => ''
+        'password'  => 'root'
     ];
 
     private $city;
