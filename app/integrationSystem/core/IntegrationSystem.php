@@ -1,4 +1,4 @@
-<?php namespace app\IntegrationSystem\core;
+<?php namespace IntegrationSystem\core;
 
 use IntegrationSystem\readers\JSONReader;
 use IntegrationSystem\readers\XMLReader;
