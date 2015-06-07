@@ -49,7 +49,7 @@
 
                         <!-- UpdateInterval Form Input -->
                         <div class = "form-group register-input">
-                            {{ Form::label('updateInterval', Lang::get('messages.source/updateInterval')) }}
+                            {{ Form::label('updateInterval', Lang::get('messages.source/interval')) }}
                             {{ Form::selectRange('updateInterval', 1, 365, $source->updateInterval, ['class' => 'form-control'] ) }}
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                 <div class="row">
                     <div class="col-xs-6 col-xs-offset-3">
                         <div class = "text-center form-group">
-                            {{ Form::submit(Lang::get('messages.source/edit'), ['class' => 'btn btn-default register-btn form-control']) }}
+                            {{ Form::submit(Lang::get('messages.source/editTitle'), ['class' => 'btn btn-default register-btn form-control']) }}
                         </div>
                     </div>
                 </div>

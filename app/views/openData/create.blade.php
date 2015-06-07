@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-center white-color title-margin">@lang('messages.source/title')</h1>
+            <h1 class="text-center white-color title-margin">@lang('messages.sources/create')</h1>
 
             @include('layouts.partials.errors')
 
@@ -49,7 +49,7 @@
 
                         <!-- UpdateInterval Form Input -->
                         <div class = "form-group register-input">
-                            {{ Form::label('updateInterval', Lang::get('messages.source/updateInterval')) }}
+                            {{ Form::label('updateInterval', Lang::get('messages.source/interval')) }}
                             {{ Form::selectRange('updateInterval', 1, 365, 1, ['class' => 'form-control'] ) }}
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                 <div class="row">
                     <div class="col-xs-6 col-xs-offset-3">
                         <div class = "text-center form-group">
-                            {{ Form::submit(Lang::get('messages.source/submit'), ['class' => 'btn btn-default register-btn form-control']) }}
+                            {{ Form::submit(Lang::get('messages.sources/create'), ['class' => 'btn btn-default register-btn form-control']) }}
                         </div>
                     </div>
                 </div>

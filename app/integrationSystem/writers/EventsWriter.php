@@ -450,7 +450,7 @@ class EventsWriter implements WriterInterface
         $eventQuery = $eventQuery . ") VALUES (" . $thingId  . $eventValues . ");";
 
         mysqli_query($database, $eventQuery);
-        if($database->error != "") dd($database->error);
+        //if($database->error != "") dd($database->error);
 
         return $thingId;
     }

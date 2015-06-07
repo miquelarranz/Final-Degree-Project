@@ -69,7 +69,15 @@ class IntegrationService {
 
     public function integrateAnOpenDataSource($source)
     {
-        $this->integrationSystem->integrateAnOpenDataSource($source->url, $source->extension, utf8_decode($source->relatedCity->name), $source->configurationFilePath);
+        try
+        {
+            $this->integrationSystem->integrateAnOpenDataSource($source->url, $source->extension, utf8_decode($source->relatedCity->name), $source->configurationFilePath);
+            return false;
+        }
+        catch (\Exception $e)
+        {
+            return true;
+        }
     }
 
     public function cleanAllTheEvents()
@@ -146,10 +154,16 @@ class IntegrationService {
 
         foreach ($openDataSources as $openDataSource)
         {
-            $this->integrateAnOpenDataSource($openDataSource);
+            $error = $this->integrateAnOpenDataSource($openDataSource);
+
+            if ($error)
+            {
+                return true;
+            }
 
             $date = new \DateTime();
             $this->openDataSourceRepository->update(array('id' => $openDataSource->id, 'lastUpdateDate' => $date->format('Y-m-d H:i:s')));
         }
+        return false;
     }
 }

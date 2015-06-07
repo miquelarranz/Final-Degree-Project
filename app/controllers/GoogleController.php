@@ -104,7 +104,7 @@ class GoogleController extends \BaseController {
     {
         $city = Input::get('city');
 
-        $exists = false;
+        $exists = -1;
 
         $openDataCities = $this->openDataService->getAllTheCities();
 

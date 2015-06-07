@@ -29,7 +29,7 @@
                                             {{ Form::text('endDate', $endDate, ['class' => 'form-control datepicker', 'autocomplete' => 'off', 'placeholder' => Lang::get('messages.filters/date')] ) }}
                                         </div>
                                         <div class = "form-group register-input">
-                                            {{ Form::text('endTime', $startTime, ['class' => 'form-control timepicker', 'autocomplete' => 'off', 'placeholder' => Lang::get('messages.filters/time')] ) }}
+                                            {{ Form::text('endTime', $endTime, ['class' => 'form-control timepicker', 'autocomplete' => 'off', 'placeholder' => Lang::get('messages.filters/time')] ) }}
                                         </div>
                                     </div>
                                 </div>

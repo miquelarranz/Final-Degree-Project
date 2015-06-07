@@ -265,6 +265,24 @@ body {
     color: white;
 }
 
+.event-google-button > div > div > a {
+    background-color: #DA7A7A !important;
+}
+
+.event-google-button > div > div > a:hover {
+    background-color: rgba(218, 122, 122, 0.90) !important;
+}
+
+.glyphicon-remove {
+    color: red;
+    float: right;
+}
+
+.glyphicon-edit {
+    color: orange;
+    float: right;
+}
+
 /* Google styles */
 
 .google-add-button {
@@ -283,3 +301,4 @@ body {
     width: 100%;
     height: 300px;
 }
+

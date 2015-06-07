@@ -156,9 +156,9 @@
                                                 </a>
                                             </h3>
                                         </div>
-                                        <div class="panel-collapse collapse profile-delete-button" id="calendar">
+                                        <div class="panel-collapse collapse event-google-button" id="calendar">
                                             <div class="panel-body">
-                                                <div class = "text-center form-group">
+                                                <div class = "text-center">
                                                     <a href="{{ URL::route('google_login_path') }}" class="btn btn-default form-control event-add-button">@lang('messages.event/calendar')</a>
                                                 </div>
                                             </div>
@@ -191,15 +191,19 @@
                                     </div>
                                     <div class="panel-collapse collapse" id="similar">
                                         <div class="panel-body">
-                                            @foreach ($similarEvents as $similarEvent)
-                                                <a href="{{ URL::route('event_path', array('id' => $similarEvent->id)) }}">
-                                                    <div class="panel panel-default">
-                                                        <div class="panel-body">
-                                                            <h4><b>{{ utf8_decode($similarEvent->thing->name) }}</b></h4>
+                                            @if (count($similarEvents) > 0)
+                                                @foreach ($similarEvents as $similarEvent)
+                                                    <a href="{{ URL::route('event_path', array('id' => $similarEvent->id)) }}">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-body">
+                                                                <h4><b>{{ utf8_decode($similarEvent->thing->name) }}</b></h4>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </a>
-                                            @endforeach
+                                                    </a>
+                                                @endforeach
+                                            @else
+                                                @lang('messages.event/noSimilarText')
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -215,7 +219,7 @@
                                         </div>
                                         <div class="panel-collapse collapse" id="download">
                                             <div class="panel-body">
-                                                <div class = "text-center form-group">
+                                                <div class = "text-center">
                                                     <a href="{{ URL::route('event_download_path', array('id' => $event->id)) }}" class="btn btn-success form-control event-download-button">@lang('messages.event/download')</a>
                                                 </div>
                                             </div>
@@ -234,11 +238,11 @@
                                         </div>
                                         <div class="panel-collapse collapse" id="subscribe">
                                             <div class="panel-body">
-                                                <div class = "text-center form-group">
+                                                <div class = "text-center">
                                                     @if ($subscribed)
-                                                        <a href="{{ URL::route('event_subscriptions_path') }}" class="btn btn-success form-control event-download-button">@lang('messages.event/subscriptions')</a>
+                                                        <a href="{{ URL::route('event_subscriptions_path') }}" class="btn btn-warning form-control event-download-button">@lang('messages.event/subscriptions')</a>
                                                     @else
-                                                        <a href="{{ URL::route('event_subscription_path', array('id' => $event->id)) }}" class="btn btn-success form-control event-download-button">@lang('messages.event/subscribe')</a>
+                                                        <a href="{{ URL::route('event_subscription_path', array('id' => $event->id)) }}" class="btn btn-primary form-control event-download-button">@lang('messages.event/subscribe')</a>
                                                     @endif
                                                 </div>
                                             </div>

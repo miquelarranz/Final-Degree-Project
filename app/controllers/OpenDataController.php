@@ -83,9 +83,10 @@ class OpenDataController extends \BaseController {
     {
         $this->integrationService->cleanAllTheEvents();
 
-        $this->integrationService->updateAllTheSources();
+        $error = $this->integrationService->updateAllTheSources();
 
-        Flash::message(Lang::get('messages.openData/updated'));
+        if ($error) Flash::error(Lang::get('messages.openData/error'));
+        else Flash::message(Lang::get('messages.openData/updated'));
 
         return Redirect::route('sources_path');
     }

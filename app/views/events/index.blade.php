@@ -69,7 +69,7 @@
                                 url: "{{ URL::route('geolocate_path') }}",
                                 data: { city: itemLocality }
                             }).done(function( exists ) {
-                                if (exists != false)
+                                if (exists.data != -1)
                                 {
                                     $('#cities').val(exists.data);
                                 }

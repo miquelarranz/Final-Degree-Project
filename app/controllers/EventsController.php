@@ -77,6 +77,7 @@ class EventsController extends \BaseController {
         if (is_null($cityId)) $cityId = Auth::user()->city->id;
 
         if ( ! is_null($cityId))  {
+
             $events = $this->eventsService->getFilteredEvents(array('city' => $cityId, 'limit' => 4));
 
             foreach ($events as $similarEvent)
@@ -110,7 +111,7 @@ class EventsController extends \BaseController {
     {
         $eventId = $this->eventsService->unsubscribe($id);
 
-        return Redirect::route('event_path', ['id' => $eventId]);
+        return Redirect::route('event_subscriptions_path');
     }
 
     public function subscriptions()

@@ -3,7 +3,7 @@
 
 class SubscribedEvent extends Eloquent {
 
-    protected $fillable = array('id', 'name', 'url', 'description', 'startDate', 'address', 'city', 'user', 'associatedEvent');
+    protected $fillable = array('id', 'name', 'url', 'description', 'startDate', 'address', 'type', 'city', 'user', 'associatedEvent');
 
     /**
 	 * The database table used by the model.

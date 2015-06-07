@@ -194,10 +194,10 @@ class EventsService {
             if ( ! is_null($event->eventLocation->postalAddress->addressRegion))
             {
                 if ($first) {
-                    $address = $address . $event->eventLocation->postalAddress->streetAddress;
+                    $address = $address . $event->eventLocation->postalAddress->addressRegion;
                     $first = false;
                 }
-                else $address = $address . ', ' . $event->eventLocation->postalAddress->streetAddress;
+                else $address = $address . ', ' . $event->eventLocation->postalAddress->addressRegion;
             }
             if ( ! is_null($event->eventLocation->postalAddress->postalCode))
             {
