@@ -49,9 +49,9 @@
                         <div class="col-sm-6">
                             <div class = "form-group register-input">
                                 @if ($currentUser)
-                                    {{ Form::select('city', array(null => Lang::get('messages.filters/cityempty')) + $cities, $currentUser->defaultCity, ['class' => 'form-control'] ) }}
+                                    {{ Form::select('city', array(null => Lang::get('messages.filters/cityempty')) + $cities, $currentUser->defaultCity, ['id' => 'cities', 'class' => 'form-control'] ) }}
                                 @else
-                                    {{ Form::select('city', array(null => Lang::get('messages.filters/cityempty')) + $cities, null, ['class' => 'form-control'] ) }}
+                                    {{ Form::select('city', array(null => Lang::get('messages.filters/cityempty')) + $cities, null, ['id' => 'cities', 'class' => 'form-control'] ) }}
                                 @endif
                             </div>
                         </div>

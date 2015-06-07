@@ -138,6 +138,11 @@ Route::post('addEvent', [
     'uses' => 'GoogleController@addEvent'
 ]);
 
+Route::post('geolocate', [
+    'as' => 'geolocate_path',
+    'uses' => 'GoogleController@geolocate'
+]);
+
 /**
  * OpenData
  */

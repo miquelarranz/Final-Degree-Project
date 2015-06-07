@@ -2,6 +2,7 @@
 
 use services\EventsService;
 use services\GoogleService;
+use services\OpenDataService;
 
 class GoogleController extends \BaseController {
 
@@ -9,12 +10,15 @@ class GoogleController extends \BaseController {
 
     private $eventsService;
 
-    function __construct(GoogleService $googleService, EventsService $eventsService)
+    private $openDataService;
+
+    function __construct(GoogleService $googleService, EventsService $eventsService, OpenDataService $openDataService)
     {
-        $this->beforeFilter('auth');
-        $this->beforeFilter('user');
+        //$this->beforeFilter('auth');
+        //$this->beforeFilter('user');
         $this->googleService = $googleService;
         $this->eventsService = $eventsService;
+        $this->openDataService = $openDataService;
     }
 
     public function login() {
@@ -94,5 +98,23 @@ class GoogleController extends \BaseController {
         Flash::message(Lang::get('messages.google/added'));
 
         return Redirect::route('event_path', array('id' => $eventId));
+    }
+
+    public function geolocate()
+    {
+        $city = Input::get('city');
+
+        $exists = false;
+
+        $openDataCities = $this->openDataService->getAllTheCities();
+
+        foreach ($openDataCities as $key => $value)
+        {
+            if ($value == $city) $exists = $key;
+        }
+
+        return Response::json(array(
+            'data'   => $exists
+        ));
     }
 }
