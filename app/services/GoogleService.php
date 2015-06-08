@@ -193,6 +193,7 @@ class GoogleService {
 
         $eventCreated->getEnd()->setDateTime($endDateFormated->format('Y-m-d\TH:i:s+00:00'));
 
+        if ($endDateFormated < $startDateFormated) throw new \Exception('dates');
 
         if ( ! is_null($event->thing->url))
         {

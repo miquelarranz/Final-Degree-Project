@@ -193,3 +193,8 @@ Route::post('performer/{id}/contact', [
     'as' => 'communicate_path',
     'uses' => 'CommunicationController@communicate'
 ]);
+
+Route::get('manual', [
+    'as' => 'manual_path',
+    'uses' => 'CommunicationController@download'
+]);

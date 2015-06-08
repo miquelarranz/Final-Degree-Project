@@ -51,4 +51,15 @@ class CommunicationController extends \BaseController {
         if (Session::get('event')) return Redirect::route('event_path', array('id' => Session::get('event')));
         else return Redirect::route('events_path');
     }
+
+    public function download()
+    {
+        $pdf = App::make('dompdf');
+
+        $html = View::make('communication.manual')->render();
+
+        $pdf->loadHTML($html);
+
+        return $pdf->download("manual.pdf");
+    }
 }

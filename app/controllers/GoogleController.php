@@ -93,7 +93,16 @@ class GoogleController extends \BaseController {
             return Redirect::back()->withInput()->with(array('errors' => $errors));
         }
 
-        $this->googleService->addEvent($eventId, $calendarId, $startDate, $startTime, $endDate, $endTime);
+        try
+        {
+            $this->googleService->addEvent($eventId, $calendarId, $startDate, $startTime, $endDate, $endTime);
+        }
+        catch (\Exception $e)
+        {
+            if ($e->getMessage() == 'dates') Flash::error(Lang::get('messages.calendar/dates'));
+            else Flash::error(Lang::get('messages.calendar/error'));
+            return Redirect::back()->withInput();
+        }
 
         Flash::message(Lang::get('messages.google/added'));
 

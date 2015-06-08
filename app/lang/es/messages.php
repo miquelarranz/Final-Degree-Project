@@ -4,6 +4,7 @@ return array(
     'home/search' => 'Busca!',
     'home/searchtext' => 'Empieza a buscar eventos ahora mismo!',
     'home/guide' => 'Necesitas ayuda? Descargate la guia de usuario aquí!',
+    'home/guide2' => 'Descarga la guía de usuario',
     'home/home' => 'Home',
     'home/register' => 'Registro',
     'home/login' => 'Entrar',
@@ -106,4 +107,7 @@ return array(
     'communicate/subject' => 'Asunto',
     'communicate/message' => 'Cuerpo del mensaje',
     'communicate/submit' => 'Enviar',
+    'calendar/dates' => 'La fecha final tiene que ser posterior a la inicial',
+    'calendar/error' => 'Alguna cosa ha ido mal, intentalo mas tarde',
+    'communicate/sent' => 'El mensaje ha sido enviado!',
 );

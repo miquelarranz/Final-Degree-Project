@@ -7,8 +7,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <img src="/images/skyline-home.jpg" class="home-skyline img-responsive"/>
+        <div class="col-md-8 col-md-offset-2" style="text-align: center; margin-bottom: 30px;">
+            <img src="/images/logo2.png" style="width: 95%; max-width: 300px; max-height: 300px; margin: 0 auto;" class="img-responsive"/>
         </div>
     </div>
     <div class="row">
@@ -39,7 +39,7 @@
     <div class="row">
         <div class = "col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
             <p class="text-center home-users-guide-text">
-                {{ link_to_route('home', Lang::get("messages.home/guide")) }}
+                {{ link_to_route('manual_path', Lang::get("messages.home/guide")) }}
             </p>
         </div>
     </div>

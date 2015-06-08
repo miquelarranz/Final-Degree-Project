@@ -81,6 +81,13 @@ body {
     color: #446CB3;
 }
 
+.manual > a{
+    border-bottom: none !important;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: -18px;
+}
+
 /* Register styles */
 
 .register-input > label {

@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Logo</a>
+            <img src="/images/logo.png" style="width: 40px; height: 40px; margin-top: 5px; margin-left: 15px;" class="img-responsive"/>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
