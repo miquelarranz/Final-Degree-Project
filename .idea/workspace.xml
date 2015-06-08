@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5299be8-cb10-4b5e-abde-a0340cb8b7e9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/integrationSystem/writers/EventsWriter.php" afterPath="$PROJECT_DIR$/app/integrationSystem/writers/EventsWriter.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/IntegrationService.php" afterPath="$PROJECT_DIR$/app/services/IntegrationService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/SessionsController.php" afterPath="$PROJECT_DIR$/app/controllers/SessionsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/openData/create.blade.php" afterPath="$PROJECT_DIR$/app/views/openData/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/openData/edit.blade.php" afterPath="$PROJECT_DIR$/app/views/openData/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/lang/cat/messages.php" afterPath="$PROJECT_DIR$/app/lang/cat/messages.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/lang/en/messages.php" afterPath="$PROJECT_DIR$/app/lang/en/messages.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/lang/es/messages.php" afterPath="$PROJECT_DIR$/app/lang/es/messages.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TFG.iws" />
@@ -37,8 +32,8 @@
       <file leaf-file-name="IntegrationService.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/services/IntegrationService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.822736" vertical-offset="1160" max-vertical-offset="3703">
-              <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.77842003" vertical-offset="1068" max-vertical-offset="3680">
+              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -100,13 +95,13 @@
         <option value="$PROJECT_DIR$/app/views/events/show.blade.php" />
         <option value="$PROJECT_DIR$/app/views/pages/home.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/OpenDataController.php" />
-        <option value="$PROJECT_DIR$/app/integrationSystem/writers/EventsWriter.php" />
         <option value="$PROJECT_DIR$/app/views/openData/create.blade.php" />
         <option value="$PROJECT_DIR$/app/views/openData/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/lang/cat/messages.php" />
         <option value="$PROJECT_DIR$/app/lang/en/messages.php" />
         <option value="$PROJECT_DIR$/app/lang/es/messages.php" />
         <option value="$PROJECT_DIR$/app/controllers/SessionsController.php" />
+        <option value="$PROJECT_DIR$/app/integrationSystem/writers/EventsWriter.php" />
         <option value="$PROJECT_DIR$/app/services/IntegrationService.php" />
       </list>
     </option>
@@ -573,7 +568,13 @@
       <option name="project" value="LOCAL" />
       <updated>1433704857357</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Some issues fixed">
+      <created>1433757932524</created>
+      <option name="number" value="00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1433757932524</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -598,9 +599,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31349206" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31349206" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1000,35 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/integrationSystem/writers/EventsWriter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20038536" vertical-offset="770" max-vertical-offset="11523">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1433704032000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/integrationSystem/core/IntegrationSystem.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5105973" vertical-offset="448" max-vertical-offset="1426">
@@ -1085,18 +1057,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/integrationSystem/writers/EventsWriter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5761079" vertical-offset="0" max-vertical-offset="11523">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1433757998000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/SessionsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39306358" vertical-offset="923" max-vertical-offset="1840">
-          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.96917146" vertical-offset="578" max-vertical-offset="1840">
+          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/services/IntegrationService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.822736" vertical-offset="1160" max-vertical-offset="3703">
-          <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.77842003" vertical-offset="1068" max-vertical-offset="3680">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding />
         </state>
       </provider>
