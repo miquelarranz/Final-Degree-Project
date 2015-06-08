@@ -60,7 +60,7 @@
                 <div class="row">
                     <div class="col-xs-6 col-xs-offset-3">
                         <div class = "text-center form-group">
-                            {{ Form::submit(Lang::get('messages.source/editTitle'), ['class' => 'btn btn-default register-btn form-control']) }}
+                            {{ Form::submit(Lang::get('messages.source/editTitle2'), ['class' => 'btn btn-default register-btn form-control']) }}
                         </div>
                     </div>
                 </div>

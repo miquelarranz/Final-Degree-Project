@@ -49,7 +49,6 @@ class SessionsController extends \BaseController {
             }
             else
             {
-                Flash::message(Lang::get('messages.events/welcome'));
                 return Redirect::intended('events');
             }
         }
