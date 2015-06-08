@@ -99,7 +99,7 @@ class GoogleService {
         $client = new Google_Client();
         $client->setClientId('781414786878-cl3bd8ctkn2ocbpiikph7bo8mhgl8jjb.apps.googleusercontent.com');
         $client->setClientSecret('BfOUsUkBDfguxCMPBLXlcv7y');
-        $client->setRedirectUri('http://localhost:8000/login/google/');
+        $client->setRedirectUri('http://events-project.es/login/google/');
         $client->setScopes('https://www.googleapis.com/auth/calendar');
         $client->setAccessType("online");
         $client-> setApprovalPrompt("auto");
