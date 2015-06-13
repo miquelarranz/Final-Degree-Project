@@ -39,7 +39,8 @@ return array(
     'profile/nationality' => 'Nationality:',
     'profile/button' => 'Modify the profile',
     'profile/delete' => 'Delete the account',
-    'profile/deleted' => 'Your account have been deleted!',
+    'profile/deleted' => 'Your account has been deleted!',
+    'profile/modify' => 'Your profile has been updated correctly!',
     'profile/password' => 'New password',
     'profile/passwordConfirmation' => 'New password confirmation',
     'filters/startDate' => 'Start date',
@@ -109,5 +110,6 @@ return array(
     'calendar/dates' => 'The start date has to be earlier than the end date',
     'calendar/error' => 'Something went wront, try later',
     'communicate/sent' => 'The message has been sent!',
-
+    'profile/modify' => 'Your profile has been modified correctly!',
+    'event/unavailable' => 'The price of the event is not available'
 );

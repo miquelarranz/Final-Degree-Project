@@ -198,3 +198,10 @@ Route::get('manual', [
     'as' => 'manual_path',
     'uses' => 'CommunicationController@download'
 ]);
+
+/* Translates */
+
+Route::get('/translates', [
+    'as' => 'translates_path',
+    'uses' => 'PagesController@translates'
+]);

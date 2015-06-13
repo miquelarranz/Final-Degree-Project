@@ -66,9 +66,7 @@ class SessionsController extends \BaseController {
     public function destroy()
     {
         Auth::logout();
-
-        Flash::message('You have now been logged out.');
-
+        
         return Redirect::home();
     }
 }
