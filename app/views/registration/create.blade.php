@@ -70,6 +70,8 @@
                     </div>
                 </div>
 
+                <p style="color: white; font-size:11px; text-align: justify; padding: 10px;">{{ Lang::get('messages.register/lopd') }}</p>
+
                 <hr>
 
                 <div class="row">

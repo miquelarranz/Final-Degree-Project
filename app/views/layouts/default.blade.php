@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Document</title>
+        <title>Events project</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="/css/style.css"/>
         <link href="/css/simple-sidebar.css" rel="stylesheet">
@@ -12,7 +12,6 @@
         <script src="https://apis.google.com/js/platform.js" async defer>
             {lang: 'en'}
         </script>
-    </head>
     </head>
     <body>
 

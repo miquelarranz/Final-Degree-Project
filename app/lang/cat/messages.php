@@ -111,5 +111,10 @@ return array(
     'calendar/error' => 'Alguna cosa ha anat malament, prova més tard',
     'communicate/sent' => 'El missatge ha estat enviat!',
     'profile/modify' => 'El teu perfil ha estat modificat correctament!',
-    'event/unavailable' => 'El preu de l\'esdeveniment no està disponible'
+    'event/unavailable' => 'El preu de l\'esdeveniment no està disponible',
+    'register/lopd' => 'En cumplimiento con lo establecido en la Ley Orgánica 15/1999, de 13
+                 de diciembre de Protección de Datos de Carácter Personal, te informamos
+                  que registrandote, tus datos personales quedarán incorporados y serán tratados en los
+                   ficheros de la aplicación con el fin de poderte prestar y ofrecer
+                   nuestros servicios, así como para informarte de nuestras promociones.'
 );
