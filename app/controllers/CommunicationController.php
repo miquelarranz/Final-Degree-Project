@@ -54,10 +54,10 @@ class CommunicationController extends \BaseController {
 
     public function download()
     {
-        $pdf = App::make('dompdf');
-
-        $pdf->loadFile(public_path().'/files/manual.pdf');
-
-        return $pdf->download("manual.pdf");
+        $file= public_path(). "/files/manual.pdf";
+        $headers = array(
+            'Content-Type: application/pdf',
+        );
+        return Response::download($file, 'manual.pdf', $headers);
     }
 }

@@ -31,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/CommunicationController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.58043116" vertical-offset="984" max-vertical-offset="1587">
-              <caret line="58" column="45" selection-start-line="58" selection-start-column="45" selection-end-line="58" selection-end-column="45" />
+              <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -1056,7 +1056,7 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/CommunicationController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.58043116" vertical-offset="984" max-vertical-offset="1587">
-          <caret line="58" column="45" selection-start-line="58" selection-start-column="45" selection-end-line="58" selection-end-column="45" />
+          <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
           <folding />
         </state>
       </provider>
