@@ -56,9 +56,7 @@ class CommunicationController extends \BaseController {
     {
         $pdf = App::make('dompdf');
 
-        $html = View::make('communication.manual')->render();
-
-        $pdf->loadHTML($html);
+        $pdf->loadFile(public_path().'/files/manual.pdf');
 
         return $pdf->download("manual.pdf");
     }
