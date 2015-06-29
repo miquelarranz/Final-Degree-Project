@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Events project</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="/css/style.css"/>
         <link href="/css/simple-sidebar.css" rel="stylesheet">
         <link href="/css/jquery.datetimepicker.css" rel="stylesheet">
@@ -28,8 +28,8 @@
             </div>
         </div>
 
-        <script src="//code.jquery.com/jquery.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="/scripts/jquery.min.js"></script>
+        <script src="/scripts/bootstrap.min.js"></script>
         <script src="/scripts/jquery.datetimepicker.js"></script>
         <script src="/scripts/scripts.js"></script>
         <script type="text/javascript"
