@@ -37,7 +37,8 @@ body {
 
 .nav-language-select {
     height: auto;
-    max-width: 62px;
+    max-width: 80px;
+    margin-top: -6px;
 }
 
 /* Home styles */
